@@ -3,7 +3,8 @@
     <div class="MyFindTop"><Top></Top></div>
     <div class="MyFindAdd"><el-button type="info" style="width:100%" @click="dialogFormVisible = true">添加</el-button></div>
     <el-dialog title="添加求职信息" :visible.sync="dialogFormVisible" width="50%">
-      <Select style="width:140%;" @setProvice='setRequestProvice' @setJobType='setRequestJobType' @setCity='setRequestCity' @setJob='setRequestJob'></Select>
+      <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
+      @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
       <el-form>
       <el-form-item label="薪资" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
           <el-input v-model="requestAddUrlParam.salary" auto-complete="off"></el-input>
@@ -20,13 +21,13 @@
     <div class="MyFindContext">
       <div class="MyFindRedact">
       <ul>
-        <li v-for="(it , i) in responseSelectData.list" :key="i">
+        <li v-for="it in responseSelectData.list" :key="it.id">
           <el-button type="primary" style="margin-top:25px;margin-left:0px">编辑</el-button>
           <el-button type="danger" style="margin-top:25px;margin-left:0px">删除</el-button>
         </li>
       </ul>
       </div>
-      <Context :items="this.responseSelectData.list" :totaol="responseSelectData.total" :pageSize="responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
+      <Context v-bind:list="this.responseSelectData.list" v-bind:totaol="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
       <div class="MyFindBottom"><Bottom></Bottom></div>
     </div>
   </div>
@@ -48,14 +49,18 @@ export default {
       msg: '我的招聘',
       requestAddUrlParam: {
         provice: '',
+        proviceName: '',
         city: '',
+        cityName: '',
         jobType: '',
+        jobTypeName: '',
         job: '',
+        jobName: '',
         salary: '',
         contactWay: ''
       },
       requestSelectUrlParam: {
-        currentPage: Number
+        currentPage: 1
       },
       responseSelectData: {
         total: Number,
@@ -69,14 +74,26 @@ export default {
     setRequestProvice: function(val) {
       this.requestAddUrlParam.provice = val
     },
+    setRequestProviceName: function(val) {
+      this.requestAddUrlParam.proviceName = val
+    },
     setRequestCity: function(val) {
       this.requestAddUrlParam.city = val
+    },
+    setRequestCityName: function(val) {
+      this.requestAddUrlParam.cityName = val
     },
     setRequestJobType: function(val) {
       this.requestAddUrlParam.jobType = val
     },
+    setRequestJobTypeName: function(val) {
+      this.requestAddUrlParam.jobTypeName = val
+    },
     setRequestJob: function(val) {
       this.requestAddUrlParam.job = val
+    },
+    setRequestJobName: function(val) {
+      this.requestAddUrlParam.jobName = val
     },
     setCurrentPage: function(val) {
       this.requestSelectUrlParam.currentPage = val
@@ -104,13 +121,14 @@ export default {
             console.log(response)
           // eslint-disable-next-line eqeqeq
           } else if (response.code == '400') {
-            alert(response.data.message)
+            alert(response.message)
           }
         }
       )
     }
   },
   mounted() {
+    this.getMyFind()
   },
   watch: {
     requestSelectUrlParam: function() {

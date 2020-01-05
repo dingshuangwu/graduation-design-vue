@@ -51,17 +51,40 @@ export default {
       cityItems: [],
       jobTypes: [],
       jobs: [],
+      jobTypeName: '',
       jobType: '',
+      jobName: '',
       job: '',
+      proviceName: '',
       provice: '',
+      cityName: '',
       city: ''
     }
   },
   methods: {
+    getAreNameById: function(val) {
+      for (var i = 0; i < this.cityMessage.length; i++) {
+        // eslint-disable-next-line eqeqeq
+        if (cityMessage[i].regid == val) {
+          return cityMessage[i].regname
+        }
+      }
+      return ''
+    },
+    getJobNameById: function(val) {
+      for (var i = 0; i < this.jobMessage.length; i++) {
+        // eslint-disable-next-line eqeqeq
+        if (jobMessage[i].regid == val) {
+          return jobMessage[i].regname
+        }
+      }
+      return ''
+    },
     getProvice: function() {
       var lists = []
       for (var i = 0; i < this.cityMessage.length; i++) {
-        if (cityMessage[i].parid === '1') {
+        // eslint-disable-next-line eqeqeq
+        if (cityMessage[i].parid == '1') {
           lists.push(cityMessage[i])
         }
       }
@@ -70,7 +93,8 @@ export default {
     getJobType: function() {
       var lists = []
       for (var i = 0; i < this.jobMessage.length; i++) {
-        if (jobMessage[i].parid === '1') {
+        // eslint-disable-next-line eqeqeq
+        if (jobMessage[i].parid == '1') {
           lists.push(jobMessage[i])
         }
       }
@@ -79,7 +103,8 @@ export default {
     getCityByProviceId: function(val) {
       var lists = []
       for (var i = 0; i < this.cityMessage.length; i++) {
-        if (cityMessage[i].parid === val) {
+        // eslint-disable-next-line eqeqeq
+        if (cityMessage[i].parid == val) {
           lists.push(cityMessage[i])
         }
       }
@@ -88,7 +113,8 @@ export default {
     getJobsByJobTypeId: function(val) {
       var lists = []
       for (var i = 0; i < this.jobMessage.length; i++) {
-        if (jobMessage[i].parid === val) {
+        // eslint-disable-next-line eqeqeq
+        if (jobMessage[i].parid == val) {
           lists.push(jobMessage[i])
         }
       }
@@ -96,11 +122,9 @@ export default {
     },
     changeProvice(event) {
       this.provice = event.target.value // 获取商品ID，即option对应的ID值
-      this.city = ''
     },
     changeJobType(event) {
       this.jobType = event.target.value // 获取商品ID，即option对应的ID值
-      this.job = ''
     },
     changeCity(event) {
       this.city = event.target.value // 获取商品ID，即option对应的ID值
@@ -116,19 +140,27 @@ export default {
   watch: {
     provice: function(val) {
       this.cityItems = this.getCityByProviceId(val)
-      this.$emit('setProvice', this.provice)
+      this.proviceName = this.getAreNameById(val)
       this.city = ''
+      this.$emit('setProvice', this.provice)
+      this.$emit('setProviceName', this.proviceName)
     },
     jobType: function(val) {
       this.jobs = this.getJobsByJobTypeId(val)
-      this.$emit('setJobType', this.jobType)
+      this.jobTypeName = this.getJobNameById(val)
       this.job = ''
+      this.$emit('setJobType', this.jobType)
+      this.$emit('setJobTypeName', this.jobTypeName)
     },
     city: function(val) {
+      this.cityName = this.getAreNameById(val)
       this.$emit('setCity', this.city)
+      this.$emit('setCityName', this.cityName)
     },
     job: function(val) {
+      this.jobName = this.getJobNameById(val)
       this.$emit('setJob', this.job)
+      this.$emit('setJobName', this.jobName)
     }
   }
 }

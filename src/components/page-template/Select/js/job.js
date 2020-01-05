@@ -37,187 +37,187 @@ var jobMessage = [
     'regtype': '1',
     'ageid': '0'
   }, {
-    'regid': '1',
+    'regid': '100',
     'parid': '2',
     'regname': 'Java产品设计',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '2',
+    'regid': '102',
     'parid': '2',
     'regname': 'Web前端',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '3',
+    'regid': '103',
     'parid': '2',
     'regname': '算法工程师',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '4',
+    'regid': '104',
     'parid': '2',
     'regname': 'UI设计',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '5',
+    'regid': '105',
     'parid': '2',
     'regname': '平面设计',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '6',
+    'regid': '106',
     'parid': '2',
     'regname': '交互设计',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '1',
+    'regid': '107',
     'parid': '3',
     'regname': '语文辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '2',
+    'regid': '108',
     'parid': '3',
     'regname': '数学辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '3',
+    'regid': '109',
     'parid': '3',
     'regname': '英语辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '4',
+    'regid': '110',
     'parid': '3',
     'regname': '化学辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '5',
+    'regid': '111',
     'parid': '3',
     'regname': '物理辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '6',
+    'regid': '112',
     'parid': '3',
     'regname': '生物辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '1',
+    'regid': '113',
     'parid': '4',
     'regname': '语文辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '2',
+    'regid': '114',
     'parid': '4',
     'regname': '数学辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '3',
+    'regid': '115',
     'parid': '4',
     'regname': '英语辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '4',
+    'regid': '116',
     'parid': '4',
     'regname': '化学辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '5',
+    'regid': '117',
     'parid': '4',
     'regname': '物理辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '6',
+    'regid': '118',
     'parid': '4',
     'regname': '生物辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '1',
+    'regid': '119',
     'parid': '5',
     'regname': '语文辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '2',
+    'regid': '120',
     'parid': '5',
     'regname': '数学辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '3',
+    'regid': '121',
     'parid': '5',
     'regname': '外语辅导',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '1',
+    'regid': '123',
     'parid': '6',
     'regname': '钢琴老师',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '2',
+    'regid': '124',
     'parid': '6',
     'regname': '吉他老师',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '3',
+    'regid': '125',
     'parid': '6',
     'regname': '口琴老师',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '4',
+    'regid': '126',
     'parid': '6',
     'regname': '小提琴老师',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '5',
+    'regid': '127',
     'parid': '6',
     'regname': '古筝老师',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '6',
+    'regid': '128',
     'parid': '6',
     'regname': '声乐老师',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '1',
+    'regid': '129',
     'parid': '7',
     'regname': '销售',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '2',
+    'regid': '130',
     'parid': '7',
     'regname': '运营',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '3',
+    'regid': '131',
     'parid': '7',
     'regname': '策划',
     'regtype': '2',
     'ageid': '0'
   }, {
-    'regid': '4',
+    'regid': '132',
     'parid': '7',
     'regname': '推广',
     'regtype': '2',
