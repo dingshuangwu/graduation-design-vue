@@ -1,0 +1,17 @@
+body {
+  background-color:whitesmoke;
+  min-width: 100%;
+  line-height: 26px;
+  color: #414a60;
+  font-size: 14px;
+  margin: 0px;
+  min-height: 937px;
+}
+html,body{
+  height: 100%;
+}
+
+body,button,input,option,select,td,textarea {
+  font-family: arial, verdana, helvetica, 'PingFang SC', 'HanHei SC', STHeitiSC-Light, Microsoft Yahei, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

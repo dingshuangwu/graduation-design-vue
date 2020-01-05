@@ -1,0 +1,471 @@
+{
+  "id": "1592314",
+  "name": "graduation",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "49675",
+      "name": "图片",
+      "font_class": "14",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "392126",
+      "name": "地区",
+      "font_class": "75",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "493283",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e794",
+      "unicode_decimal": 59284
+    },
+    {
+      "icon_id": "552803",
+      "name": "地区",
+      "font_class": "diqu",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "563875",
+      "name": "邮箱 邮件",
+      "font_class": "youxiang",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "578087",
+      "name": "邮箱",
+      "font_class": "youxiang1",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "587333",
+      "name": "刷新",
+      "font_class": "shuaxin1",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "666888",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "731452",
+      "name": "个人资料",
+      "font_class": "moban",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "827678",
+      "name": "时间",
+      "font_class": "shijian",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "943203",
+      "name": "工作经历",
+      "font_class": "gongzuojingli",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "947484",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "1005819",
+      "name": "QQ",
+      "font_class": "changyonglogo41",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
+      "icon_id": "1105010",
+      "name": "手机",
+      "font_class": "shouji1",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "1221225",
+      "name": "性别女",
+      "font_class": "xingbienv",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "1221226",
+      "name": "性别男",
+      "font_class": "xingbienan",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "1224722",
+      "name": "学历",
+      "font_class": "xueli",
+      "unicode": "e69b",
+      "unicode_decimal": 59035
+    },
+    {
+      "icon_id": "1301372",
+      "name": "时间",
+      "font_class": "shijian1",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "1321405",
+      "name": "我的页_地区",
+      "font_class": "wodeye_diqu",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "1382584",
+      "name": "微信 (1)",
+      "font_class": "weixin",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "1613593",
+      "name": "邮箱",
+      "font_class": "youxiang2",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "1767731",
+      "name": "编辑",
+      "font_class": "bianji1",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "2019069",
+      "name": "薪资",
+      "font_class": "xinzi",
+      "unicode": "e7ae",
+      "unicode_decimal": 59310
+    },
+    {
+      "icon_id": "2076242",
+      "name": " 图片",
+      "font_class": "tupian1",
+      "unicode": "e889",
+      "unicode_decimal": 59529
+    },
+    {
+      "icon_id": "2278556",
+      "name": "学校",
+      "font_class": "xuexiao",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "2552067",
+      "name": "介绍",
+      "font_class": "jieshao",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "3199590",
+      "name": "工作经历",
+      "font_class": "drxx20",
+      "unicode": "e712",
+      "unicode_decimal": 59154
+    },
+    {
+      "icon_id": "3506928",
+      "name": "qq",
+      "font_class": "qq",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "3585120",
+      "name": "电子签名@2x",
+      "font_class": "dianziqianmingx",
+      "unicode": "e8f6",
+      "unicode_decimal": 59638
+    },
+    {
+      "icon_id": "3819716",
+      "name": "专业知识技能",
+      "font_class": "zhuanyezhishijineng",
+      "unicode": "e7b6",
+      "unicode_decimal": 59318
+    },
+    {
+      "icon_id": "3826844",
+      "name": "实习经历",
+      "font_class": "shixijingli",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "3835616",
+      "name": "邮箱",
+      "font_class": "youxiang3",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "3851353",
+      "name": "地区",
+      "font_class": "diqu1",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "3868263",
+      "name": "编辑",
+      "font_class": "bianji2",
+      "unicode": "eb61",
+      "unicode_decimal": 60257
+    },
+    {
+      "icon_id": "3881862",
+      "name": "学历,博士",
+      "font_class": "xueli1",
+      "unicode": "e762",
+      "unicode_decimal": 59234
+    },
+    {
+      "icon_id": "3895521",
+      "name": "时间",
+      "font_class": "techreport-",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "4138853",
+      "name": "学校情况",
+      "font_class": "xuexiaoqingkuang",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "4186001",
+      "name": "刷新",
+      "font_class": "shuaxin2",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "4243540",
+      "name": "学历",
+      "font_class": "xueli2",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "4421944",
+      "name": "学历",
+      "font_class": "xueli3",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "4488840",
+      "name": "学历水平",
+      "font_class": "xuelishuiping",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "4685747",
+      "name": "时间",
+      "font_class": "Group-",
+      "unicode": "e69e",
+      "unicode_decimal": 59038
+    },
+    {
+      "icon_id": "4848096",
+      "name": "刷新",
+      "font_class": "shuaxin3",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "5114076",
+      "name": "手机",
+      "font_class": "shouji--",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "5168127",
+      "name": "性别",
+      "font_class": "xingbie",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "5427697",
+      "name": "微信",
+      "font_class": "weixin1",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "6076538",
+      "name": "会议介绍",
+      "font_class": "huiyijieshao",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "6119296",
+      "name": "学历",
+      "font_class": "edu-line",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "6251507",
+      "name": "icon_地区",
+      "font_class": "icon_diqu",
+      "unicode": "e6ba",
+      "unicode_decimal": 59066
+    },
+    {
+      "icon_id": "6539842",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "6742309",
+      "name": "微信",
+      "font_class": "weixin2",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "6926721",
+      "name": "签名",
+      "font_class": "qianming",
+      "unicode": "e6ca",
+      "unicode_decimal": 59082
+    },
+    {
+      "icon_id": "7055654",
+      "name": "介绍",
+      "font_class": "jieshao1",
+      "unicode": "e72f",
+      "unicode_decimal": 59183
+    },
+    {
+      "icon_id": "7287570",
+      "name": "邮箱",
+      "font_class": "youxiang4",
+      "unicode": "e739",
+      "unicode_decimal": 59193
+    },
+    {
+      "icon_id": "7486063",
+      "name": "邮箱",
+      "font_class": "youxiang5",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "7549843",
+      "name": "图片",
+      "font_class": "RectangleCopy",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    },
+    {
+      "icon_id": "7551374",
+      "name": "时间",
+      "font_class": "shijian2",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "7765186",
+      "name": "学校_学校信息",
+      "font_class": "xuexiao_xuexiaoxinxi",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "7821176",
+      "name": "刷新",
+      "font_class": "shuaxin4",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "8656928",
+      "name": "编辑",
+      "font_class": "bianji3",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "9113019",
+      "name": "QQ",
+      "font_class": "tubiao-",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "9645784",
+      "name": "编辑",
+      "font_class": "bianji4",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "10232773",
+      "name": "时间",
+      "font_class": "shijian3",
+      "unicode": "e78d",
+      "unicode_decimal": 59277
+    },
+    {
+      "icon_id": "11661859",
+      "name": "签名",
+      "font_class": "qianming1",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "11754628",
+      "name": "性别",
+      "font_class": "V",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
+      "icon_id": "12593304",
+      "name": "学校",
+      "font_class": "xuexiao1",
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    }
+  ]
+}

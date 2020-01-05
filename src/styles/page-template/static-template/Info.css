@@ -1,0 +1,32 @@
+div.InfoDiv{
+ display: inline-block;
+ height: auto;
+ width: auto;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: black;
+}
+li{
+    display: inline-block;
+    background-color: black;
+    width: auto;
+    height: 40px;
+    vertical-align:-webkit-baseline-middle;
+    margin: 0 10px;
+    text-decoration: none;
+    line-height: 40px;
+}
+  h1, h2 {
+    font-weight: normal;
+  }
+  a.InfoA{
+    color: white;
+    text-decoration: none;
+  }
+  a.active{
+    color:aqua;
+  }
+  a.InfoA:hover {color: aqua;}

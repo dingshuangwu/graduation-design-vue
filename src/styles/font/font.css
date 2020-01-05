@@ -1,0 +1,28 @@
+.fontArea {
+  color: yellowgreen;
+  text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 30px;
+    line-height: 280%;
+    font-weight: 900;
+  }
+.fontContext {
+  color: yellowgreen;
+  text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 20px;
+    line-height: 450%;
+    font-weight: 900;
+  }
+  .fontSalary{
+    color: yellowgreen;
+    text-shadow: 1px 1px 0 #E4F1FF;
+      font-size: 20px;
+      line-height: 450%;
+      font-weight: 900;
+    }
+.fontContactWay {
+  color: yellowgreen;
+  text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 20px;
+    line-height: 450%;
+    font-weight: 900;
+  }
