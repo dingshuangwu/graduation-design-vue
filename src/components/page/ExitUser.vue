@@ -3,7 +3,8 @@
   </div>
 </template>
 
-<script> /* 旋转分散 */
+<script>
+import { Message } from 'element-ui'
 export default {
   name: 'Exit',
   data() {
@@ -17,18 +18,12 @@ export default {
         'api/api/login/loginOut',
         response => {
           // eslint-disable-next-line eqeqeq
-          if (response.data.code == '200') {
+          if (response.code == '200') {
             this.$store.commit('setToken', '')
             this.$store.commit('setName', '')
             this.$store.commit('setJurisdiction', '')
-            alert('退出成功')
-          } else {
-            alert('退出失败')
+            Message.success('退出成功')
           }
-          this.$router.push({ path: '/' })
-        },
-        error => {
-          console.log(error)
           this.$router.push({ path: '/' })
         }
       )

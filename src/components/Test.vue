@@ -14,6 +14,8 @@ export default {
   },
   methods: {},
   mounted() {
+    alert(this.$store.state.name)
+    alert(this.$store.state.token)
   }
 }
 </script>

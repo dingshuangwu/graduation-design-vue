@@ -37,6 +37,7 @@
 import Context from '../page-template/Context'
 import Bottom from '../page-template/Bottom'
 import Select from '../page-template/Select/Select'
+import { Message } from 'element-ui'
 export default {
   name: 'MyFind',
   components: {
@@ -103,7 +104,10 @@ export default {
         'api/api/publish/add-my-publish',
         this.requestAddUrlParam,
         response => {
-          alert(response.message)
+          // eslint-disable-next-line eqeqeq
+          if (response.code == '200') {
+            Message.success(response.message)
+          }
         }
       )
       this.dialogFormVisible = false
@@ -114,14 +118,11 @@ export default {
         this.requestSelectUrlParam,
         response => {
           // eslint-disable-next-line eqeqeq
-          if (response.data.code == '200') {
-            this.responseSelectData.list = response.data.data.list
-            this.responseSelectData.total = response.data.data.total
-            this.responseSelectData.pageSize = response.data.data.pageSize
+          if (response.code == '200') {
+            this.responseSelectData.list = response.data.list
+            this.responseSelectData.total = response.data.total
+            this.responseSelectData.pageSize = response.data.pageSize
             console.log(response)
-          // eslint-disable-next-line eqeqeq
-          } else if (response.data.code == '400') {
-            alert(response.message)
           }
         }
       )

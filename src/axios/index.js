@@ -1,15 +1,12 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
-let token = ''
-let name = ''
-let http = axios.create({
+
+const http = axios.create({
   baseURL: process.env.baseURL, // api的base_url
   timeout: 20000, // 请求超时时间
   withCredentials: true,
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
-    'token': token,
-    'name': name
+    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
   },
   transformRequest: [function(data) {
     let newData = ''
@@ -35,12 +32,10 @@ function apiAxios(method, url, params, response) {
   })
 }
 // request拦截器
-axios.interceptors.request.use(config => {
+http.interceptors.request.use(config => {
   const token = this.$store.state.token
   const name = this.$store.state.name
-  alert('name' + name)
-  alert('token' + token)
-  if (token) {
+  if (token && name) {
     config.headers['Authorization'] = token
     config.headers['token'] = token
     config.headers['name'] = name
@@ -71,7 +66,7 @@ axios.interceptors.request.use(config => {
 })
 
 // respone拦截器
-axios.interceptors.response.use(
+http.interceptors.response.use(
   response => {
     const resp = response.data
     // eslint-disable-next-line eqeqeq

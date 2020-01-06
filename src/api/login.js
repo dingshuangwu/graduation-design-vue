@@ -4,9 +4,6 @@ export function login(username, password) {
     {
       name: username,
       password: password
-    },
-    response => {
-
     }
   )
 }

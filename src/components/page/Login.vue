@@ -39,35 +39,19 @@ export default {
         },
         response => {
         // eslint-disable-next-line eqeqeq
-          if (response.data.code == '200') {
-            this.$store.commit('setToken', response.data.data.token)
-            this.$store.commit('setName', response.data.data.name)
-            this.$store.commit('setJurisdiction', response.data.data.jurisdiction)
+          if (response.code == 200) {
+            this.$store.commit('setToken', response.data.token)
+            this.$store.commit('setName', response.data.name)
+            this.$store.commit('setJurisdiction', response.data.jurisdiction)
+            console.log(response)
             this.$router.push({ path: '/test' })
           // eslint-disable-next-line eqeqeq
-          } else if (response.data.code == '400') {
-            alert(response.data.message)
           }
-        },
-        error => {
-          console.log(error)
-          this.$router.push({ path: '/' })
         }
       )
     }
   },
   mounted() {
-    // const token = this.$store.state.token
-    // if (token) {
-    //   this.$store.dispatch('LoginByTokenId', token).then(() => {
-    //     window.config.systemKey = this.activeProject
-    //     this.loading = false
-    //     this.$router.push({ path: '/home' })
-    //   }).catch(() => {
-    //     this.loading = false
-    //     this.$router.push({ path: '/' })
-    //   })
-    // }
   }
 }
 </script>

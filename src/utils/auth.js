@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 const TokenKey = 'admin'
 const UserKey = 'user'
-const systemKey = window.config.systemKey || 'system'
+const systemKey = 'window.config.systemKey' || 'system'
 
 export function setUser(user) {
   return Cookies.set(UserKey, user)
