@@ -2,7 +2,7 @@
  <div class="MyFindPage">
     <div class="MyFindTop"><Top></Top></div>
     <div class="MyFindAdd"><el-button type="info" style="width:100%" @click="dialogFormVisible = true">添加</el-button></div>
-    <el-dialog title="添加求职信息" :visible.sync="dialogFormVisible" width="50%">
+    <el-dialog title="添加招聘信息" :visible.sync="dialogFormVisible" width="50%">
       <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
       @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
       <el-form>
@@ -100,7 +100,7 @@ export default {
     },
     addMyFind: function() {
       this.$axios.get(
-        'api/api/apply/add-my-apply',
+        'api/api/publish/add-my-publish',
         this.requestAddUrlParam,
         response => {
           alert(response.message)
@@ -110,17 +110,17 @@ export default {
     },
     getMyFind: function() {
       this.$axios.get(
-        'api/api/apply/my-apply',
+        'api/api/publish/my-publish',
         this.requestSelectUrlParam,
         response => {
           // eslint-disable-next-line eqeqeq
-          if (response.code == '200') {
-            this.responseSelectData.list = response.data.list
-            this.responseSelectData.total = response.data.total
-            this.responseSelectData.pageSize = response.data.pageSize
+          if (response.data.code == '200') {
+            this.responseSelectData.list = response.data.data.list
+            this.responseSelectData.total = response.data.data.total
+            this.responseSelectData.pageSize = response.data.data.pageSize
             console.log(response)
           // eslint-disable-next-line eqeqeq
-          } else if (response.code == '400') {
+          } else if (response.data.code == '400') {
             alert(response.message)
           }
         }

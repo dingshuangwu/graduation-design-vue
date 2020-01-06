@@ -5,7 +5,7 @@
                 <router-link to="management">管理界面</router-link>
                 <router-link to="my-info">个人资料</router-link>
                 <router-link to="update-password">修改密码</router-link>
-                <router-link to="login">退出登录</router-link>
+                <router-link to="exit-user">退出登录</router-link>
         </div>
 </div>
 </template>

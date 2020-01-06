@@ -3,7 +3,8 @@
     <div class="MyApplyTop"><Top></Top></div>
     <div class="MyApplyAdd"><el-button type="info" style="width:100%" @click="dialogFormVisible = true">添加</el-button></div>
     <el-dialog title="添加求职信息" :visible.sync="dialogFormVisible" width="50%">
-      <Select style="width:140%;" @setProvice='setRequestProvice' @setJobType='setRequestJobType' @setCity='setRequestCity' @setJob='setRequestJob'></Select>
+      <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
+      @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
       <el-form>
       <el-form-item label="薪资" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
           <el-input v-model="requestAddUrlParam.salary" auto-complete="off"></el-input>
@@ -14,19 +15,19 @@
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        <el-button type="primary" @click="addMyApply()">确 定</el-button>
       </div>
     </el-dialog>
     <div class="MyApplyContext">
       <div class="MyApplyRedact">
       <ul>
-        <li v-for="(it , i) in items" :key="i">
+        <li v-for="it in responseSelectData.list" :key="it.id">
           <el-button type="primary" style="margin-top:25px;margin-left:0px">编辑</el-button>
           <el-button type="danger" style="margin-top:25px;margin-left:0px">删除</el-button>
         </li>
       </ul>
       </div>
-      <Context v-bind:items="items"></Context>
+      <Context v-bind:list="this.responseSelectData.list" v-bind:totaol="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
       <div class="MyApplyBottom"><Bottom></Bottom></div>
     </div>
   </div>
@@ -45,67 +46,94 @@ export default {
   },
   data() {
     return {
-      msg: '我的求职',
+      msg: '我的招聘',
       requestAddUrlParam: {
         provice: '',
+        proviceName: '',
         city: '',
+        cityName: '',
         jobType: '',
+        jobTypeName: '',
         job: '',
+        jobName: '',
         salary: '',
         contactWay: ''
       },
       requestSelectUrlParam: {
-        startPage: '',
-        name: '',
-        token: ''
+        currentPage: 1
       },
-      responseData: {
-        total: '',
-        pageSize: ''
+      responseSelectData: {
+        total: Number,
+        pageSize: Number,
+        list: Array
       },
-      dialogFormVisible: false,
-
-      items: [
-        {
-          area: '合肥',
-          context: '音乐老师',
-          salary: '200/小时',
-          contactWay: '17856165587'
-        }, {
-          area: 'area',
-          context: 'context',
-          salary: 'salary',
-          contactWay: 'contactWay'
-        }, {
-          area: 'area',
-          context: 'context',
-          salary: 'salary',
-          contactWay: 'contactWay'
-        }
-      ]
+      dialogFormVisible: false
     }
   },
   methods: {
     setRequestProvice: function(val) {
       this.requestAddUrlParam.provice = val
-      alert(this.requestAddUrlParam.provice)
+    },
+    setRequestProviceName: function(val) {
+      this.requestAddUrlParam.proviceName = val
     },
     setRequestCity: function(val) {
       this.requestAddUrlParam.city = val
-      alert(this.requestAddUrlParam.city)
+    },
+    setRequestCityName: function(val) {
+      this.requestAddUrlParam.cityName = val
     },
     setRequestJobType: function(val) {
       this.requestAddUrlParam.jobType = val
-      alert(this.requestAddUrlParam.jobType)
+    },
+    setRequestJobTypeName: function(val) {
+      this.requestAddUrlParam.jobTypeName = val
     },
     setRequestJob: function(val) {
       this.requestAddUrlParam.job = val
-      alert(this.requestAddUrlParam.job)
+    },
+    setRequestJobName: function(val) {
+      this.requestAddUrlParam.jobName = val
+    },
+    setCurrentPage: function(val) {
+      this.requestSelectUrlParam.currentPage = val
+    },
+    addMyApply: function() {
+      this.$axios.get(
+        'api/api/apply/add-my-apply',
+        this.requestAddUrlParam,
+        response => {
+          alert(response.message)
+        }
+      )
+      this.dialogFormVisible = false
+    },
+    getMyApply: function() {
+      this.$axios.get(
+        'api/api/apply/my-apply',
+        this.requestSelectUrlParam,
+        response => {
+          // eslint-disable-next-line eqeqeq
+          if (response.data.code == '200') {
+            this.responseSelectData.list = response.data.data.list
+            this.responseSelectData.total = response.data.data.total
+            this.responseSelectData.pageSize = response.data.data.pageSize
+            console.log(response)
+          // eslint-disable-next-line eqeqeq
+          } else if (response.data.code == '400') {
+            alert(response.message)
+          }
+        }
+      )
     }
   },
   mounted() {
+    this.getMyApply()
   },
   watch: {
+    requestSelectUrlParam: function() {
+      this.getMyApply()
+    }
   }
 
 }

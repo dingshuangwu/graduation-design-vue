@@ -13,6 +13,7 @@ import Management from '../components/management-page/Management'
 import Sign from '../components/page/Sign'
 import Login from '../components/page/Login'
 import UpdatePassword from '../components/page/UpdatePassword'
+import ExitUser from '../components/page/ExitUser.vue'
 import Test from '../components/Test'
 
 Vue.use(Router)
@@ -22,7 +23,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/login'
     },
     {
       path: '/home',
@@ -88,6 +89,11 @@ export default new Router({
       path: '/update-password',
       name: 'UpdatePassword',
       component: UpdatePassword
+    },
+    {
+      path: '/exit-user',
+      name: 'ExitUser',
+      component: ExitUser
     },
     {
       path: '/test',

@@ -1,46 +1,64 @@
-import request from '@/utils/request'
-// import Cookies from 'js-cookie'
-// import { accessedRouterMap } from '@/mock/mockData'
 export function login(username, password) {
-  return request({
-    url: '/api/login/login?name=' + username + '&password=' + password,
-    method: 'post'
-  })
+  return this.$axios.post(
+    'api/api/login/login',
+    {
+      name: username,
+      password: password
+    },
+    response => {
+
+    }
+  )
 }
 export function loginByToken(tokenId) {
-  return request({
-    url: '/api/auth/hexinSso/token',
-    method: 'get',
-    params: {
-      tokenId: tokenId
+  return this.$axios.post(
+    'api/api/login/loginByToken',
+    response => {
+      // eslint-disable-next-line eqeqeq
+      if (response.code == '200') {
+        this.$store.commit('setToken', response.data.token)
+        this.$store.commit('setName', response.data.name)
+        this.$store.commit('setJurisdiction', response.data.jurisdiction)
+        this.$router.push({ path: '/home' })
+      } else {
+        this.$router.push({ path: '/login' })
+      }
     }
-  })
+  )
 }
 
 export function logout() {
-  return request({
-    url: 'api/login/loginOut',
-    method: 'post'
-  })
+  return this.$axios.post(
+    'api/api/login/loginOut',
+    response => {
+
+    }
+  )
 }
 
 export function getServerTime() {
-  return request({
-    url: '/api/date',
-    method: 'get'
-  })
+  return this.$axios.get(
+    'api/api/date',
+    response => {
+
+    }
+  )
 }
 
 export function getUserInfo() {
-  return request({
-    url: '/api/user/info',
-    method: 'get'
-  })
+  return this.$axios.get(
+    'api/api/user/info',
+    response => {
+
+    }
+  )
 }
 
 export function getRoutes() {
-  return request({
-    url: '/api/user/routes',
-    method: 'get'
-  })
+  return this.$axios.get(
+    'api/api/user/router',
+    response => {
+
+    }
+  )
 }

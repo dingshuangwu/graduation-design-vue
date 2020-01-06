@@ -1,5 +1,4 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
 import { Message } from 'element-ui'
 let token = ''
 let name = ''
@@ -39,6 +38,8 @@ function apiAxios(method, url, params, response) {
 axios.interceptors.request.use(config => {
   const token = this.$store.state.token
   const name = this.$store.state.name
+  alert('name' + name)
+  alert('token' + token)
   if (token) {
     config.headers['Authorization'] = token
     config.headers['token'] = token
@@ -73,10 +74,9 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(
   response => {
     const resp = response.data
-    if (resp.code === -1) { // 会话过期
-      Cookies.remove('admin')
-      location.reload()
-      return resp
+    // eslint-disable-next-line eqeqeq
+    if (resp.code == -1) { // 会话过期
+      this.$router.push({ path: '/' })
     }
     if (resp.code > 299) {
       Message.error(resp.message)
