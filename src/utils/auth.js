@@ -1,13 +1,18 @@
 import Cookies from 'js-cookie'
 const TokenKey = 'admin'
 const UserKey = 'user'
+const JurisdictionKey = 'jurisdictionkey'
+const ImageUrlKey = 'imageUrlKey'
 const systemKey = 'window.config.systemKey' || 'system'
 
-export function setUser(user) {
-  return Cookies.set(UserKey, user)
+export function setName(name) {
+  return Cookies.set(UserKey, name)
 }
-export function getUser() {
+export function getName() {
   return Cookies.get(UserKey)
+}
+export function removeName() {
+  return Cookies.remove(UserKey)
 }
 export function setToken(token) {
   return Cookies.set(TokenKey, token)
@@ -18,8 +23,23 @@ export function getToken() {
 export function removeToken() {
   return Cookies.remove(TokenKey)
 }
-export function removeUser() {
-  return Cookies.remove(UserKey)
+export function setJurisdiction(jurisdiction) {
+  return Cookies.set(JurisdictionKey, jurisdiction)
+}
+export function getJurisdiction() {
+  return Cookies.get(JurisdictionKey)
+}
+export function removeJurisdiction() {
+  return Cookies.remove(JurisdictionKey)
+}
+export function setImageUrl(imageUrl) {
+  return Cookies.set(ImageUrlKey, imageUrl)
+}
+export function getImageUrl() {
+  return Cookies.get(ImageUrlKey)
+}
+export function removeImageUrl() {
+  return Cookies.remove(ImageUrlKey)
 }
 export function removeCookieRoutes() {
   return Cookies.remove('routes')

@@ -5,13 +5,13 @@
     <div class="SelectPart">
       <div class="SelectSelect">
           <select class="form-control" v-model="provice" @change="changeProvice($event)">
-            <option value="">--请选择--</option>
+            <option value="">{{selectTitle}}</option>
             <option v-for="(item,index) in proviceItems" :key="index" :value='item.regid'>{{item.regname}}</option>
           </select>
       </div>
       <div class="SelectSelect">
           <select class="form-control" v-model="city" @change="changeCity($event)">
-            <option value="">--请选择--</option>
+            <option value="">{{selectTitle}}</option>
             <option v-for="(item,index) in cityItems" :key="index" :value="item.regid">{{item.regname}}</option>
           </select>
       </div>
@@ -22,13 +22,13 @@
     <div class="SelectPart">
       <div class="SelectSelect">
           <select class="form-control" v-model="jobType" @change="changeJobType($event)">
-            <option value="">--请选择--</option>
+            <option value="">{{selectTitle}}</option>
             <option v-for="(item,index) in jobTypes" :key="index" :value='item.regid'>{{item.regname}}</option>
           </select>
       </div>
       <div class="SelectSelect">
           <select class="form-control" v-model="job" @change="changeJob($event)">
-            <option value="">--请选择--</option>
+            <option value="">{{selectTitle}}</option>
             <option v-for="(item,index) in jobs" :key="index" :value='item.regid'>{{item.regname}}</option>
           </select>
       </div>
@@ -42,6 +42,12 @@ import { cityMessage } from '../Select/js/area'
 import { jobMessage } from '../Select/js/job'
 export default {
   name: 'Select',
+  props: {
+    selectTitle: {
+      type: String,
+      default: () => '----请选择----'
+    }
+  },
   data() {
     return {
       msg: 'Select',

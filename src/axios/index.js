@@ -1,5 +1,8 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
+import store from '../store/index'
+import router from '../router'
+import { clearLocalStorage, removeName, removeToken, removeJurisdiction, removeImageUrl } from '../utils/auth'
 
 const http = axios.create({
   baseURL: process.env.baseURL, // api的base_url
@@ -33,8 +36,8 @@ function apiAxios(method, url, params, response) {
 }
 // request拦截器
 http.interceptors.request.use(config => {
-  const token = this.$store.state.token
-  const name = this.$store.state.name
+  const token = store.state.token
+  const name = store.state.name
   if (token && name) {
     config.headers['Authorization'] = token
     config.headers['token'] = token
@@ -71,7 +74,16 @@ http.interceptors.response.use(
     const resp = response.data
     // eslint-disable-next-line eqeqeq
     if (resp.code == -1) { // 会话过期
-      this.$router.push({ path: '/' })
+      removeName()
+      removeToken()
+      removeImageUrl()
+      removeJurisdiction()
+      store.commit('SET_NAME', '')
+      store.commit('SET_TOKEN', '')
+      store.commit('SET_JURISDICTION', '')
+      store.commit('SET_IMAGEURL', '')
+      clearLocalStorage()
+      router.push({ path: '/' })
     }
     if (resp.code > 299) {
       Message.error(resp.message)

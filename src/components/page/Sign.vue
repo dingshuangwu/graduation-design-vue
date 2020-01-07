@@ -13,24 +13,57 @@
           </el-input>
           <el-input placeholder="请输入密码" v-model="password" show-password clearable style="position:relative;top:10%">
           </el-input>
-          <el-input placeholder="确认密码" v-model="password" show-password clearable style="position:relative;top:18%">
+          <el-input placeholder="确认密码" v-model="affirmPassword" show-password clearable style="position:relative;top:18%">
           </el-input>
-           <el-button type="primary" style="width:100%;position:relative;top:33%;margin:0" >注册</el-button>
+           <el-button type="primary" style="width:100%;position:relative;top:33%;margin:0" @click="comparePassword()">注册</el-button>
+           <el-button type="primary" style="width:100%;position:relative;top:35%;margin:0" @click="routerTo()">登录</el-button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { Message } from 'element-ui'
 export default {
   data() {
     return {
       msg: 'Sign',
-      userName: 'admin',
-      password: 'admin'
+      userName: '',
+      password: '',
+      affirmPassword: ''
     }
   },
   methods: {
+    sign: function() {
+      this.$axios.post(
+        'api/api/sign/sign-in',
+        {
+          name: this.userName,
+          password: this.password
+        },
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            Message.success('注册成功')
+            this.$router.push({ path: '/' })
+          // eslint-disable-next-line eqeqeq
+          }
+        }
+      )
+    },
+    comparePassword: function() {
+      // eslint-disable-next-line eqeqeq
+      if (this.password == this.affirmPassword) {
+        this.sign()
+      } else {
+        Message.error('两次输入密码不一致')
+      }
+    },
+    routerTo: function() {
+      this.$router.push({ path: '/' })
+    }
+  },
+  computed: {
   }
 }
 </script>

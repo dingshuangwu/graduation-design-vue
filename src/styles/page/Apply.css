@@ -13,7 +13,7 @@ div.ApplyTop{
 div.ApplySelectPage{
     margin: 0;
     width: 100%;
-    height: 30%;
+    height: 20%;
     position: absolute;
     z-index: 2;
     background-color:white;
@@ -48,4 +48,30 @@ div.ApplyBottom{
     left: 13%;
     margin-top: 25%;
     z-index: 2;
+}
+div.ApplyUserInfo{
+    display: block;
+    position:absolute;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    left: 100%;
+    background-color:red;
+}
+div.ApplyUserInfo ul{
+    margin: 0;
+    display: block;
+    list-style-type:none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+div.ApplyUserInfo li{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 90px;
 }

@@ -18,12 +18,32 @@
         <el-button type="primary" @click="addMyApply()">确 定</el-button>
       </div>
     </el-dialog>
+    <el-dialog title="编辑求职信息" :visible.sync="dialogFormVisibleUpdate" width="50%">
+      <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
+      @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
+      <el-form>
+      <el-form-item label="薪资" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
+          <el-input v-model="requestAddUrlParam.salary" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="联系方式" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
+          <el-input v-model="requestAddUrlParam.contactWay" auto-complete="off"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisibleUpdate = false">取 消</el-button>
+        <el-button type="primary" @click="updateMyApply()">确 定</el-button>
+      </div>
+    </el-dialog>
+    <el-dialog title="删除求职信息" :visible.sync="dialogFormVisibleDelete" width="50%">
+       <el-button @click="dialogFormVisibleDelete = false">取 消</el-button>
+       <el-button type="primary" @click="deleteMyApply()">确 定</el-button>
+    </el-dialog>
     <div class="MyApplyContext">
       <div class="MyApplyRedact">
       <ul>
         <li v-for="it in responseSelectData.list" :key="it.id">
-          <el-button type="primary" style="margin-top:25px;margin-left:0px">编辑</el-button>
-          <el-button type="danger" style="margin-top:25px;margin-left:0px">删除</el-button>
+          <el-button type="primary" style="margin-top:25px;margin-left:0px" @click="updateMyApplyDialog(it.id)">编辑</el-button>
+          <el-button type="danger" style="margin-top:25px;margin-left:0px" @click="deleteMyApplyDialog(it.id)">删除</el-button>
         </li>
       </ul>
       </div>
@@ -47,7 +67,8 @@ export default {
   },
   data() {
     return {
-      msg: '我的招聘',
+      msg: '我的求职',
+      deleteId: '',
       requestAddUrlParam: {
         provice: '',
         proviceName: '',
@@ -64,101 +85,13 @@ export default {
         currentPage: 1
       },
       responseSelectData: {
-        // total: Number,
-        // pageSize: Number,
-        // list: Array
-        total: 17,
-        pageSize: 8,
-        list: [
-          {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }
-        ]
+        total: Number,
+        pageSize: Number,
+        list: []
       },
-      dialogFormVisible: false
+      dialogFormVisible: false,
+      dialogFormVisibleDelete: false,
+      dialogFormVisibleUpdate: false
     }
   },
   methods: {
@@ -197,6 +130,7 @@ export default {
           // eslint-disable-next-line eqeqeq
           if (response.code == '200') {
             Message.success(response.message)
+            this.getMyApply()
           }
         }
       )
@@ -216,13 +150,51 @@ export default {
           }
         }
       )
+    },
+    updateMyApplyDialog: function(val) {
+      this.requestAddUrlParam.id = val
+      this.dialogFormVisibleUpdate = true
+    },
+    updateMyApply: function() {
+      this.$axios.get(
+        'api/api/apply/update-my-apply',
+        this.requestAddUrlParam,
+        response => {
+          // eslint-disable-next-line eqeqeq
+          if (response.code == '200') {
+            Message.success(response.message)
+            this.getMyApply()
+          }
+        }
+      )
+      this.dialogFormVisibleUpdate = false
+    },
+    deleteMyApplyDialog: function(val) {
+      this.deleteId = val
+      this.dialogFormVisibleDelete = true
+    },
+    deleteMyApply: function() {
+      this.$axios.get(
+        'api/api/apply/delete-my-apply',
+        {
+          id: this.deleteId
+        },
+        response => {
+          // eslint-disable-next-line eqeqeq
+          if (response.code == '200') {
+            Message.success(response.message)
+            this.getMyApply()
+          }
+        }
+      )
+      this.dialogFormVisibleDelete = false
     }
   },
   mounted() {
     this.getMyApply()
   },
   watch: {
-    requestSelectUrlParam: function() {
+    'requestSelectUrlParam.currentPage': function() {
       this.getMyApply()
     }
   }

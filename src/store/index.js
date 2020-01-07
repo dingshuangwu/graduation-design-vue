@@ -1,21 +1,27 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { getToken, getName, getJurisdiction, getImageUrl } from '../utils/auth'
+
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
-    token: '',
-    name: '',
-    jurisdiction: {}
+    token: getToken(),
+    name: getName(),
+    jurisdiction: getJurisdiction(),
+    imageUrl: getImageUrl()
   },
   mutations: {
-    setToken(state, token) {
+    SET_TOKEN(state, token) {
       state.token = token
     },
-    setName(state, name) {
+    SET_NAME(state, name) {
       state.name = name
     },
-    setJurisdiction(state, jurisdiction) {
+    SET_JURISDICTION(state, jurisdiction) {
       state.jurisdiction = jurisdiction
+    },
+    SET_IMAGEURL(state, imageUrl) {
+      state.imageUrl = imageUrl
     }
   }
 })

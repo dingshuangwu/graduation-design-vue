@@ -12,10 +12,10 @@
     <ul v-else>
         <li v-for = "(it,i) in list" :key="i">
           <div class="Card">
-            <div class="CardPart fontArea">{{it.cityName}}+{{i}}</div>
-            <div class="CardPart fontContext">{{it.jobName}}+{{i}}</div>
-            <div class="CardPart fontSalary">{{it.salary}}+{{i}}</div>
-            <div class="CardPart fontContactWay">{{it.contactWay}}+{{i}}</div>
+            <div class="CardPart fontArea">{{it.cityName}}</div>
+            <div class="CardPart fontContext">{{it.jobName}}</div>
+            <div class="CardPart fontSalary">{{it.salary}}</div>
+            <div class="CardPart fontContactWay">{{it.contactWay}}</div>
           </div>
         </li>
     </ul>

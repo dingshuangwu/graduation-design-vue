@@ -39,6 +39,7 @@ div.MyApplyRedact{
     padding: 0;
     width: 20%;
     left: 100%;
+    background-color:white;
 }
 div.MyApplyRedact ul{
     margin: 0;

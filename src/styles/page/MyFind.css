@@ -47,7 +47,7 @@ div.MyFindRedact{
     padding: 0;
     width: 20%;
     left: 100%;
-
+    background-color:white;
 }
 div.MyFindRedact ul{
     margin: 0;

@@ -3,10 +3,17 @@
     <div class="FindTop"><Top></Top></div>
     <div class="FindSelectPage">
       <div class="FindSelect">
-        <Select @setProvice='setRequestProvice' @setJobType='setRequestJobType' @setCity='setRequestCity' @setJob='setRequestJob'></Select>
+        <Select v-bind:select-title="this.selectTitle" @setProvice='setRequestProvice' @setJobType='setRequestJobType' @setCity='setRequestCity' @setJob='setRequestJob'></Select>
       </div>
     </div>
     <div class="FindContext">
+      <div class="FindUserInfo">
+        <ul>
+        <li v-for="it in responseSelectData.list" :key="it.authorId">
+          用户名
+        </li>
+        </ul>
+      </div>
       <Context v-bind:list="this.responseSelectData.list" v-bind:total="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
       <div class="FindBottom"><Bottom></Bottom></div>
     </div>
@@ -27,6 +34,7 @@ export default {
   data() {
     return {
       msg: '我的发布',
+      selectTitle: '全部',
       requestSelectUrlParam: {
         provice: '',
         city: '',
@@ -38,96 +46,9 @@ export default {
         // total: Number,
         // pageSize: Number,
         // list: Array
-        total: 17,
-        pageSize: 8,
-        list: [
-          {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }
-        ]
+        total: Number,
+        pageSize: Number,
+        list: []
       }
     }
   },
@@ -146,10 +67,34 @@ export default {
     },
     setCurrentPage: function(val) {
       this.requestSelectUrlParam.currentPage = val
-      alert(this.requestSelectUrlParam.currentPage)
+    },
+    getFind: function() {
+      this.$axios.get(
+        'api/api/publish/all-publish',
+        this.requestSelectUrlParam,
+        response => {
+          // eslint-disable-next-line eqeqeq
+          if (response.code == '200') {
+            this.responseSelectData.list = response.data.list
+            this.responseSelectData.total = response.data.total
+            this.responseSelectData.pageSize = response.data.pageSize
+            console.log(response)
+          }
+        }
+      )
     }
+  },
+  watch: {
+    requestSelectUrlParam: {
+      deep: true,
+      handler: function() {
+        this.getFind()
+      }
+    }
+  },
+  mounted() {
+    this.getFind()
   }
-
 }
 </script>
 

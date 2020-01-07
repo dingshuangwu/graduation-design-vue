@@ -2,7 +2,7 @@
  <div class="MyFindPage">
     <div class="MyFindTop"><Top></Top></div>
     <div class="MyFindAdd"><el-button type="info" style="width:100%" @click="dialogFormVisible = true">添加</el-button></div>
-    <el-dialog title="添加招聘信息" :visible.sync="dialogFormVisible" width="50%">
+    <el-dialog title="添加求职信息" :visible.sync="dialogFormVisible" width="50%">
       <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
       @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
       <el-form>
@@ -18,12 +18,32 @@
         <el-button type="primary" @click="addMyFind()">确 定</el-button>
       </div>
     </el-dialog>
+    <el-dialog title="编辑求职信息" :visible.sync="dialogFormVisibleUpdate" width="50%">
+      <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
+      @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
+      <el-form>
+      <el-form-item label="薪资" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
+          <el-input v-model="requestAddUrlParam.salary" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="联系方式" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
+          <el-input v-model="requestAddUrlParam.contactWay" auto-complete="off"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisibleUpdate = false">取 消</el-button>
+        <el-button type="primary" @click="updateMyFind()">确 定</el-button>
+      </div>
+    </el-dialog>
+    <el-dialog title="删除求职信息" :visible.sync="dialogFormVisibleDelete" width="50%">
+       <el-button @click="dialogFormVisibleDelete = false">取 消</el-button>
+       <el-button type="primary" @click="deleteMyFind()">确 定</el-button>
+    </el-dialog>
     <div class="MyFindContext">
       <div class="MyFindRedact">
       <ul>
         <li v-for="it in responseSelectData.list" :key="it.id">
-          <el-button type="primary" style="margin-top:25px;margin-left:0px">编辑</el-button>
-          <el-button type="danger" style="margin-top:25px;margin-left:0px">删除</el-button>
+          <el-button type="primary" style="margin-top:25px;margin-left:0px" @click="updateMyFindDialog(it.id)">编辑</el-button>
+          <el-button type="danger" style="margin-top:25px;margin-left:0px" @click="deleteMyFindDialog(it.id)">删除</el-button>
         </li>
       </ul>
       </div>
@@ -47,7 +67,8 @@ export default {
   },
   data() {
     return {
-      msg: '我的招聘',
+      msg: '我的求职',
+      deleteId: '',
       requestAddUrlParam: {
         provice: '',
         proviceName: '',
@@ -64,101 +85,13 @@ export default {
         currentPage: 1
       },
       responseSelectData: {
-        // total: Number,
-        // pageSize: Number,
-        // list: Array
-        total: 17,
-        pageSize: 8,
-        list: [
-          {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }, {
-            cityName: 'area',
-            jobName: 'context',
-            salary: 'salary',
-            contactWay: 'contactWay'
-          }
-        ]
+        total: Number,
+        pageSize: Number,
+        list: []
       },
-      dialogFormVisible: false
+      dialogFormVisible: false,
+      dialogFormVisibleDelete: false,
+      dialogFormVisibleUpdate: false
     }
   },
   methods: {
@@ -197,6 +130,7 @@ export default {
           // eslint-disable-next-line eqeqeq
           if (response.code == '200') {
             Message.success(response.message)
+            this.getMyFind()
           }
         }
       )
@@ -216,13 +150,51 @@ export default {
           }
         }
       )
+    },
+    updateMyFindDialog: function(val) {
+      this.requestAddUrlParam.id = val
+      this.dialogFormVisibleUpdate = true
+    },
+    updateMyFind: function() {
+      this.$axios.get(
+        'api/api/publish/update-my-publish',
+        this.requestAddUrlParam,
+        response => {
+          // eslint-disable-next-line eqeqeq
+          if (response.code == '200') {
+            Message.success(response.message)
+            this.getMyFind()
+          }
+        }
+      )
+      this.dialogFormVisibleUpdate = false
+    },
+    deleteMyFindDialog: function(val) {
+      this.deleteId = val
+      this.dialogFormVisibleDelete = true
+    },
+    deleteMyFind: function() {
+      this.$axios.get(
+        'api/api/publish/delete-my-publish',
+        {
+          id: this.deleteId
+        },
+        response => {
+          // eslint-disable-next-line eqeqeq
+          if (response.code == '200') {
+            Message.success(response.message)
+            this.getMyFind()
+          }
+        }
+      )
+      this.dialogFormVisibleDelete = false
     }
   },
   mounted() {
     this.getMyFind()
   },
   watch: {
-    requestSelectUrlParam: function() {
+    'requestSelectUrlParam.currentPage': function() {
       this.getMyFind()
     }
   }

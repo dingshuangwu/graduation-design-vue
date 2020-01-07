@@ -2375,5 +2375,11 @@ var cityMessage = [{
   'regname': '台湾',
   'regtype': '2',
   'ageid': '0'
+}, {
+  'regid': '398',
+  'parid': '3',
+  'regname': '合肥',
+  'regtype': '2',
+  'ageid': '0'
 }]
 export { cityMessage }

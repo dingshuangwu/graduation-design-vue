@@ -21,6 +21,7 @@
   </div>
 </template>
 <script>
+import { setToken, setName, setJurisdiction, setImageUrl } from '../../utils/auth'
 export default {
   data() {
     return {
@@ -31,6 +32,11 @@ export default {
   },
   methods: {
     login: function() {
+      localStorage.clear() // 登录前把本地缓存数据删除
+      this.$store.commit('SET_NAME', '')// 登录成功后重新获取用户信息
+      this.$store.commit('SET_TOKEN', '')
+      this.$store.commit('SET_JURISDICTION', {})
+      this.$store.commit('SET_IMAGEURL', '')
       this.$axios.post(
         'api/api/login/login',
         {
@@ -40,11 +46,16 @@ export default {
         response => {
         // eslint-disable-next-line eqeqeq
           if (response.code == 200) {
-            this.$store.commit('setToken', response.data.token)
-            this.$store.commit('setName', response.data.name)
-            this.$store.commit('setJurisdiction', response.data.jurisdiction)
+            this.$store.commit('SET_NAME', response.data.name)
+            this.$store.commit('SET_TOKEN', response.data.token)
+            this.$store.commit('SET_JURISDICTION', response.data.jurisdiction)
+            this.$store.commit('SET_IMAGEURL', response.data.imageUrl)
+            setName(response.data.name)
+            setToken(response.data.token)
+            setJurisdiction(response.data.jurisdiction)
+            setImageUrl(response.data.imageUrl)
             console.log(response)
-            this.$router.push({ path: '/test' })
+            this.$router.push({ path: '/home' })
           // eslint-disable-next-line eqeqeq
           }
         }

@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import { clearLocalStorage, removeName, removeToken, removeJurisdiction, removeImageUrl } from '../../utils/auth'
 import { Message } from 'element-ui'
 export default {
   name: 'Exit',
@@ -16,12 +17,20 @@ export default {
     exitUser: function() {
       this.$axios.post(
         'api/api/login/loginOut',
+        {},
         response => {
           // eslint-disable-next-line eqeqeq
           if (response.code == '200') {
-            this.$store.commit('setToken', '')
-            this.$store.commit('setName', '')
-            this.$store.commit('setJurisdiction', '')
+            removeName()
+            removeToken()
+            removeImageUrl()
+            removeJurisdiction()
+            this.$store.commit('SET_NAME', '')
+            this.$store.commit('SET_TOKEN', '')
+            this.$store.commit('SET_JURISDICTION', '')
+            this.$store.commit('SET_IMAGEURL', '')
+            clearLocalStorage()
+            this.$router.push({ path: '/' })
             Message.success('退出成功')
           }
           this.$router.push({ path: '/' })
