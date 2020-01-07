@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="FindContext">
-      <Context v-bind:items="items"></Context>
+      <Context v-bind:list="this.responseSelectData.list" v-bind:total="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
       <div class="FindBottom"><Bottom></Bottom></div>
     </div>
  </div>
@@ -28,50 +28,125 @@ export default {
     return {
       msg: '我的发布',
       requestSelectUrlParam: {
-        startPage: '',
-        name: '',
-        token: '',
         provice: '',
         city: '',
         jobType: '',
-        job: ''
+        job: '',
+        currentPage: 1
       },
-      items: [
-        {
-          area: 'area',
-          context: 'context',
-          salary: 'salary',
-          contactWay: 'contactWay'
-        }, {
-          area: 'area',
-          context: 'context',
-          salary: 'salary',
-          contactWay: 'contactWay'
-        }, {
-          area: 'area',
-          context: 'context',
-          salary: 'salary',
-          contactWay: 'contactWay'
-        }
-      ]
+      responseSelectData: {
+        // total: Number,
+        // pageSize: Number,
+        // list: Array
+        total: 17,
+        pageSize: 8,
+        list: [
+          {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }
+        ]
+      }
     }
   },
   methods: {
     setRequestProvice: function(val) {
-      this.requestAddUrlParam.provice = val
-      alert(this.requestAddUrlParam.provice)
+      this.requestSelectUrlParam.provice = val
     },
     setRequestCity: function(val) {
-      this.requestAddUrlParam.city = val
-      alert(this.requestAddUrlParam.city)
+      this.requestSelectUrlParam.city = val
     },
     setRequestJobType: function(val) {
-      this.requestAddUrlParam.jobType = val
-      alert(this.requestAddUrlParam.jobType)
+      this.requestSelectUrlParam.jobType = val
     },
     setRequestJob: function(val) {
-      this.requestAddUrlParam.job = val
-      alert(this.requestAddUrlParam.job)
+      this.requestSelectUrlParam.job = val
+    },
+    setCurrentPage: function(val) {
+      this.requestSelectUrlParam.currentPage = val
+      alert(this.requestSelectUrlParam.currentPage)
     }
   }
 

@@ -1,7 +1,7 @@
 <template>
 <div class="Home">
 
-    <ul v-if="getSize()==0||list===undefined||!list||typeof (list) == 'undefined'">
+    <ul v-if="getSize==0||!list||typeof (list) == 'undefined'">
       <li>
         <div class="Card">
           <p style="color:grey;align:center;font-size:15px;line-height:550%;">暂时还没有符合条件的职位</p>
@@ -12,10 +12,10 @@
     <ul v-else>
         <li v-for = "(it,i) in list" :key="i">
           <div class="Card">
-            <div class="CardPart fontArea">{{it.cityName}}</div>
-            <div class="CardPart fontContext">{{it.jobName}}</div>
-            <div class="CardPart fontSalary">{{it.salary}}</div>
-            <div class="CardPart fontContactWay">{{it.contactWay}}</div>
+            <div class="CardPart fontArea">{{it.cityName}}+{{i}}</div>
+            <div class="CardPart fontContext">{{it.jobName}}+{{i}}</div>
+            <div class="CardPart fontSalary">{{it.salary}}+{{i}}</div>
+            <div class="CardPart fontContactWay">{{it.contactWay}}+{{i}}</div>
           </div>
         </li>
     </ul>
@@ -23,9 +23,9 @@
     <el-pagination
       background
       :current-page.sync="currentPage"
-      :page-size="this.props.pageSize"
+      :page-size="pageSize"
       layout="prev, pager, next, jumper"
-      :total="this.props.total">
+      :total="total">
     </el-pagination>
   </div>
 </div>
@@ -33,17 +33,29 @@
 <script>
 export default {
   props: {
-    list: Array,
-    total: Number,
-    pageSize: Number
+    list: {
+      type: Array,
+      default: () => []
+    },
+    total: {
+      type: Number,
+      default: 0
+    },
+    pageSize: {
+      type: Number,
+      default: 0
+    }
   },
   data() {
     return {
       msg: '发现职位',
-      currentage: 1
+      currentPage: 1
     }
   },
   methods: {
+
+  },
+  computed: {
     getSize: function() {
       return this.list.length
     }

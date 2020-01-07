@@ -27,7 +27,7 @@
         </li>
       </ul>
       </div>
-      <Context v-bind:list="this.responseSelectData.list" v-bind:totaol="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
+      <Context v-bind:list="this.responseSelectData.list" v-bind:total="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
       <div class="MyApplyBottom"><Bottom></Bottom></div>
     </div>
   </div>
@@ -64,9 +64,99 @@ export default {
         currentPage: 1
       },
       responseSelectData: {
-        total: Number,
-        pageSize: Number,
-        list: Array
+        // total: Number,
+        // pageSize: Number,
+        // list: Array
+        total: 17,
+        pageSize: 8,
+        list: [
+          {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }, {
+            cityName: 'area',
+            jobName: 'context',
+            salary: 'salary',
+            contactWay: 'contactWay'
+          }
+        ]
       },
       dialogFormVisible: false
     }
