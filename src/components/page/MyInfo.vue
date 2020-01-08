@@ -4,59 +4,48 @@
     <div class="InfoContext">
       <div class="InfoContextDiv">
         <div class="InfoContextDivMyInfo">
-          <div style="text-align:left;line-height:30px"><span class="icon iconfont icon-shuaxin2"></span><p style="font-size:10px">最后一次更新：2019-11-23 18:54:20</p></div>
-          <div style="text-align:left;">
-            <h2>用户名</h2>
-            <h3 v-if="this.sex=='man'" class="Sex">♂</h3>
-            <h3 v-if="this.sex=='woman'" class="Sex">♀</h3>
+          <div style="text-align:left;line-height:30px"><span class="icon iconfont icon-shuaxin2" style="cursor: pointer" @click="this.getUserAllInfo()"></span><p style="font-size:10px ;min-width:200px">最后一次更新：{{responseParam.lastModifyDate}}</p></div>
+          <div style="text-align:left">
+            <h2>{{this.responseParam.name}}&nbsp;</h2>
+            <h3 v-if="this.responseParam.sex=='man'" class="SexMan">♂</h3>
+            <h3 v-if="this.responseParam.sex=='woman'" class="SexWoman">♀</h3>
           </div>
           <div style="text-align:left;line-height:50px">
-            <span class="icon iconfont icon-moban"></span><p>汉族</p>
-            <span class="icon iconfont icon-xingbie"></span><p>男</p>
-           <span class="icon iconfont icon-xueli3"></span><p>本科</p>
+            <span class="icon iconfont icon-moban"></span><p style="min-width:34px;">{{this.responseParam.nation}}&nbsp;</p>
+            <span class="icon iconfont icon-xingbie"></span><p style="min-width:34px;" v-if="this.responseParam.sex=='man'">男&nbsp;</p><p style="min-width:34px;" v-else-if="this.responseParam.sex=='woman'">女&nbsp;</p>
+           <span class="icon iconfont icon-xueli3"></span><p style="min-width:34px;">{{this.responseParam.educationBackgroun}}&nbsp;</p>
           </div>
-          <div style="text-align:left"><span class="icon iconfont icon-weixin2"></span><p>17856165587</p><span class="icon iconfont icon-youxiang5"></span><p>dingshuangwu@vip.qq.com</p></div>
+          <div style="text-align:left">
+            <span class="icon iconfont icon-weixin2"></span><p style="min-width:100px">{{this.responseParam.telephone}}&nbsp;</p>
+            <span class="icon iconfont icon-youxiang5"></span><p style="min-width:200px">{{this.responseParam.email}}&nbsp;</p>
+          </div>
         </div>
         <div class="InfoContextDivMyImage">
-          <img src="../../assets/wk.jpg">
+          <img v-bind:src="require('../../assets/wk.jpg')" alt="无法正常显示">
         </div>
       </div>
       <div class="InfoContextDiv">
          <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>个人介绍:</h3></div>
-         <div style="height:68%;width:100%;overflow:auto;">
-           <pre>
- 练习时长两年半的Java练习生，
-
-喜欢唱、跳、Rap
-
-           </pre>
-          </div>
+         <div style="height:68%;width:100%;overflow:auto;text-align:left">
+          <pre>{{this.getSelfIntroduction}}</pre>
+         </div>
       </div>
       <div class="InfoContextDiv">
         <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>教育经历:</h3></div>
         <div style="text-align:left;line-height:40px;margin-left:0%;">
-        <span class="icon iconfont icon-shijian3"></span><p>20xx-xx-xx</p><span class="icon iconfont icon-shijian3"></span><p>20xx-xx-xx</p><span class="icon iconfont icon-xuexiaoqingkuang"></span><p>阜阳师范</p>
+        <span class="icon iconfont icon-shijian3"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p><span class="icon iconfont icon-shijian3" style="margin-left:3%"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p><span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:3%"></span><p style="min-width:120px">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
         </div>
         <div style="text-align:left;line-height:40px;margin-left:0%;">
-        <span class="icon iconfont icon-shijian3"></span><p>20xx-xx-xx</p><span class="icon iconfont icon-shijian3"></span><p>20xx-xx-xx</p><span class="icon iconfont icon-xuexiaoqingkuang"></span><p>阜阳师范</p>
+        <span class="icon iconfont icon-shijian3"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p><span class="icon iconfont icon-shijian3" style="margin-left:3%"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p><span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:3%"></span><p style="min-width:120px">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
         </div>
         <div style="text-align:left;line-height:40px;margin-left:0%;">
-        <span class="icon iconfont icon-shijian3"></span><p>20xx-xx-xx</p><span class="icon iconfont icon-shijian3"></span><p>20xx-xx-xx</p><span class="icon iconfont icon-xuexiaoqingkuang"></span><p>阜阳师范</p>
+        <span class="icon iconfont icon-shijian3"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p><span class="icon iconfont icon-shijian3" style="margin-left:3%"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p><span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:3%"></span><p style="min-width:120px">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
         </div>
       </div>
       <div class="InfoContextDiv">
         <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>个人签名:</h3></div>
         <div style="height:68%;width:100%;overflow:auto;">
-          <pre>
-2016-01——2016-07:
-安徽合肥
-2016-01——2016-07:
-安徽合肥
-2016-01——2016-07:
-安徽合肥
-2016-01——2016-07:
-安徽合肥
-          </pre>
+          <pre>{{this.getSelfSignature}}</pre>
         </div>
       </div>
     </div>
@@ -70,12 +59,129 @@ export default {
   data() {
     return {
       msg: '我的简历',
-      // man or 'woman'
-      sex: 'man'
+      responseParam: {
+        id: '',
+        name: '丁双伍',
+        nation: '汉族',
+        // man or 'woman'
+        sex: 'man',
+        educationBackgroun: '本科',
+        telephone: '17856165587',
+        email: 'dingshuangwu@vip.qq.com',
+        imageUrl: '../../assets/wk.jpg',
+        selfIntroduction: '&kg;&kg;&kg;&kg;练习时长两年半的Java练习生,&hc;&hc;喜欢唱、跳、Rap、篮球。',
+        educationExperienceFirstStartDate: '2010-09-01',
+        educationExperienceFirstEndDate: '2013-09-01',
+        educationExperienceFirstSchool: '凤台县第九中学',
+        educationExperienceSecondStartDate: '2013-09-01',
+        educationExperienceSecondEndDate: '2016-09-01',
+        educationExperienceSecondSchool: '凤台县第一中学',
+        educationExperienceThirdStartDate: '2016-09-01',
+        educationExperienceThirdEndDate: '2020-09-01',
+        educationExperienceThirdSchool: '阜阳师范大学',
+        selfSignature: '&hc;&kg;&kg;&kg;终有弱水替沧海，&hc;&hc;&kg;&kg;&kg;再无相思寄巫山。',
+        lastModifyDate: '2019-11-23 18:54:20'
+      }
     }
   },
   components: {
     Bottom
+  },
+  method: {
+    getUserAllInfo: function() {
+      this.$axios.get(
+        'api/api/user-info/all',
+        {},
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.responseParam = response.data
+            console.log(response)
+          }
+        }
+      )
+    },
+    getUserInfo: function() {
+      this.$axios.get(
+        'api/api/user-info/info',
+        {},
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.responseParam.name = response.data.name
+            this.responseParam.nation = response.data.nation
+            this.responseParam.sex = response.data.sex
+            this.responseParam.educationBackground = response.data.educationBackground
+            this.responseParam.telephone = response.data.telephone
+            this.responseParam.email = response.data.email
+            this.responseParam.imageUrl = response.data.imageUrl
+            this.responseParam.lastModifyDate = response.data.lastModifyDate
+            console.log(response)
+          }
+        }
+      )
+    },
+    getSelfIntroduction: function() {
+      this.$axios.get(
+        'api/api/user-info/self-introduction',
+        {},
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.responseParam.selfIntroduction = response.data.selfIntroduction
+            this.responseParam.lastModifyDate = response.data.lastModifyDate
+            console.log(response)
+          }
+        }
+      )
+    },
+    getEducationExperience: function() {
+      this.$axios.get(
+        'api/api/user-info/education-experience',
+        {},
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.responseParam.educationExperienceFirstStartDate = response.data.educationExperienceFirstStartDate
+            this.responseParam.educationExperienceFirstEndDate = response.data.educationExperienceFirstEndDate
+            this.responseParam.educationExperienceFirstSchool = response.data.educationExperienceFirstSchool
+            this.responseParam.educationExperienceSecondStartDate = response.data.educationExperienceSecondStartDate
+            this.responseParam.educationExperienceSecondEndDate = response.data.educationExperienceSecondEndDate
+            this.responseParam.educationExperienceSecondSchool = response.data.educationExperienceSecondSchool
+            this.responseParam.educationExperienceThirdStartDate = response.data.educationExperienceThirdStartDate
+            this.responseParam.educationExperienceThirdEndDate = response.data.educationExperienceThirdEndDate
+            this.responseParam.educationExperienceThirdSchool = response.data.educationExperienceThirdSchool
+            this.responseParam.lastModifyDate = response.data.lastModifyDate
+            console.log(response)
+          }
+        }
+      )
+    },
+    getSelfSignature: function() {
+      this.$axios.get(
+        'api/api/user-info/self-signature',
+        {},
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.responseParam.selfSignature = response.data.selfSignature
+            this.responseParam.lastModifyDate = response.data.lastModifyDate
+            console.log(response)
+          }
+        }
+      )
+    }
+  },
+  computed: {
+    getSelfIntroduction: function() {
+      return this.responseParam.selfIntroduction.replace(/&kg;/g, ' ').replace(/&hc;/g, '\r\n')
+    },
+    getSelfSignature: function() {
+      return this.responseParam.selfSignature.replace(/&kg;/g, ' ').replace(/&hc;/g, '\r\n')
+    }
+  },
+  mounted() {
+    this.getUserAllInfo()
   }
 }
 </script>
