@@ -43,9 +43,6 @@ export default {
         currentPage: 1
       },
       responseSelectData: {
-        // total: Number,
-        // pageSize: Number,
-        // list: Array
         total: Number,
         pageSize: Number,
         list: []

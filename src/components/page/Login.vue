@@ -63,6 +63,11 @@ export default {
     }
   },
   mounted() {
+    if (this.$store.state.token) {
+      this.$router.push({ path: '/home' })
+    }
+  },
+  watch: {
   }
 }
 </script>
