@@ -12,7 +12,7 @@
           </div>
           <div style="text-align:left;line-height:50px">
             <span class="icon iconfont icon-moban"></span><p style="min-width:34px;">{{this.responseParam.nation}}&nbsp;</p>
-            <span class="icon iconfont icon-xingbie"></span><p style="min-width:34px;" v-if="this.responseParam.sex=='man'">男&nbsp;</p><p style="min-width:34px;" v-else-if="this.responseParam.sex=='woman'">女&nbsp;</p>
+            <span class="icon iconfont">&#xe69d;</span><p style="min-width:85px">{{this.responseParam.birthday}}&nbsp;</p>
            <span class="icon iconfont icon-xueli3"></span><p style="min-width:34px;">{{this.responseParam.educationBackgroun}}&nbsp;</p>
           </div>
           <div style="text-align:left">
@@ -69,6 +69,7 @@ export default {
         telephone: '17856165587',
         email: 'dingshuangwu@vip.qq.com',
         imageUrl: '../../assets/wk.jpg',
+        birthday: '1998-04-29',
         selfIntroduction: '&kg;&kg;&kg;&kg;练习时长两年半的Java练习生,&hc;&hc;喜欢唱、跳、Rap、篮球。',
         educationExperienceFirstStartDate: '2010-09-01',
         educationExperienceFirstEndDate: '2013-09-01',

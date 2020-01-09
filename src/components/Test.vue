@@ -1,55 +1,6 @@
 <template>
  <div class="MyFindPage">
     <div class="MyFindTop"><Top></Top></div>
-    <div class="MyFindAdd"><el-button type="info" style="width:100%" @click="dialogFormVisible = true">添加</el-button></div>
-    <el-dialog title="添加求职信息" :visible.sync="dialogFormVisible" width="50%">
-      <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
-      @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
-      <el-form>
-      <el-form-item label="薪资" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
-          <el-input v-model="requestAddUrlParam.salary" auto-complete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="联系方式" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
-          <el-input v-model="requestAddUrlParam.contactWay" auto-complete="off"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="addMyFind()">确 定</el-button>
-      </div>
-    </el-dialog>
-    <el-dialog title="编辑求职信息" :visible.sync="dialogFormVisibleUpdate" width="50%">
-      <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
-      @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
-      <el-form>
-      <el-form-item label="薪资" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
-          <el-input v-model="requestAddUrlParam.salary" auto-complete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="联系方式" :label-width="'80px'" style="float:left;margin:10px 15px 10px 0px">
-          <el-input v-model="requestAddUrlParam.contactWay" auto-complete="off"></el-input>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisibleUpdate = false">取 消</el-button>
-        <el-button type="primary" @click="updateMyFind()">确 定</el-button>
-      </div>
-    </el-dialog>
-    <el-dialog title="删除求职信息" :visible.sync="dialogFormVisibleDelete" width="50%">
-       <el-button @click="dialogFormVisibleDelete = false">取 消</el-button>
-       <el-button type="primary" @click="deleteMyFind()">确 定</el-button>
-    </el-dialog>
-    <div class="MyFindContext">
-      <div class="MyFindRedact">
-      <ul>
-        <li v-for="it in responseSelectData.list" :key="it.id">
-          <el-button type="primary" style="margin-top:25px;margin-left:0px" @click="updateMyFindDialog(it.id)">编辑</el-button>
-          <el-button type="danger" style="margin-top:25px;margin-left:0px" @click="deleteMyFindDialog(it.id)">删除</el-button>
-        </li>
-      </ul>
-      </div>
-      <Context v-bind:list="this.responseSelectData.list" v-bind:total="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
-      <div class="MyFindBottom"><Bottom></Bottom></div>
-    </div>
   </div>
 </template>
 

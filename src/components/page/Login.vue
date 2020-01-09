@@ -15,6 +15,7 @@
           </el-input>
            <el-button type="primary" style="width:100%;position:relative;top:20%;margin:0" v-on:click="login()">登录</el-button>
            <router-link to="/sign"><el-button type="primary" style="width:100%;position:relative;top:21%;margin:0" >注册</el-button></router-link>
+           <router-link to="/update-password"><el-button type="primary" style="width:100%;position:relative;top:22%;margin:0" >修改密码</el-button></router-link>
         </div>
       </div>
     </div>

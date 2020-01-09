@@ -1,6 +1,5 @@
 <template>
   <div class="UpdatePasswordPage">
-    <div><Top></Top></div>
     <div class="UpdatePasswordUpdatePassword">
       <div class="Advertizement">
          <span class="icon iconfont icon-shixijingli" style="top:25%"></span><h2 style="top:25%">寻找兼职</h2>
@@ -10,28 +9,68 @@
       <div class="UpdatePassword">
         <div class="Top"><h1>修改密码</h1></div>
         <div class="Context">
-          <el-input placeholder="原始密码" v-model="userName" clearable style="position:relative;top:2%">
+          <el-input placeholder="账号" v-model="userName" clearable style="position:relative;top:2%">
           </el-input>
-          <el-input placeholder="新密码" v-model="password" show-password clearable style="position:relative;top:10%">
+          <el-input placeholder="原始密码" v-model="oldPassword" show-password clearable style="position:relative;top:10%">
           </el-input>
-          <el-input placeholder="确认新密码" v-model="password" show-password clearable style="position:relative;top:18%">
+          <el-input placeholder="新密码" v-model="newPassword" show-password clearable style="position:relative;top:18%">
           </el-input>
-           <el-button type="primary" style="width:100%;position:relative;top:33%;margin:0" >确定</el-button>
+          <el-input placeholder="确认新密码" v-model="affirmPassword" show-password clearable style="position:relative;top:25%">
+          </el-input>
+           <el-button type="primary" style="width:100%;position:relative;top:33%;margin:0" @click="updatePassword()">确定</el-button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { clearLocalStorage, removeName, removeToken, removeJurisdiction, removeImageUrl } from '../../utils/auth'
+import { Message } from 'element-ui'
+
 export default {
   data() {
     return {
-      msg: 'UpdatePassword',
-      userName: 'admin',
-      password: 'admin'
+      msg: '',
+      userName: '',
+      oldPassword: '',
+      newPassword: '',
+      affirmPassword: ''
     }
   },
   methods: {
+    updatePassword: function() {
+      // eslint-disable-next-line eqeqeq
+      if (this.newPassword == this.affirmPassword) {
+        this.$axios.post(
+          'api/api/sign/update-password',
+          {
+            name: this.userName,
+            oldPassword: this.oldPassword,
+            newPassword: this.newPassword
+          },
+          response => {
+          // eslint-disable-next-line eqeqeq
+            if (response.code == '200') {
+              removeName()
+              removeToken()
+              removeImageUrl()
+              removeJurisdiction()
+              this.$store.commit('SET_NAME', '')
+              this.$store.commit('SET_TOKEN', '')
+              this.$store.commit('SET_JURISDICTION', '')
+              this.$store.commit('SET_IMAGEURL', '')
+              clearLocalStorage()
+              this.$router.push({ path: '/' })
+              Message.success(response.message)
+            }
+          }
+        )
+      } else {
+        Message.error('新密码两次输入不一致')
+      }
+    }
+  },
+  computed: {
   }
 }
 </script>
