@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
-const TokenKey = 'admin'
-const UserKey = 'user'
+const TokenKey = 'tokenKey'
+const UserKey = 'nameKey'
 const JurisdictionKey = 'jurisdictionkey'
 const ImageUrlKey = 'imageUrlKey'
 const systemKey = 'window.config.systemKey' || 'system'

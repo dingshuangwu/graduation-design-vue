@@ -105,7 +105,7 @@ div.ResumeContextDivMyImage img {
   border-color: gainsboro;
 }
 
-h3.Sex {
+h3.SexMan {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -115,6 +115,20 @@ h3.Sex {
   margin-left: 3px;
   font-weight: 100;
   background-color: #409EFF;
+  color: white;
+  border-radius: 15px;
+  padding: 3px 6px 3px 5px;
+}
+h3.SexWoman{
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  top: -1px;
+  line-height: 100%;
+  margin-left: 3px;
+  font-weight: 100;
+  background-color: rgb(245, 160, 174);
   color: white;
   border-radius: 15px;
   padding: 3px 6px 3px 5px;

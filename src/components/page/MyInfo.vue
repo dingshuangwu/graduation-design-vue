@@ -4,7 +4,7 @@
     <div class="InfoContext">
       <div class="InfoContextDiv">
         <div class="InfoContextDivMyInfo">
-          <div style="text-align:left;line-height:30px"><span class="icon iconfont icon-shuaxin2" style="cursor: pointer" @click="this.getUserAllInfo()"></span><p style="font-size:10px ;min-width:200px">最后一次更新：{{responseParam.lastModifyDate}}</p></div>
+          <div style="text-align:left;line-height:30px"><span class="icon iconfont icon-shuaxin2" style="cursor: pointer" @click="getUserAllInfo()"></span><p style="font-size:10px ;min-width:200px">最后一次更新：{{responseParam.lastModifyDate}}&nbsp;</p></div>
           <div style="text-align:left">
             <h2>{{this.responseParam.name}}&nbsp;</h2>
             <h3 v-if="this.responseParam.sex=='man'" class="SexMan">♂</h3>
@@ -27,25 +27,31 @@
       <div class="InfoContextDiv">
          <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>个人介绍:</h3></div>
          <div style="height:68%;width:100%;overflow:auto;text-align:left">
-          <pre>{{this.getSelfIntroduction}}</pre>
+          <pre>{{this.getSelfIntroductionDisplay}}</pre>
          </div>
       </div>
       <div class="InfoContextDiv">
         <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>教育经历:</h3></div>
         <div style="text-align:left;line-height:40px;margin-left:0%;">
-        <span class="icon iconfont icon-shijian3"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p><span class="icon iconfont icon-shijian3" style="margin-left:3%"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p><span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:3%"></span><p style="min-width:120px">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
+          <span class="icon iconfont icon-shijian3"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p>
+          <span class="icon iconfont icon-shijian3" style="margin-left:0"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p>
+          <span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:0"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
         </div>
         <div style="text-align:left;line-height:40px;margin-left:0%;">
-        <span class="icon iconfont icon-shijian3"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p><span class="icon iconfont icon-shijian3" style="margin-left:3%"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p><span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:3%"></span><p style="min-width:120px">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
+          <span class="icon iconfont icon-shijian3"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p>
+          <span class="icon iconfont icon-shijian3" style="margin-left:0"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p>
+          <span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:0"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
         </div>
         <div style="text-align:left;line-height:40px;margin-left:0%;">
-        <span class="icon iconfont icon-shijian3"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p><span class="icon iconfont icon-shijian3" style="margin-left:3%"></span><p style="min-width:85px">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p><span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:3%"></span><p style="min-width:120px">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
+          <span class="icon iconfont icon-shijian3"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p>
+          <span class="icon iconfont icon-shijian3" style="margin-left:0"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p>
+          <span class="icon iconfont icon-xuexiaoqingkuang" style="margin-left:0"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstSchool}}&nbsp;</p>
         </div>
       </div>
       <div class="InfoContextDiv">
         <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>个人签名:</h3></div>
         <div style="height:68%;width:100%;overflow:auto;">
-          <pre>{{this.getSelfSignature}}</pre>
+          <pre>{{this.getSelfSignatureDisplay}}</pre>
         </div>
       </div>
     </div>
@@ -60,7 +66,6 @@ export default {
     return {
       msg: '我的简历',
       responseParam: {
-        id: '',
         name: '丁双伍',
         nation: '汉族',
         // man or 'woman'
@@ -88,7 +93,7 @@ export default {
   components: {
     Bottom
   },
-  method: {
+  methods: {
     getUserAllInfo: function() {
       this.$axios.get(
         'api/api/user-info/all',
@@ -174,10 +179,10 @@ export default {
     }
   },
   computed: {
-    getSelfIntroduction: function() {
+    getSelfIntroductionDisplay: function() {
       return this.responseParam.selfIntroduction.replace(/&kg;/g, ' ').replace(/&hc;/g, '\r\n')
     },
-    getSelfSignature: function() {
+    getSelfSignatureDisplay: function() {
       return this.responseParam.selfSignature.replace(/&kg;/g, ' ').replace(/&hc;/g, '\r\n')
     }
   },

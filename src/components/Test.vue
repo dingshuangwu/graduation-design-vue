@@ -1,6 +1,7 @@
 <template>
  <div class="MyFindPage">
     <div class="MyFindTop"><Top></Top></div>
+    <img src="http://127.0.0.1/images/wk.jpg"/>
   </div>
 </template>
 
