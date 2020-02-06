@@ -12,7 +12,7 @@ import Info from '../static-template/Info'
 export default {
   data() {
     return {
-      msg: ''
+      msg: 'Top'
     }
   },
   components: {
