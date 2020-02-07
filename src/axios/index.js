@@ -83,6 +83,7 @@ http.interceptors.response.use(
       store.commit('SET_JURISDICTION', '')
       store.commit('SET_IMAGEURL', '')
       clearLocalStorage()
+      Message.error(resp.message)
       router.push({ path: '/' })
     }
     if (resp.code > 299) {

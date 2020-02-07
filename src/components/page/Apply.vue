@@ -9,8 +9,8 @@
     <div class="ApplyContext">
       <div class="ApplyUserInfo">
         <ul>
-        <li v-for="it in responseSelectData.list" :key="it.authorId">
-          用户名
+        <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i">
+          by:{{it.authorName}}
         </li>
         </ul>
       </div>
@@ -99,4 +99,5 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import "../../styles/page/Apply.css";
+@import "../../styles/font/font.css"
 </style>
