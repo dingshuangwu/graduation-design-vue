@@ -8,20 +8,20 @@
         :auto-upload="true"
         :show-file-list="false"
       >
-        <el-button slot="trigger" size="small" type="primary">选取图片</el-button>
+        <el-button style="margin-left: 30px;" slot="trigger" size="small" type="primary">选取图片</el-button>
         <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传头像</el-button>
         <!-- <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div> -->
       </el-upload>
     </div>
     <div>
       <br />
-      <el-button type="primary" icon="el-icon-refresh-right" circle @click="rotateRight"></el-button>
+      <el-button type="primary" icon="el-icon-refresh-right" circle @click="rotateRight" style="margin-left: 30px;"></el-button>
       <el-button type="success" icon="el-icon-refresh-left" circle @click="rotateLeft"></el-button>
       <el-button type="danger" icon="el-icon-plus" circle @click="changeScale(1)"></el-button>
       <el-button type="warning" icon="el-icon-minus" circle @click="changeScale(-1)"></el-button>
     </div>
     <div class="cropper">
-      <div class="cropper-content" style="margin-top:60px;margin-left:170px;">
+      <div class="cropper-content" style="margin-top:60px;margin-left:186px;">
         <div class="cropper">
           <vueCropper
             ref="cropper"
@@ -59,6 +59,7 @@
 <script>
 import { VueCropper } from 'vue-cropper'
 import { Message } from 'element-ui'
+import { removeImageUrl, setImageUrl, getImageUrl } from '../../../utils/auth'
 export default {
   data() {
     return {
@@ -111,29 +112,38 @@ export default {
       if (type === 'base64') {
         let This = this
         this.$refs.cropper.getCropBlob(data => {
-          let base64 = ''
-          let reader = new FileReader()
-          reader.onload = function(e) {
-            base64 = e.target.result
-            // eslint-disable-next-line eqeqeq
-            if (base64 && base64 != '') {
-              This.$axios.post(
-                'api/api/upload/upload',
-                {
-                  image: base64
-                },
-                response => {
+          if (data.size / 1024 / 1024 > 2) {
+            Message.error('图片最大为2MB')
+          } else {
+            let base64 = ''
+            let reader = new FileReader()
+            reader.onload = function(e) {
+              base64 = e.target.result
+              // eslint-disable-next-line eqeqeq
+              if (base64 && base64 != '') {
+                This.$axios.post(
+                  'api/api/user-info/set-user-image',
+                  {
+                    imageUrl: base64
+                  },
+                  response => {
                   // eslint-disable-next-line eqeqeq
-                  if (response.code == 200) {
-                    Message.success('上传成功')
+                    if (response.code == 200) {
+                      removeImageUrl()
+                      This.$store.commit('SET_IMAGEURL', '')
+                      setImageUrl(base64)
+                      This.$store.commit('SET_IMAGEURL', base64)
+                      console.log(getImageUrl())
+                      Message.success('上传成功')
+                    }
                   }
-                }
-              )
-            } else {
-              Message.error('图片获取失败')
+                )
+              } else {
+                Message.error('图片获取失败')
+              }
             }
+            reader.readAsDataURL(data)
           }
-          reader.readAsDataURL(data)
         })
       } else {
         Message.error('图片编码失败')

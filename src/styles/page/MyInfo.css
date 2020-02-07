@@ -138,4 +138,8 @@ div.InfoPage {
       line-height:40px;
       margin-left:6%;
   }
+  img.MyInfoImage:hover{
+      cursor: pointer;
+      opacity:0.4;
+  }
   

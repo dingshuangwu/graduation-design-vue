@@ -33,13 +33,16 @@ export function removeJurisdiction() {
   return Cookies.remove(JurisdictionKey)
 }
 export function setImageUrl(imageUrl) {
-  return Cookies.set(ImageUrlKey, imageUrl)
+  // return Cookies.set(ImageUrlKey, imageUrl)
+  return localStorage.setItem(ImageUrlKey, imageUrl)
 }
 export function getImageUrl() {
-  return Cookies.get(ImageUrlKey)
+  // return Cookies.get(ImageUrlKey)
+  return localStorage.getItem(ImageUrlKey)
 }
 export function removeImageUrl() {
-  return Cookies.remove(ImageUrlKey)
+  // return Cookies.remove(ImageUrlKey)
+  return localStorage.setItem(ImageUrlKey, {})
 }
 export function removeCookieRoutes() {
   return Cookies.remove('routes')

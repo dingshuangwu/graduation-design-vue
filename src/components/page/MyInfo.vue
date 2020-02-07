@@ -13,7 +13,7 @@
           <div style="text-align:left;line-height:50px">
             <span class="icon iconfont icon-moban"></span><p style="min-width:34px;">{{this.responseParam.nation}}&nbsp;</p>
             <span class="icon iconfont">&#xe69d;</span><p style="min-width:85px">{{this.responseParam.birthday}}&nbsp;</p>
-           <span class="icon iconfont icon-xueli3"></span><p style="min-width:34px;">{{this.responseParam.educationBackgroun}}&nbsp;</p>
+           <span class="icon iconfont icon-xueli3"></span><p style="min-width:34px;">{{this.responseParam.educationBackground}}&nbsp;</p>
           </div>
           <div style="text-align:left">
             <span class="icon iconfont icon-weixin2"></span><p style="min-width:100px">{{this.responseParam.telephone}}&nbsp;</p>
@@ -21,7 +21,17 @@
           </div>
         </div>
         <div class="InfoContextDivMyImage">
-          <img v-bind:src="require('../../assets/wk.jpg')" alt="无法正常显示">
+          <img class="MyInfoImage" v-bind:src="this.$store.state.imageUrl" alt="无法正常显示" @click="uploadImageVisble = true">
+          <el-dialog
+            title="上传头像"
+            :visible.sync="uploadImageVisble"
+            width="50%"
+            center>
+            <div style="text-align:center;margin:auto"><Upload/></div>
+            <span slot="footer" class="dialog-footer">
+              <el-button type="primary" @click="uploadImageVisble = false" style="float:right">关&nbsp;闭</el-button>
+            </span>
+          </el-dialog>
         </div>
       </div>
       <div class="InfoContextDiv">
@@ -61,6 +71,7 @@
 </template>
 <script>
 import Bottom from '../page-template/Bottom'
+import Upload from '../page-template/static-template/UploadUserImage'
 export default {
   data() {
     return {
@@ -70,7 +81,7 @@ export default {
         nation: '汉族',
         // man or 'woman'
         sex: 'man',
-        educationBackgroun: '本科',
+        educationBackground: '本科',
         telephone: '17856165587',
         email: 'dingshuangwu@vip.qq.com',
         imageUrl: '../../assets/wk.jpg',
@@ -87,11 +98,13 @@ export default {
         educationExperienceThirdSchool: '阜阳师范大学',
         selfSignature: '&hc;&kg;&kg;&kg;终有弱水替沧海，&hc;&hc;&kg;&kg;&kg;再无相思寄巫山。',
         lastModifyDate: '2019-11-23 18:54:20'
-      }
+      },
+      uploadImageVisble: false
     }
   },
   components: {
-    Bottom
+    Bottom,
+    Upload
   },
   methods: {
     getUserAllInfo: function() {

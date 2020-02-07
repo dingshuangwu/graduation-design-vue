@@ -1,6 +1,6 @@
 <template>
  <div class="dropdown">
-        <img  class="avatar-img" src="../../../assets/wk.jpg">
+        <img  class="avatar-img" v-bind:src="this.$store.state.imageUrl" alt="显示错误">
         <div class="dropdown-content">
                 <router-link to="management">管理界面</router-link>
                 <router-link to="my-info">个人资料</router-link>

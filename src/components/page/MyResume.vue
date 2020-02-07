@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="ResumeContextDivMyImage">
-          <img src="../../assets/wk.jpg">
+          <img v-bind:src="this.$store.state.imageUrl">
         </div>
       </div>
       <div class="ResumeContextDiv">
