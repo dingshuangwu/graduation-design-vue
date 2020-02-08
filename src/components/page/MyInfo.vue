@@ -3,6 +3,7 @@
     <div><Top></Top></div>
     <div class="InfoContext">
       <div class="InfoContextDiv">
+        <div class="MyInfoEdictorIcon"><span class="icon iconfont icon-bianji"></span></div>
         <div class="InfoContextDivMyInfo">
           <div style="text-align:left;line-height:30px"><span class="icon iconfont icon-shuaxin2" style="cursor: pointer" @click="getUserAllInfo()"></span><p style="font-size:10px ;min-width:200px">最后一次更新：{{responseParam.lastModifyDate}}&nbsp;</p></div>
           <div style="text-align:left">
@@ -35,13 +36,19 @@
         </div>
       </div>
       <div class="InfoContextDiv">
-         <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>个人介绍:</h3></div>
+         <div style="text-align:left;line-height:40px;margin-left:-5%;">
+           <h3>个人介绍:</h3>
+           <div class="MyInfoEdictorIcon" style="left:81%"><span class="icon iconfont icon-bianji"></span></div>
+         </div>
          <div style="height:68%;width:100%;overflow:auto;text-align:left">
           <pre>{{this.getSelfIntroductionDisplay}}</pre>
          </div>
       </div>
       <div class="InfoContextDiv">
-        <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>教育经历:</h3></div>
+        <div style="text-align:left;line-height:40px;margin-left:-5%;">
+          <h3>教育经历:</h3>
+          <div class="MyInfoEdictorIcon" style="left:81%"><span class="icon iconfont icon-bianji"></span></div>
+        </div>
         <div style="text-align:left;line-height:40px;margin-left:0%;">
           <span class="icon iconfont icon-shijian3"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstStartDate}}&nbsp;</p>
           <span class="icon iconfont icon-shijian3" style="margin-left:0"></span><p style="min-width:165px;margin-right:0">{{this.responseParam.educationExperienceFirstEndDate}}&nbsp;</p>
@@ -59,7 +66,10 @@
         </div>
       </div>
       <div class="InfoContextDiv">
-        <div style="text-align:left;line-height:40px;margin-left:-5%;"><h3>个人签名:</h3></div>
+        <div style="text-align:left;line-height:40px;margin-left:-5%;">
+          <h3>个人签名:</h3>
+          <div class="MyInfoEdictorIcon" style="left:81%"><span class="icon iconfont icon-bianji"></span></div>
+        </div>
         <div style="height:68%;width:100%;overflow:auto;">
           <pre>{{this.getSelfSignatureDisplay}}</pre>
         </div>
@@ -72,6 +82,7 @@
 <script>
 import Bottom from '../page-template/Bottom'
 import Upload from '../page-template/static-template/UploadUserImage'
+import { Message } from 'element-ui'
 export default {
   data() {
     return {
@@ -99,7 +110,13 @@ export default {
         selfSignature: '&hc;&kg;&kg;&kg;终有弱水替沧海，&hc;&hc;&kg;&kg;&kg;再无相思寄巫山。',
         lastModifyDate: '2019-11-23 18:54:20'
       },
-      uploadImageVisble: false
+      requestParam: {
+      },
+      uploadImageVisble: false,
+      infoVisble: false,
+      selfIntroductionVisble: false,
+      educationExperienceVisble: false,
+      selfSignatureVisble: false
     }
   },
   components: {
@@ -115,6 +132,7 @@ export default {
         // eslint-disable-next-line eqeqeq
           if (response.code == 200) {
             this.responseParam = response.data
+            this.requestParam = response.data
             console.log(response)
           }
         }
@@ -134,8 +152,36 @@ export default {
             this.responseParam.telephone = response.data.telephone
             this.responseParam.email = response.data.email
             this.responseParam.imageUrl = response.data.imageUrl
+            this.requestParam.name = response.data.name
+            this.requestParam.nation = response.data.nation
+            this.requestParam.sex = response.data.sex
+            this.requestParam.educationBackground = response.data.educationBackground
+            this.requestParam.telephone = response.data.telephone
+            this.requestParam.email = response.data.email
+            this.requestParam.imageUrl = response.data.imageUrl
             this.responseParam.lastModifyDate = response.data.lastModifyDate
             console.log(response)
+          }
+        }
+      )
+    },
+    setUserInfo: function() {
+      this.$axios.get(
+        'api/api/user-info/set-info',
+        {
+          name: this.requestParam.name,
+          nation: this.requestParam.nation,
+          sex: this.requestParam.sex,
+          birthday: this.requestParam.birthday,
+          educationBackground: this.requestParam.educationBackground,
+          telephone: this.requestParam.telephone,
+          email: this.requestParam.email
+        },
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.getUserInfo()
+            Message.success(response.message)
           }
         }
       )
@@ -148,8 +194,24 @@ export default {
         // eslint-disable-next-line eqeqeq
           if (response.code == 200) {
             this.responseParam.selfIntroduction = response.data.selfIntroduction
+            this.requestParam.selfIntroduction = response.data.selfIntroduction
             this.responseParam.lastModifyDate = response.data.lastModifyDate
             console.log(response)
+          }
+        }
+      )
+    },
+    setSelfIntroduction: function() {
+      this.$axios.get(
+        'api/api/user-info/set-self-introduction',
+        {
+          selfIntroduction: this.requestParam.selfIntroduction
+        },
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.getSelfIntroduction()
+            Message.success(response.message)
           }
         }
       )
@@ -170,8 +232,40 @@ export default {
             this.responseParam.educationExperienceThirdStartDate = response.data.educationExperienceThirdStartDate
             this.responseParam.educationExperienceThirdEndDate = response.data.educationExperienceThirdEndDate
             this.responseParam.educationExperienceThirdSchool = response.data.educationExperienceThirdSchool
+            this.requestParam.educationExperienceFirstStartDate = response.data.educationExperienceFirstStartDate
+            this.requestParam.educationExperienceFirstEndDate = response.data.educationExperienceFirstEndDate
+            this.requestParam.educationExperienceFirstSchool = response.data.educationExperienceFirstSchool
+            this.requestParam.educationExperienceSecondStartDate = response.data.educationExperienceSecondStartDate
+            this.requestParam.educationExperienceSecondEndDate = response.data.educationExperienceSecondEndDate
+            this.requestParam.educationExperienceSecondSchool = response.data.educationExperienceSecondSchool
+            this.requestParam.educationExperienceThirdStartDate = response.data.educationExperienceThirdStartDate
+            this.requestParam.educationExperienceThirdEndDate = response.data.educationExperienceThirdEndDate
+            this.requestParam.educationExperienceThirdSchool = response.data.educationExperienceThirdSchool
             this.responseParam.lastModifyDate = response.data.lastModifyDate
             console.log(response)
+          }
+        }
+      )
+    },
+    setEducationExperience: function() {
+      this.$axios.get(
+        'api/api/user-info/set-education-experience',
+        {
+          educationExperienceFirstStartDate: this.requestParam.educationExperienceFirstStartDate,
+          educationExperienceFirstEndDate: this.requestParam.educationExperienceFirstEndDate,
+          educationExperienceFirstSchool: this.requestParam.educationExperienceFirstSchool,
+          educationExperienceSecondStartDate: this.requestParam.educationExperienceSecondStartDate,
+          educationExperienceSecondEndDate: this.requestParam.educationExperienceSecondEndDate,
+          educationExperienceSecondSchool: this.requestParam.educationExperienceSecondSchool,
+          educationExperienceThirdStartDate: this.requestParam.educationExperienceThirdStartDate,
+          educationExperienceThirdEndDate: this.requestParam.educationExperienceThirdEndDate,
+          educationExperienceThirdSchool: this.educationExperienceThirdSchool
+        },
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.getEducationExperience()
+            Message.success(response.message)
           }
         }
       )
@@ -184,8 +278,24 @@ export default {
         // eslint-disable-next-line eqeqeq
           if (response.code == 200) {
             this.responseParam.selfSignature = response.data.selfSignature
+            this.requestParam.selfSignature = response.data.selfSignature
             this.responseParam.lastModifyDate = response.data.lastModifyDate
             console.log(response)
+          }
+        }
+      )
+    },
+    setSelfSignature: function() {
+      this.$axios.get(
+        'api/api/user-info/set-self-signature',
+        {
+          selfSignature: this.requestParam.selfSignature
+        },
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.getSelfSignature()
+            Message.success(response.message)
           }
         }
       )
