@@ -74,4 +74,14 @@ div.ApplyUserInfo li{
     padding: 0;
     width: 100%;
     height: 90px;
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+span.ApplyIconTop{
+    position: fixed;
+    font-size: 25px;
+    left: 95%;
+    top: 88%;
+    z-index: 999;
 }

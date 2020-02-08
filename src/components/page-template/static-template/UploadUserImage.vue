@@ -59,7 +59,7 @@
 <script>
 import { VueCropper } from 'vue-cropper'
 import { Message } from 'element-ui'
-import { removeImageUrl, setImageUrl, getImageUrl } from '../../../utils/auth'
+import { removeImageUrl, setImageUrl } from '../../../utils/auth'
 export default {
   data() {
     return {
@@ -133,7 +133,6 @@ export default {
                       This.$store.commit('SET_IMAGEURL', '')
                       setImageUrl(base64)
                       This.$store.commit('SET_IMAGEURL', base64)
-                      console.log(getImageUrl())
                       Message.success('上传成功')
                     }
                   }

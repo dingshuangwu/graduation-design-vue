@@ -1,6 +1,7 @@
 <template>
  <div class="FindPage">
     <div class="FindTop"><Top></Top></div>
+    <span v-if="btnFlag" class="icon iconfont icon-top FindIconTop" @click="backTop"></span>
     <div class="FindSelectPage">
       <div class="FindSelect">
         <Select v-bind:select-title="this.selectTitle" @setProvice='setRequestProvice' @setJobType='setRequestJobType' @setCity='setRequestCity' @setJob='setRequestJob'></Select>
@@ -10,7 +11,7 @@
       <div class="FindUserInfo">
         <ul>
         <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i">
-          by:{{it.authorName}}
+          <span class="icon iconfont icon-moban" style="float:left"></span>{{it.authorName}}
         </li>
         </ul>
       </div>
@@ -46,7 +47,8 @@ export default {
         total: Number,
         pageSize: Number,
         list: []
-      }
+      },
+      btnFlag: false
     }
   },
   methods: {
@@ -79,6 +81,28 @@ export default {
           }
         }
       )
+    },
+    // 点击图片回到顶部方法，加计时器是为了过渡顺滑
+    backTop() {
+      const that = this
+      let timer = setInterval(() => {
+        let ispeed = Math.floor(-that.scrollTop / 5)
+        document.documentElement.scrollTop = document.body.scrollTop = that.scrollTop + ispeed
+        if (that.scrollTop === 0) {
+          clearInterval(timer)
+        }
+      }, 16)
+    },
+    // 为了计算距离顶部的高度，当高度大于200显示回顶部图标，小于200则隐藏
+    scrollToTop() {
+      const that = this
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      that.scrollTop = scrollTop
+      if (that.scrollTop > 200) {
+        that.btnFlag = true
+      } else {
+        that.btnFlag = false
+      }
     }
   },
   watch: {
@@ -91,6 +115,10 @@ export default {
   },
   mounted() {
     this.getFind()
+    window.addEventListener('scroll', this.scrollToTop)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.scrollToTop)
   }
 }
 </script>
