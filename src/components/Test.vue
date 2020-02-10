@@ -1,32 +1,39 @@
 <template>
  <div>
-    <Top/>
-    <el-button type="success" @click="centerDialogVisible = true">上传头像</el-button>
+    <el-button type="primary" @click="dialogVisible = true">主要按钮</el-button>
     <el-dialog
-      title="上传头像"
-      :visible.sync="centerDialogVisible"
-      width="50%"
-      center>
-      <div style="text-align:center"><Upload/></div>
+      title="xxxx的简历"
+      :visible.sync="dialogVisible"
+      width="1000px"
+      :before-close="handleClose">
+      <Test v-bind:userName="this.name"></Test>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="centerDialogVisible = false">取 消</el-button>
-        <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
+      <el-button type="primary" @click="handleCancle()">关闭</el-button>
       </span>
     </el-dialog>
  </div>
 </template>
 
 <script>
-import Upload from './page-template/static-template/UploadUserImage'
+import Test from './page-template/static-template/GetSomeBodyResume'
 export default {
   data() {
     return {
-      msg: '文件上传模块',
-      centerDialogVisible: false
+      msg: 'Test',
+      name: 'dingshuangwu',
+      dialogVisible: false
+    }
+  },
+  methods: {
+    handleClose() {
+      this.handleCancle()
+    },
+    handleCancle() {
+      this.dialogVisible = false
     }
   },
   components: {
-    Upload
+    Test
   }
 }
 </script>
