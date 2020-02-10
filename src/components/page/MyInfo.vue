@@ -624,6 +624,7 @@ export default {
       this.infoVisble = false
     },
     handSelfIntroductionConfirm() {
+      // eslint-disable-next-line eqeqeq
       if (this.requestParam.selfIntroduction.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;') != this.responseParam.selfIntroduction) {
         this.setSelfIntroduction()
         this.selfIntroductionVisble = false
@@ -636,6 +637,7 @@ export default {
       this.educationExperienceVisble = false
     },
     handSelfSignatureConfirm() {
+      // eslint-disable-next-line eqeqeq
       if (this.requestParam.selfSignature.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;') != this.responseParam.selfSignature) {
         this.setSelfSignature()
         this.selfSignatureVisble = false
