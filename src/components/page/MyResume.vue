@@ -72,7 +72,7 @@
             <label style="margin-left:6%;margin-right:1%">联系邮箱:</label>
             <el-input
               v-model="requestParam.email"
-              maxlength="20"
+              maxlength="30"
               placeholder="请输入联系邮箱"
               style="width:30%">
             </el-input>
@@ -380,7 +380,7 @@ export default {
           if (response.code == 200) {
             this.responseParam = response.data
             this.requestParam = JSON.parse(JSON.stringify(this.responseParam))
-            this.requestParam.birthday = ''
+            this.requestParam.birthday = JSON.parse(JSON.stringify(this.responseParam.birthday)).replace(/-/g, '')
             this.requestParam.expertise = JSON.parse(JSON.stringify(this.responseParam.expertise)).replace(/&kg;/g, ' ').replace(/&hc;/g, '\n')
             this.requestParam.workExperience = JSON.parse(JSON.stringify(this.responseParam.workExperience)).replace(/&kg;/g, ' ').replace(/&hc;/g, '\n')
             console.log(response)
@@ -405,7 +405,7 @@ export default {
             this.responseParam.email = response.data.email
             this.requestParam.name = JSON.parse(JSON.stringify(response.data.name))
             this.requestParam.sex = JSON.parse(JSON.stringify(response.data.sex))
-            this.requestParam.birthday = ''
+            this.requestParam.birthday = JSON.parse(JSON.stringify(this.responseParam.birthday)).replace(/-/g, '')
             this.requestParam.workTime = JSON.parse(JSON.stringify(response.data.workTime))
             this.requestParam.educationBackground = JSON.parse(JSON.stringify(response.data.educationBackground))
             this.requestParam.area = JSON.parse(JSON.stringify(response.data.area))
@@ -423,7 +423,7 @@ export default {
         {
           name: this.requestParam.name.replace(/\s*/g, ''),
           sex: this.requestParam.sex,
-          birthday: this.getBirthday,
+          birthday: this.requestParam.birthday,
           workTime: this.requestParam.workTime,
           educationBackground: this.requestParam.educationBackground,
           area: this.requestParam.area.replace(/\s*/g, ''),
@@ -562,7 +562,7 @@ export default {
       this.expectedWorkVisble = false
       this.workExperienceVisble = false
       this.requestParam = JSON.parse(JSON.stringify(this.responseParam))
-      this.requestParam.birthday = ''
+      this.requestParam.birthday = JSON.parse(JSON.stringify(this.responseParam.birthday)).replace(/-/g, '')
       this.requestParam.expertise = JSON.parse(JSON.stringify(this.responseParam.expertise)).replace(/&kg;/g, ' ').replace(/&hc;/g, '\n')
       this.requestParam.workExperience = JSON.parse(JSON.stringify(this.responseParam.workExperience)).replace(/&kg;/g, ' ').replace(/&hc;/g, '\n')
     },
@@ -602,14 +602,6 @@ export default {
     },
     getWorkExperienceDisplay: function() {
       return this.responseParam.workExperience.replace(/&kg;/g, ' ').replace(/&hc;/g, '\n')
-    },
-    getBirthday: function() {
-      // eslint-disable-next-line eqeqeq
-      if (this.requestParam.birthday == '') {
-        return this.responseParam.birthday.replace(/-/g, '')
-      } else {
-        return this.requestParam.birthday
-      }
     }
   },
   mounted() {
