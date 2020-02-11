@@ -1,6 +1,13 @@
 <template>
  <div class="FindPage">
     <div class="FindTop"><Top></Top></div>
+    <el-dialog
+      :title="someBodyName+'的信息'"
+      :visible.sync="someBodyInfoVisble"
+      width="1000px"
+      :before-close="handleClose">
+      <SomeBodyInfo v-bind:user-name="this.someBodyName"></SomeBodyInfo>
+    </el-dialog>
     <span v-if="btnFlag" class="icon iconfont icon-top FindIconTop" @click="backTop"></span>
     <div class="FindSelectPage">
       <div class="FindSelect">
@@ -10,7 +17,7 @@
     <div class="FindContext">
       <div class="FindUserInfo">
         <ul>
-        <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i">
+        <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i" @click="setSomeBodyName(it.authorName)">
           <span class="icon iconfont icon-moban" style="float:left"></span>{{it.authorName}}
         </li>
         </ul>
@@ -25,17 +32,21 @@
 import Context from '../page-template/Context'
 import Bottom from '../page-template/Bottom'
 import Select from '../page-template/Select/Select'
+import SomeBodyInfo from '../page-template/static-template/SomeBodyInfo'
 export default {
   name: 'Find',
   components: {
     Context,
     Bottom,
-    Select
+    Select,
+    SomeBodyInfo
   },
   data() {
     return {
       msg: '我的发布',
       selectTitle: '全部',
+      someBodyName: '',
+      someBodyInfoVisble: false,
       requestSelectUrlParam: {
         provice: '',
         city: '',
@@ -103,6 +114,14 @@ export default {
       } else {
         that.btnFlag = false
       }
+    },
+    setSomeBodyName(name) {
+      this.someBodyName = name
+      this.someBodyInfoVisble = true
+    },
+    handleClose() {
+      this.someBodyName = ''
+      this.someBodyInfoVisble = false
     }
   },
   watch: {

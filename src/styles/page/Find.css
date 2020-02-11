@@ -79,6 +79,10 @@ div.FindUserInfo li{
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
+div.FindUserInfo li:hover{
+    cursor: pointer;
+    color: green;
+}
 span.FindIconTop{
     position: fixed;
     font-size: 25px;
