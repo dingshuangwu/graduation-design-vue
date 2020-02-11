@@ -474,7 +474,7 @@ export default {
           birthday: this.requestParam.birthday,
           educationBackground: this.requestParam.educationBackground,
           telephone: this.requestParam.telephone.replace(/\s*/g, ''),
-          email: this.requestParam.replace(/\s*/g, '')
+          email: this.requestParam.email.replace(/\s*/g, '')
         },
         response => {
         // eslint-disable-next-line eqeqeq
