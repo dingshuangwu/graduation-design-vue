@@ -6,7 +6,7 @@
       :visible.sync="someBodyResumeVisble"
       width="1000px"
       :before-close="handleClose">
-      <GetSomeBodyResume v-bind:user-name="this.someBodyName"></GetSomeBodyResume>
+      <SomeBodyResume v-bind:user-name="this.someBodyName"></SomeBodyResume>
     </el-dialog>
     <span v-if="btnFlag" class="icon iconfont icon-top ApplyIconTop" @click="backTop"></span>
     <div class="ApplySelectPage">
@@ -32,14 +32,14 @@
 import Context from '../page-template/Context'
 import Bottom from '../page-template/Bottom'
 import Select from '../page-template/Select/Select'
-import GetSomeBodyResume from '../page-template/static-template/GetSomeBodyResume'
+import SomeBodyResume from '../page-template/static-template/SomeBodyResume'
 export default {
   name: 'Apply',
   components: {
     Context,
     Bottom,
     Select,
-    GetSomeBodyResume
+    SomeBodyResume
   },
   data() {
     return {

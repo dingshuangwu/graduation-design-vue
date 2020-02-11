@@ -74,7 +74,7 @@ export default {
   },
   data() {
     return {
-      msg: 'GetSomeBodyResume',
+      msg: 'SomeBodyResume',
       responseParam: {
         name: '',
         sex: '',
@@ -144,5 +144,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import "../../../styles/page-template/static-template/GetSomeBodyResume.css";
+@import "../../../styles/page-template/static-template/SomeBodyResume.css";
 </style>
