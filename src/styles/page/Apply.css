@@ -78,6 +78,10 @@ div.ApplyUserInfo li{
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
+div.ApplyUserInfo li:hover{
+    cursor: pointer;
+    color: green;
+}
 span.ApplyIconTop{
     position: fixed;
     font-size: 25px;

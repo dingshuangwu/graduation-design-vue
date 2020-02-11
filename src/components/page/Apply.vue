@@ -1,6 +1,13 @@
 <template>
  <div class="ApplyPage">
     <div class="ApplyTop"><Top></Top></div>
+    <el-dialog
+      :title="someBodyName+'的简历'"
+      :visible.sync="someBodyResumeVisble"
+      width="1000px"
+      :before-close="handleClose">
+      <GetSomeBodyResume v-bind:user-name="this.someBodyName"></GetSomeBodyResume>
+    </el-dialog>
     <span v-if="btnFlag" class="icon iconfont icon-top ApplyIconTop" @click="backTop"></span>
     <div class="ApplySelectPage">
       <div class="ApplySelect">
@@ -10,7 +17,7 @@
     <div class="ApplyContext">
       <div class="ApplyUserInfo">
         <ul>
-        <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i">
+        <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i" @click="setSomeBodyName(it.authorName)">
           <span class="icon iconfont icon-moban" style="float:left"></span>{{it.authorName}}
         </li>
         </ul>
@@ -25,17 +32,21 @@
 import Context from '../page-template/Context'
 import Bottom from '../page-template/Bottom'
 import Select from '../page-template/Select/Select'
+import GetSomeBodyResume from '../page-template/static-template/GetSomeBodyResume'
 export default {
   name: 'Apply',
   components: {
     Context,
     Bottom,
-    Select
+    Select,
+    GetSomeBodyResume
   },
   data() {
     return {
       msg: '我的求职',
       selectTitle: '全部',
+      someBodyName: '',
+      someBodyResumeVisble: false,
       requestSelectUrlParam: {
         provice: '',
         city: '',
@@ -103,6 +114,14 @@ export default {
       } else {
         that.btnFlag = false
       }
+    },
+    setSomeBodyName(name) {
+      this.someBodyName = name
+      this.someBodyResumeVisble = true
+    },
+    handleClose() {
+      this.someBodyName = ''
+      this.someBodyResumeVisble = false
     }
   },
   watch: {

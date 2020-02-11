@@ -65,7 +65,6 @@
 </template>
 
 <script>
-import { Message } from 'element-ui'
 export default {
   props: {
     userName: {
@@ -131,14 +130,14 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userName != '' && this.userName) {
         this.getUserInfo()
-        console.log(this.userName)
-      } else {
-        Message.error('访问出错')
       }
     }
   },
   mounted() {
-    alert(this.userName)
+    // eslint-disable-next-line eqeqeq
+    if (this.userName != '' && this.userName) {
+      this.getUserInfo()
+    }
   }
 }
 </script>
