@@ -1,63 +1,60 @@
 <template>
   <div class="ManagementPage">
-      <div class="ManagementTop"><Top></Top></div>
-      <div class="ManagementNav">
-          <ul>
-              <li v-bind:class="{'selected':selected==bar.region_name}" v-for="bar in navBar" :key="bar.code" @click="setClickedRegionName(bar.region_name)">{{bar.name}}</li>
-          </ul>
-      </div>
-      <div class="ManagementContext" v-if="this.selected=='userManagement'">userManagement</div>
-      <div class="ManagementContext" v-else-if="this.selected=='applyManagement'">applyManagement</div>
-      <div class="ManagementContext" v-else-if="this.selected=='publishManagement'">publishManagement</div>
-      <div class="ManagementContext" v-else-if="this.selected=='UserJurisdictionManagement'">UserJurisdictionManagement</div>
-  </div>
+   <div class="ManagementTop"><Top></Top></div>
+    <el-tabs tab-position="left" class="ManagementContext">
+      <el-tab-pane class="ManagementContextPart">
+        <span slot="label" class="ManagementLable">
+            用户权限管理
+        </span>
+        <UserJurisdictionManagement></UserJurisdictionManagement>
+      </el-tab-pane>
+
+      <el-tab-pane  class="ManagementContextPart">
+        <span slot="label" class="ManagementLable">
+            用户信息管理
+        </span>
+        <UserInfoManagement></UserInfoManagement>
+      </el-tab-pane><!--简历、个人信息、发布、请求-->
+
+      <el-tab-pane class="ManagementContextPart">
+          <span slot="label" class="ManagementLable">
+            <el-badge :value="this.messageCount" :max="99" class="item">实名认证管理</el-badge>
+          </span>
+          <UserAuthenticationManagement></UserAuthenticationManagement>
+      </el-tab-pane>
+
+      <el-tab-pane class="ManagementContextPart">
+         <span slot="label" class="ManagementLable">
+            首页图片管理
+          </span>
+        <HomeImageManagement></HomeImageManagement>
+      </el-tab-pane>
+    </el-tabs>
+ </div>
 </template>
 <script>
+import HomeImageManagement from '../management-page/template/HomeImageManagement'
+import UserAuthenticationManagement from '../management-page/template/UserAuthenticationManagement'
+import UserInfoManagement from '../management-page/template/UserInfoManagement'
+import UserJurisdictionManagement from '../management-page/template/UserJurisdictionManagement'
 export default {
+  components: {
+    HomeImageManagement,
+    UserAuthenticationManagement,
+    UserInfoManagement,
+    UserJurisdictionManagement
+  },
   data() {
     return {
       msg: '管理员界面',
-      selected: '',
-      navBar: [
-        {
-          code: 1,
-          region_name: 'userManagement',
-          name: '用户管理'
-        },
-        {
-          code: 2,
-          region_name: 'applyManagement',
-          name: '请求管理'
-        },
-        {
-          code: 3,
-          region_name: 'publishManagement',
-          name: '发布管理'
-        },
-        {
-          code: 4,
-          region_name: 'UserJurisdictionManagement',
-          name: '权限管理'
-        }
-      ],
-      userManagementItems: [],
-      applyManagementItems: [],
-      publishManagementItems: [],
-      userJurisdictionManagementItems: []
+      messageCount: 100
     }
   },
   methods: {
-    setClickedRegionName(val) {
-      this.selected = val
-    }
   },
   mounted() {
-    this.selected = 'userManagement'
   },
   watch: {
-    // selected: function() {
-    //   alert(this.selected)
-    // }
   }
 }
 </script>
