@@ -3,6 +3,13 @@
    <div class="ManagementTop"><Top></Top></div>
     <el-tabs tab-position="left" class="ManagementContext">
       <el-tab-pane class="ManagementContextPart">
+         <span slot="label" class="ManagementLable">
+            首页图片管理
+          </span>
+        <HomeImageManagement></HomeImageManagement>
+      </el-tab-pane>
+
+      <el-tab-pane class="ManagementContextPart">
         <span slot="label" class="ManagementLable">
             用户权限管理
         </span>
@@ -21,13 +28,6 @@
             <el-badge :value="this.messageCount" :max="99" class="item">实名认证管理</el-badge>
           </span>
           <UserAuthenticationManagement></UserAuthenticationManagement>
-      </el-tab-pane>
-
-      <el-tab-pane class="ManagementContextPart">
-         <span slot="label" class="ManagementLable">
-            首页图片管理
-          </span>
-        <HomeImageManagement></HomeImageManagement>
       </el-tab-pane>
     </el-tabs>
  </div>

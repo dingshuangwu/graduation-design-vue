@@ -2,8 +2,8 @@
 <div class="InfoDiv">
     <ul>
     <li><router-link class="InfoA" to="my-resume">我的简历</router-link></li>
-    <li><router-link class="InfoA" to="my-apply">我的求职</router-link></li>
-    <li><router-link class="InfoA" to="my-find">我的招聘</router-link></li>
+    <li v-if="this.$store.state.jurisdiction.myApply==true||this.$store.state.jurisdiction.management==true"><router-link class="InfoA" to="my-apply">我的求职</router-link></li>
+    <li v-if="this.$store.state.jurisdiction.myPublish==true||this.$store.state.jurisdiction.management==true"><router-link class="InfoA" to="my-find">我的招聘</router-link></li>
   </ul>
 </div>
 </template>

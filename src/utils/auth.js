@@ -24,13 +24,13 @@ export function removeToken() {
   return Cookies.remove(TokenKey)
 }
 export function setJurisdiction(jurisdiction) {
-  return Cookies.set(JurisdictionKey, jurisdiction)
+  return localStorage.setItem(JurisdictionKey, jurisdiction)
 }
 export function getJurisdiction() {
-  return Cookies.get(JurisdictionKey)
+  return localStorage.getItem(JurisdictionKey)
 }
 export function removeJurisdiction() {
-  return Cookies.remove(JurisdictionKey)
+  return localStorage.setItem(JurisdictionKey, '')
 }
 export function setImageUrl(imageUrl) {
   // return Cookies.set(ImageUrlKey, imageUrl)
