@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import { setToken, setName, setJurisdiction, setImageUrl } from '../../utils/auth'
+import { setToken, setName, setJurisdiction, setImageUrl, clearLocalStorage } from '../../utils/auth'
 export default {
   data() {
     return {
@@ -34,6 +34,7 @@ export default {
   methods: {
     login: function() {
       localStorage.clear() // 登录前把本地缓存数据删除
+      clearLocalStorage()
       this.$store.commit('SET_NAME', '')// 登录成功后重新获取用户信息
       this.$store.commit('SET_TOKEN', '')
       this.$store.commit('SET_JURISDICTION', '')
