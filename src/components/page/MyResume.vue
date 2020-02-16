@@ -251,11 +251,9 @@
       </div>
     </div>
     <div class="ResumeRightInfo"></div>
-    <div style="clear:both"><Bottom/></div>
   </div>
 </template>
 <script>
-import Bottom from '../page-template/Bottom'
 import { Message } from 'element-ui'
 export default {
   data() {
@@ -591,9 +589,6 @@ export default {
         Message.error('未作出修改')
       }
     }
-  },
-  components: {
-    Bottom
   },
   computed: {
     getExpertiseDisplay: function() {

@@ -23,8 +23,8 @@
         </ul>
       </div>
       <Context v-bind:list="this.responseSelectData.list" v-bind:total="this.responseSelectData.total" v-bind:page-size="this.responseSelectData.pageSize" @pageTurn='setCurrentPage'></Context>
-      <div class="ApplyBottom"><Bottom></Bottom></div>
     </div>
+    <div class="ApplyBottom"><Bottom></Bottom></div>
  </div>
 </template>
 

@@ -263,11 +263,9 @@
       </div>
     </div>
     <div class="InfoRightInfo"></div>
-    <div style="clear:both"><Bottom/></div>
   </div>
 </template>
 <script>
-import Bottom from '../page-template/Bottom'
 import Upload from '../page-template/static-template/UploadUserImage'
 import { Message } from 'element-ui'
 export default {
@@ -408,7 +406,6 @@ export default {
     }
   },
   components: {
-    Bottom,
     Upload
   },
   methods: {

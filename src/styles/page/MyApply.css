@@ -26,6 +26,7 @@ div.MyApplyContext{
     position: relative;
     margin: 0;
     width: 55%;
+    min-height: 720px;
     height: auto;
     left: 15%;
     top:155px;
@@ -59,11 +60,10 @@ div.MyApplyRedact li{
 }
 div.MyApplyBottom{
     display: block;
-    position:absolute;
+    position:relative;
     width:100%;
     height: auto;
     margin: auto;
-    left: 13%;
     margin-top: 25%;
     z-index: 2;
 }

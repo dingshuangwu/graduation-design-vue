@@ -1,9 +1,14 @@
 <template>
-<div><pre>
- <p style="text-align:center;display:inline;color:black">基于o2o的高校学生兼职系统</p>
+  <div class="BottomPage">
+    <pre>
 
-  <pre style="text-align:center;display:inline">联系管理员：e-mail:dingshuangwu@vip.qq.com     QQ：dingshuangwu@vip.qq.com      tel：17856165587</pre>
-  </pre></div>
+
+
+    <p style="text-align:center;display:inline;color:black">基于o2o的高校学生兼职系统</p>
+
+    <pre style="text-align:center;display:inline">联系管理员：e-mail:dingshuangwu@vip.qq.com     QQ：dingshuangwu@vip.qq.com      tel：17856165587</pre>
+    </pre>
+  </div>
 </template>
 <script>
 export default {
