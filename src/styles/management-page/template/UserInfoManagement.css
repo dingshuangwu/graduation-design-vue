@@ -1,0 +1,64 @@
+div.UserInfoManagementPage{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+div.UserInfoManagementCardInfo{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    border-bottom-color: black;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+div.UserInfoManagementCardInfo ul{
+    float: left;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 70%;
+    list-style-type: none;
+}
+div.UserInfoManagementCardInfo ul li{
+    display:inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5%;
+    width: 15%;
+    height: 100%;
+    font-size: 17px;
+    line-height: 200%;
+}
+ul.UserInfoManagementUl{
+    width: 100%;
+    min-height: 360px;
+    padding: 0;
+    margin: 0;
+}
+li.UserInfoManagementLi{
+    width: 100%;
+    padding: 0.3% 0 0.5% 0;
+    margin: 0;
+    border-bottom-width: 1px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+}
+div.UserInfoManagementLiDiv{
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+div.UserInfoManagementLiDiv span{
+    display: inline-block;
+    float: left;
+    width: 10.5%;
+}
+div.UserInfoManagementPageTurn{
+    margin: 3% 0 4% 0;
+    padding: 0 26% 0 0;
+}

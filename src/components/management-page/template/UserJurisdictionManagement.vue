@@ -16,7 +16,7 @@
         maxlength="20"
         size="small"
         v-model="inputName"
-        clearable="true"
+        clearable
         style="width:60%">
       </el-input>
       <el-button type="primary" round style="width:16%;height:80%;margin:0;padding:0" @click="research()">搜索</el-button>
@@ -86,128 +86,9 @@ export default {
   data() {
     return {
       msg: '用户权限管理模块',
-      value: true,
       inputName: '',
       currentPage: 1,
-      responseParam: [
-        {
-          id: '',
-          name: 'dingshuangwu',
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        },
-        {
-          id: '',
-          name: 'dingshuangwu',
-          management: false,
-          publish: true,
-          apply: true,
-          myPublish: true,
-          myApply: true,
-          login: true,
-          infoUpdate: true,
-          resumeUpdate: true
-        }
-      ]
+      responseParam: []
     }
   },
   methods: {
