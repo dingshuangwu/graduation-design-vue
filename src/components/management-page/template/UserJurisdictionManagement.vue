@@ -11,7 +11,7 @@
     </ul>
     <div style="width:30%;height:92%;float:left;padding-top:0.3%">
       <el-input
-        placeholder="查询用户"
+        placeholder="输入关键字"
         prefix-icon="el-icon-search"
         maxlength="20"
         size="small"
