@@ -180,5 +180,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import '../../../styles/management-page/template/UserJurisdictionManagement.css'
+@import '../../../styles/management-page/page/UserJurisdictionManagement.css'
 </style>

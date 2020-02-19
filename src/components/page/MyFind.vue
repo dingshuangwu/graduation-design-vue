@@ -123,18 +123,23 @@ export default {
       this.requestSelectUrlParam.currentPage = val
     },
     addMyFind: function() {
-      this.$axios.get(
-        'api/api/publish/add-my-publish',
-        this.requestAddUrlParam,
-        response => {
+      // eslint-disable-next-line eqeqeq
+      if (this.requestAddUrlParam.job == '' || this.requestAddUrlParam.city == '') {
+        Message.error('请选择城市或职业类型！')
+      } else {
+        this.$axios.get(
+          'api/api/publish/add-my-publish',
+          this.requestAddUrlParam,
+          response => {
           // eslint-disable-next-line eqeqeq
-          if (response.code == '200') {
-            Message.success(response.message)
-            this.getMyFind()
+            if (response.code == '200') {
+              Message.success(response.message)
+              this.getMyFind()
+            }
           }
-        }
-      )
-      this.dialogFormVisible = false
+        )
+        this.dialogFormVisible = false
+      }
     },
     getMyFind: function() {
       this.$axios.get(
@@ -156,18 +161,23 @@ export default {
       this.dialogFormVisibleUpdate = true
     },
     updateMyFind: function() {
-      this.$axios.get(
-        'api/api/publish/update-my-publish',
-        this.requestAddUrlParam,
-        response => {
+      // eslint-disable-next-line eqeqeq
+      if (this.requestAddUrlParam.job == '' || this.requestAddUrlParam.city == '') {
+        Message.error('请选择城市或职业类型！')
+      } else {
+        this.$axios.get(
+          'api/api/publish/update-my-publish',
+          this.requestAddUrlParam,
+          response => {
           // eslint-disable-next-line eqeqeq
-          if (response.code == '200') {
-            Message.success(response.message)
-            this.getMyFind()
+            if (response.code == '200') {
+              Message.success(response.message)
+              this.getMyFind()
+            }
           }
-        }
-      )
-      this.dialogFormVisibleUpdate = false
+        )
+        this.dialogFormVisibleUpdate = false
+      }
     },
     deleteMyFindDialog: function(val) {
       this.deleteId = val

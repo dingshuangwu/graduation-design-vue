@@ -123,18 +123,22 @@ export default {
       this.requestSelectUrlParam.currentPage = val
     },
     addMyApply: function() {
-      this.$axios.get(
-        'api/api/apply/add-my-apply',
-        this.requestAddUrlParam,
-        response => {
+      if (this.requestAddUrlParam.job == '' || this.requestAddUrlParam.city == '') {
+        Message.error('请选择城市或职业类型！')
+      } else {
+        this.$axios.get(
+          'api/api/apply/add-my-apply',
+          this.requestAddUrlParam,
+          response => {
           // eslint-disable-next-line eqeqeq
-          if (response.code == '200') {
-            Message.success(response.message)
-            this.getMyApply()
+            if (response.code == '200') {
+              Message.success(response.message)
+              this.getMyApply()
+            }
           }
-        }
-      )
-      this.dialogFormVisible = false
+        )
+        this.dialogFormVisible = false
+      }
     },
     getMyApply: function() {
       this.$axios.get(
@@ -156,18 +160,22 @@ export default {
       this.dialogFormVisibleUpdate = true
     },
     updateMyApply: function() {
-      this.$axios.get(
-        'api/api/apply/update-my-apply',
-        this.requestAddUrlParam,
-        response => {
+      if (this.requestAddUrlParam.job == '' || this.requestAddUrlParam.city == '') {
+        Message.error('请选择城市或职业类型！')
+      } else {
+        this.$axios.get(
+          'api/api/apply/update-my-apply',
+          this.requestAddUrlParam,
+          response => {
           // eslint-disable-next-line eqeqeq
-          if (response.code == '200') {
-            Message.success(response.message)
-            this.getMyApply()
+            if (response.code == '200') {
+              Message.success(response.message)
+              this.getMyApply()
+            }
           }
-        }
-      )
-      this.dialogFormVisibleUpdate = false
+        )
+        this.dialogFormVisibleUpdate = false
+      }
     },
     deleteMyApplyDialog: function(val) {
       this.deleteId = val

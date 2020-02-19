@@ -174,20 +174,20 @@ export default {
       this.responseUserPublish = []
     },
     clickUserInfo: function(id) {
+      // todo 获取信息
       this.userInfoVisble = true
-      alert(id)
     },
     clickUserResume: function(id) {
+      // todo 获取信息
       this.userResumeVisble = true
-      alert(id)
     },
     clickUserApply: function(id) {
+      // todo 获取信息
       this.userApplyVisble = true
-      alert(id)
     },
     clickUserPublish: function(id) {
+      // todo 获取信息
       this.userPublishVisble = true
-      alert(id)
     }
   },
   watch: {
@@ -203,5 +203,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import '../../../styles/management-page/template/UserInfoManagement.css'
+@import '../../../styles/management-page/page/UserInfoManagement.css'
 </style>

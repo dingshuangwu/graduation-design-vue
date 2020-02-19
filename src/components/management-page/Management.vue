@@ -33,10 +33,10 @@
  </div>
 </template>
 <script>
-import HomeImageManagement from '../management-page/template/HomeImageManagement'
-import UserAuthenticationManagement from '../management-page/template/UserAuthenticationManagement'
-import UserInfoManagement from '../management-page/template/UserInfoManagement'
-import UserJurisdictionManagement from '../management-page/template/UserJurisdictionManagement'
+import HomeImageManagement from '../management-page/page/HomeImageManagement'
+import UserAuthenticationManagement from '../management-page/page/UserAuthenticationManagement'
+import UserInfoManagement from '../management-page/page/UserInfoManagement'
+import UserJurisdictionManagement from '../management-page/page/UserJurisdictionManagement'
 export default {
   components: {
     HomeImageManagement,

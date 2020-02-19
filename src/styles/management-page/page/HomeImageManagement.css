@@ -1,0 +1,8 @@
+div.HomeImageManagementPage{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 500px;
+
+    background-color: red;
+}
