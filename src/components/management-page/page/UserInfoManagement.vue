@@ -1,96 +1,100 @@
 <template>
-<div class="UserInfoManagementPage">
-  <el-dialog
-    title="个人资料"
-    :visible.sync="userInfoVisble"
-    width="70%"
-    :before-close="handleClose"
-    append-to-body
-    center = true>
-    <span>userInfo</span>
-  </el-dialog>
-  <el-dialog
-    title="简历信息"
-    :visible.sync="userResumeVisble"
-    width="70%"
-    :before-close="handleClose"
-    append-to-body
-    center = true>
-    <span>userResume</span>
-  </el-dialog>
-  <el-dialog
-    title="求职信息"
-    :visible.sync="userApplyVisble"
-    width="70%"
-    :before-close="handleClose"
-    append-to-body
-    center = true>
-    <span>userApply</span>
-  </el-dialog>
-  <el-dialog
-    title="招聘信息"
-    :visible.sync="userPublishVisble"
-    width="70%"
-    :before-close="handleClose"
-    append-to-body
-    center = true>
-    <span>userPublish</span>
-  </el-dialog>
-  <div class="UserInfoManagementCardInfo">
-    <ul>
-      <li>用户</li>
-      <li>个人资料</li>
-      <li>简历信息</li>
-      <li>求职信息</li>
-      <li>招聘信息</li>
+  <div class="UserInfoManagementPage">
+    <el-dialog
+      title="个人资料"
+      :visible.sync="userInfoVisble"
+      width="70%"
+      :before-close="handleClose"
+      append-to-body
+      center>
+      <UserInfo v-bind:user-id="this.userId"></UserInfo>
+    </el-dialog>
+    <el-dialog
+      title="简历信息"
+      :visible.sync="userResumeVisble"
+      width="70%"
+      :before-close="handleClose"
+      append-to-body
+      center>
+      <UserResume v-bind:user-id="this.userId"></UserResume>
+    </el-dialog>
+    <el-dialog
+      title="求职信息"
+      :visible.sync="userApplyVisble"
+      width="70%"
+      :before-close="handleClose"
+      append-to-body
+      center>
+      <UserApply v-bind:user-id="this.userId"></UserApply>
+    </el-dialog>
+    <el-dialog
+      title="招聘信息"
+      :visible.sync="userPublishVisble"
+      width="70%"
+      :before-close="handleClose"
+      append-to-body
+      center>
+      <UserPublish v-bind:user-id="this.userId"></UserPublish>
+    </el-dialog>
+    <div class="UserInfoManagementCardInfo">
+      <ul>
+        <li>用户</li>
+        <li>个人资料</li>
+        <li>简历信息</li>
+        <li>求职信息</li>
+        <li>招聘信息</li>
+      </ul>
+      <div style="width:30%;height:92%;float:left;padding-top:0.3%">
+        <el-input
+          placeholder="输入关键字"
+          prefix-icon="el-icon-search"
+          maxlength="20"
+          size="small"
+          v-model="inputName"
+          clearable
+          style="width:60%">
+        </el-input>
+        <el-button type="primary" round style="width:16%;height:80%;margin:0;padding:0" @click="research()">搜索</el-button>
+        <el-button type="success" round style="width:16%;height:80%;margin:0;padding:0" @click="reset()">重置</el-button>
+      </div>
+    </div>
+    <ul class="UserInfoManagementUl" v-if="this.responseParam.total>0">
+      <li v-for="(it,i) in this.responseParam.list" :key="i" class="UserInfoManagementLi">
+        <div class="UserInfoManagementLiDiv">
+          <span>{{it.name}}</span>
+          <span>
+          <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserInfo(it.id)">查 看</el-button>
+          </span>
+          <span>
+            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserResume(it.id)">查 看</el-button>
+          </span>
+          <span>
+            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserApply(it.id)">查 看</el-button>
+          </span>
+          <span>
+            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserPublish(it.id)">查 看</el-button>
+          </span>
+        </div>
+        <div>&nbsp;</div>
+      </li>
     </ul>
-    <div style="width:30%;height:92%;float:left;padding-top:0.3%">
-      <el-input
-        placeholder="输入关键字"
-        prefix-icon="el-icon-search"
-        maxlength="20"
-        size="small"
-        v-model="inputName"
-        clearable
-        style="width:60%">
-      </el-input>
-      <el-button type="primary" round style="width:16%;height:80%;margin:0;padding:0" @click="research()">搜索</el-button>
-      <el-button type="success" round style="width:16%;height:80%;margin:0;padding:0" @click="reset()">重置</el-button>
+    <div style="margin:0;padding:5% 30% 5% 0;font-size:15px" v-else>暂无满足条件的用户</div>
+    <div class="UserInfoManagementPageTurn" v-if="this.responseParam.total>10">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :current-page.sync="currentPage"
+        :total="responseParam.total">
+      </el-pagination>
     </div>
   </div>
-  <ul class="UserInfoManagementUl" v-if="this.responseParam.total>0">
-    <li v-for="(it,i) in this.responseParam.list" :key="i" class="UserInfoManagementLi">
-      <div class="UserInfoManagementLiDiv">
-        <span>{{it.name}}</span>
-        <span>
-         <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserInfo(it.id)">查 看</el-button>
-        </span>
-        <span>
-          <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserResume(it.id)">查 看</el-button>
-        </span>
-        <span>
-          <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserApply(it.id)">查 看</el-button>
-        </span>
-        <span>
-          <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserPublish(it.id)">查 看</el-button>
-        </span>
-      </div>
-      <div>&nbsp;</div>
-    </li>
-  </ul>
-  <div style="margin:0;padding:5% 30% 5% 0;font-size:15px" v-else>暂无满足条件的用户</div>
-  <div class="UserInfoManagementPageTurn" v-if="this.responseParam.total>10">
-    <el-pagination
-      background
-      layout="prev, pager, next"
-      :current-page.sync="currentPage"
-      :total="responseParam.total">
-    </el-pagination>
-  </div>
-</div>
 </template>
 <script>
 import { Message } from 'element-ui'
+import UserInfo from '../static-template/UserInfo'
+import UserResume from '../static-template/UserResume'
+import UserApply from '../static-template/UserApply'
+import UserPublish from '../static-template/UserPublish'
 export default {
   data() {
     return {
@@ -105,8 +109,15 @@ export default {
       userInfoVisble: false,
       userResumeVisble: false,
       userApplyVisble: false,
-      userPublishVisble: false
+      userPublishVisble: false,
+      userId: ''
     }
+  },
+  components: {
+    UserInfo,
+    UserResume,
+    UserApply,
+    UserPublish
   },
   methods: {
     getUserListAll: function() {
@@ -174,19 +185,19 @@ export default {
       this.responseUserPublish = []
     },
     clickUserInfo: function(id) {
-      // todo 获取信息
+      this.userId = id
       this.userInfoVisble = true
     },
     clickUserResume: function(id) {
-      // todo 获取信息
+      this.userId = id
       this.userResumeVisble = true
     },
     clickUserApply: function(id) {
-      // todo 获取信息
+      this.userId = id
       this.userApplyVisble = true
     },
     clickUserPublish: function(id) {
-      // todo 获取信息
+      this.userId = id
       this.userPublishVisble = true
     }
   },

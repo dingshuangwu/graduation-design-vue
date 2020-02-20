@@ -57,7 +57,7 @@ export default {
               removeJurisdiction()
               this.$store.commit('SET_NAME', '')
               this.$store.commit('SET_TOKEN', '')
-              this.$store.commit('SET_JURISDICTION', '')
+              this.$store.commit('SET_JURISDICTION', {})
               this.$store.commit('SET_IMAGEURL', '')
               clearLocalStorage()
               this.$router.push({ path: '/' })

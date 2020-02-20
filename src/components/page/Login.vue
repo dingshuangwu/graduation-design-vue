@@ -37,7 +37,7 @@ export default {
       clearLocalStorage()
       this.$store.commit('SET_NAME', '')// 登录成功后重新获取用户信息
       this.$store.commit('SET_TOKEN', '')
-      this.$store.commit('SET_JURISDICTION', '')
+      this.$store.commit('SET_JURISDICTION', {})
       this.$store.commit('SET_IMAGEURL', '')
       this.$axios.post(
         'api/api/login/login',

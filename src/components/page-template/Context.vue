@@ -19,7 +19,7 @@
           </div>
         </li>
     </ul>
-  <div class="PageTurn">
+  <div class="PageTurn" v-if="getSize>10&&list&&typeof (list) != 'undefined'">
     <el-pagination
       background
       :current-page.sync="currentPage"
