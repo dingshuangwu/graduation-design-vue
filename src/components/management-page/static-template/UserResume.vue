@@ -655,6 +655,14 @@ export default {
     if (this.userId != '') {
       this.getMyResumeAll()
     }
+  },
+  watch: {
+    userId: function() {
+      // eslint-disable-next-line eqeqeq
+      if (this.userId != '') {
+        this.getMyResumeAll()
+      }
+    }
   }
 }
 </script>

@@ -1,0 +1,124 @@
+div.MyPublishPage{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+div.MyPublishContext{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height: auto;
+}
+div.MyPublishContextContext{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 90%;
+}
+ul.MyPublishContextContextUl{
+    display:block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style-type:none;
+
+}
+ul.MyPublishContextContextUl p{
+    margin: 0;
+    padding: 3% 0 3% 0;
+}
+ul.MyPublishContextContextUl li{
+    display:block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    border-bottom-color: grey;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+div.MyPublishRedact{
+    display: inline-block;
+    position:relative;
+    height: auto;
+    width: 8%;
+    margin: 0;
+    padding: 0;
+    float: right;
+
+    background-color:white;
+}
+div.MyPublishRedact ul{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: block;
+    list-style-type:none;
+    top:1.5px;
+}
+div.MyPublishRedact li{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 77px;
+}
+div.UserPublishPageTurn{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-top: grey 1px solid;
+    margin-top: 2%;
+    padding-top: 1%;
+    text-align: center;
+}
+.fontArea {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    color: yellowgreen;
+    text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+}
+.fontContext {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    color: yellowgreen;
+    text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+}
+.fontSalary{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    color: yellowgreen;
+    text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+}
+.fontContactWay {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 24%;
+    color: yellowgreen;
+    text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+}

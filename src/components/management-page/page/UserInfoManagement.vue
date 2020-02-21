@@ -1,7 +1,7 @@
 <template>
   <div class="UserInfoManagementPage">
     <el-dialog
-      title="个人资料"
+      :title="userName+'的个人资料'"
       :visible.sync="userInfoVisble"
       width="70%"
       :before-close="handleClose"
@@ -10,7 +10,7 @@
       <UserInfo v-bind:user-id="this.userId"></UserInfo>
     </el-dialog>
     <el-dialog
-      title="简历信息"
+      :title="userName+'的简历信息'"
       :visible.sync="userResumeVisble"
       width="70%"
       :before-close="handleClose"
@@ -19,7 +19,7 @@
       <UserResume v-bind:user-id="this.userId"></UserResume>
     </el-dialog>
     <el-dialog
-      title="求职信息"
+      :title="userName+'的求职信息'"
       :visible.sync="userApplyVisble"
       width="70%"
       :before-close="handleClose"
@@ -28,7 +28,7 @@
       <UserApply v-bind:user-id="this.userId"></UserApply>
     </el-dialog>
     <el-dialog
-      title="招聘信息"
+      :title="userName+'的招聘信息'"
       :visible.sync="userPublishVisble"
       width="70%"
       :before-close="handleClose"
@@ -63,16 +63,16 @@
         <div class="UserInfoManagementLiDiv">
           <span>{{it.name}}</span>
           <span>
-          <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserInfo(it.id)">查 看</el-button>
+          <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserInfo(it.id,it.name)">查 看</el-button>
           </span>
           <span>
-            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserResume(it.id)">查 看</el-button>
+            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserResume(it.id,it.name)">查 看</el-button>
           </span>
           <span>
-            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserApply(it.id)">查 看</el-button>
+            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserApply(it.id,it.name)">查 看</el-button>
           </span>
           <span>
-            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserPublish(it.id)">查 看</el-button>
+            <el-button type="primary" size="mini" style="margin:0;padding-left:9%;padding-right:9%" @click="clickUserPublish(it.id,it.name)">查 看</el-button>
           </span>
         </div>
         <div>&nbsp;</div>
@@ -110,7 +110,8 @@ export default {
       userResumeVisble: false,
       userApplyVisble: false,
       userPublishVisble: false,
-      userId: ''
+      userId: '',
+      userName: ''
     }
   },
   components: {
@@ -184,20 +185,24 @@ export default {
       this.responseUserApply = []
       this.responseUserPublish = []
     },
-    clickUserInfo: function(id) {
+    clickUserInfo: function(id, name) {
       this.userId = id
+      this.userName = name
       this.userInfoVisble = true
     },
-    clickUserResume: function(id) {
+    clickUserResume: function(id, name) {
       this.userId = id
+      this.userName = name
       this.userResumeVisble = true
     },
-    clickUserApply: function(id) {
+    clickUserApply: function(id, name) {
       this.userId = id
+      this.userName = name
       this.userApplyVisble = true
     },
-    clickUserPublish: function(id) {
+    clickUserPublish: function(id, name) {
       this.userId = id
+      this.userName = name
       this.userPublishVisble = true
     }
   },

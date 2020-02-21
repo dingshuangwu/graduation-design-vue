@@ -6,7 +6,7 @@ div.ManagementPage{
     margin: 0;
     padding: 0;
 
-    background-color: white;
+    background-color: whitesmoke;
 }
 
 div.ManagementTop{
@@ -28,7 +28,7 @@ div.ManagementContext{
     left: 5%;
     z-index: 998;
     
-    background-color: gold;
+    background-color: rgb(212, 211, 211);
 }
 
 span.ManagementLable{
