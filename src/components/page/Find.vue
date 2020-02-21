@@ -15,9 +15,16 @@
       </div>
     </div>
     <div class="FindContext">
-      <div class="FindUserInfo">
+      <div class="FindUserInfo" v-if="typeof (this.$store.state.token) != 'undefined'&&this.$store.state.token!=null&&this.$store.state.token!=''">
         <ul>
         <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i" @click="setSomeBodyName(it.authorName)">
+          <span class="icon iconfont icon-moban" style="float:left"></span>{{it.authorName}}
+        </li>
+        </ul>
+      </div>
+      <div class="FindUserInfoNoToken" v-else>
+        <ul>
+        <li class="fontAuthorName" v-for="(it,i) in responseSelectData.list" :key="i">
           <span class="icon iconfont icon-moban" style="float:left"></span>{{it.authorName}}
         </li>
         </ul>

@@ -7,7 +7,10 @@
                 <router-link to="exit-user">退出登录</router-link>
                 <router-link to="management" v-if="this.$store.state.jurisdiction.management==true" style="color:red">管理员界面</router-link>
         </div>
-       <router-link to="sign"  style="margin:0;padding:14% 0 0 0;" v-else><el-button type="primary" size="mini">注册</el-button></router-link>
+        <div v-else style="display:inline-flex;margin:0;padding:0;">
+          <router-link to="login" style="margin:0;padding:7% 5px 0 0;"><el-button type="primary" size="mini">登录</el-button></router-link>
+          <router-link to="sign"  style="margin:0;padding:7% 0 0 0;"><el-button type="success" size="mini">注册</el-button></router-link>
+        </div>
 </div>
 </template>
 <script>
