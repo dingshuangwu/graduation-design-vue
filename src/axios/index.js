@@ -38,7 +38,8 @@ function apiAxios(method, url, params, response) {
 http.interceptors.request.use(config => {
   const token = store.state.token
   const name = store.state.name
-  if (token && name) {
+  // eslint-disable-next-line eqeqeq
+  if (token != null && token != '' && typeof (token) != 'undefined' && name) {
     config.headers['Authorization'] = token
     config.headers['token'] = token
     config.headers['name'] = name

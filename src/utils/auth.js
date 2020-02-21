@@ -27,7 +27,16 @@ export function setJurisdiction(jurisdiction) {
   return Cookies.set(JurisdictionKey, jurisdiction)
 }
 export function getJurisdiction() {
-  return Cookies.get(JurisdictionKey)
+  if (typeof (Cookies.get(TokenKey)) === 'undefined') {
+    return {
+      apply: false,
+      MyApply: false,
+      MyPublish: false,
+      management: false
+    }
+  } else {
+    return JSON.parse(Cookies.get(JurisdictionKey))
+  }
 }
 export function removeJurisdiction() {
   return Cookies.remove(JurisdictionKey)
