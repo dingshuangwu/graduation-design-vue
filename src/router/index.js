@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '../components/page/HelloWorld'
 import Home from '../components/page/Home'
 import Find from '../components/page/Find'
 import MyFind from '../components/page/MyFind'
@@ -8,12 +7,13 @@ import Apply from '../components/page/Apply'
 import MyApply from '../components/page/MyApply'
 import MyInfo from '../components/page/MyInfo'
 import MyResume from '../components/page/MyResume'
-import MyMessage from '../components/page/MyMessage'
 import Management from '../components/management-page/Management'
 import Sign from '../components/page/Sign'
 import Login from '../components/page/Login'
 import UpdatePassword from '../components/page/UpdatePassword'
 import ExitUser from '../components/page/ExitUser.vue'
+import RealNameAuthentication from '../components/page/RealNameAuthentication.vue'
+import ApplyForManagement from '../components/page/ApplyForManagement.vue'
 import Test from '../components/Test'
 
 Vue.use(Router)
@@ -51,19 +51,9 @@ export default new Router({
       component: MyApply
     },
     {
-      path: '/hello',
-      name: 'Hello',
-      component: HelloWorld
-    },
-    {
       path: '/my-info',
       name: 'MyInfo',
       component: MyInfo
-    },
-    {
-      path: '/my-message',
-      name: 'MyMessage',
-      component: MyMessage
     },
     {
       path: '/my-resume',
@@ -94,6 +84,16 @@ export default new Router({
       path: '/exit-user',
       name: 'ExitUser',
       component: ExitUser
+    },
+    {
+      path: '/real-name-authentication',
+      name: 'RealNameAuthentication',
+      component: RealNameAuthentication
+    },
+    {
+      path: '/apply-for-management',
+      name: 'ApplyForManagement',
+      component: ApplyForManagement
     },
     {
       path: '/test',

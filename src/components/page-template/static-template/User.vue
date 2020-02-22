@@ -5,6 +5,7 @@
                 <router-link to="my-info">个人资料</router-link>
                 <router-link to="update-password">修改密码</router-link>
                 <router-link to="exit-user">退出登录</router-link>
+                <router-link to="apply-for-management" v-if="this.$store.state.jurisdiction.applyForManagement==true&&this.$store.state.jurisdiction.management==false">申请管理员</router-link>
                 <router-link to="management" v-if="this.$store.state.jurisdiction.management==true" style="color:red">管理员界面</router-link>
         </div>
         <div v-else style="display:inline-flex;margin:0;padding:0;">
