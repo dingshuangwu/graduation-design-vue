@@ -13,9 +13,9 @@
           </el-input>
           <el-input placeholder="请输入密码" v-model="password" show-password clearable style="position:relative;top:10%">
           </el-input>
-           <el-button type="primary" style="width:100%;position:relative;top:20%;margin:0" v-on:click="login()">登录</el-button>
-           <router-link to="/sign"><el-button type="primary" style="width:100%;position:relative;top:21%;margin:0" >注册</el-button></router-link>
-           <router-link to="/update-password"><el-button type="primary" style="width:100%;position:relative;top:22%;margin:0" >修改密码</el-button></router-link>
+           <el-button type="primary" style="width:100%;position:relative;top:30%;margin:0" v-on:click="login()">登录</el-button>
+           <router-link to="/sign"><el-button type="primary" style="width:100%;position:relative;top:32%;margin:0" >注册</el-button></router-link>
+           <router-link to="/update-password"><el-button type="primary" style="width:100%;position:relative;top:34%;margin:0" >修改密码</el-button></router-link>
         </div>
       </div>
     </div>

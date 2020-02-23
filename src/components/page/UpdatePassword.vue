@@ -18,6 +18,7 @@
           <el-input placeholder="确认新密码" v-model="affirmPassword" show-password clearable style="position:relative;top:25%">
           </el-input>
            <el-button type="primary" style="width:100%;position:relative;top:33%;margin:0" @click="updatePassword()">确定</el-button>
+           <router-link to="/login"><el-button type="primary" style="width:100%;position:relative;top:35%;margin:0">登录</el-button></router-link>
         </div>
       </div>
     </div>
@@ -40,7 +41,7 @@ export default {
   methods: {
     updatePassword: function() {
       // eslint-disable-next-line eqeqeq
-      if (this.newPassword == this.affirmPassword) {
+      if (this.newPassword == this.affirmPassword && this.oldPassword != this.newPassword) {
         this.$axios.post(
           'api/api/sign/update-password',
           {
@@ -60,13 +61,16 @@ export default {
               this.$store.commit('SET_JURISDICTION', {})
               this.$store.commit('SET_IMAGEURL', '')
               clearLocalStorage()
-              this.$router.push({ path: '/' })
+              this.$router.push({ path: '/login' })
               Message.success(response.message)
             }
           }
         )
+      // eslint-disable-next-line eqeqeq
+      } else if (this.oldPassword == this.newPassword) {
+        Message.error('新密码与旧密码相同！')
       } else {
-        Message.error('新密码两次输入不一致')
+        Message.error('新密码两次输入不一致！')
       }
     }
   },

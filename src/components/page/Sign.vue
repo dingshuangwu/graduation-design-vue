@@ -17,6 +17,7 @@
           </el-input>
            <el-button type="primary" style="width:100%;position:relative;top:33%;margin:0" @click="comparePassword()">注册</el-button>
            <el-button type="primary" style="width:100%;position:relative;top:35%;margin:0" @click="routerTo()">登录</el-button>
+           <router-link to="/update-password"><el-button type="primary" style="width:100%;position:relative;top:37%;margin:0">修改密码</el-button></router-link>
         </div>
       </div>
     </div>
