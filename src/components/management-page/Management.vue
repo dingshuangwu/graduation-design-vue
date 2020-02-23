@@ -21,13 +21,13 @@
             用户信息管理
         </span>
         <UserInfoManagement></UserInfoManagement>
-      </el-tab-pane><!--简历、个人信息、发布、请求-->
+      </el-tab-pane>
 
       <el-tab-pane class="ManagementContextPart">
           <span slot="label" class="ManagementLable">
             <el-badge :value="this.messageCount" :max="99" class="item">实名认证管理</el-badge>
           </span>
-          <UserAuthenticationManagement></UserAuthenticationManagement>
+          <UserAuthenticationManagement @setMessageCount='setMessageCount'></UserAuthenticationManagement>
       </el-tab-pane>
     </el-tabs>
  </div>
@@ -47,10 +47,13 @@ export default {
   data() {
     return {
       msg: '管理员界面',
-      messageCount: 100
+      messageCount: ''
     }
   },
   methods: {
+    setMessageCount: function(val) {
+      this.messageCount = val
+    }
   },
   mounted() {
   },
