@@ -27,7 +27,7 @@ div.RealNameAuthenticationManagementCardInfo ul li{
     margin: 0;
     padding: 0;
     padding-top: 0.5%;
-    width: 19%;
+    width: 20%;
     height: 100%;
     font-size: 17px;
     line-height: 200%;
@@ -35,6 +35,7 @@ div.RealNameAuthenticationManagementCardInfo ul li{
 ul.RealNameAuthenticationManagementUl{
     width: 100%;
     min-height: 360px;
+    height: auto;
     padding: 0;
     margin: 0;
 }
@@ -42,6 +43,8 @@ li.RealNameAuthenticationManagementLi{
     width: 100%;
     padding: 0.3% 0 0.5% 0;
     margin: 0;
+    height: auto;
+    min-height: 130px;
     border-bottom-width: 1px;
     border-bottom-color: grey;
     border-bottom-style: solid;
@@ -55,8 +58,19 @@ div.RealNameAuthenticationManagementLiDiv{
 }
 div.RealNameAuthenticationManagementLiDiv span{
     display: inline-block;
+    position: relative;
+    margin: 0;
+    padding:0;
     float: left;
-    width: 10.5%;
+    width: 14%;
+    height: 100%;
+}
+div.RealNameAuthenticationManagementLiDiv img{
+    margin:0;
+    padding: 0;
+    height: 80%;
+    width: 80%;
+    border: grey 1px solid;
 }
 div.RealNameAuthenticationManagementPageTurn{
     margin: 3% 0 4% 0;

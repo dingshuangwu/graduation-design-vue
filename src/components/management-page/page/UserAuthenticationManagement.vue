@@ -25,44 +25,22 @@
   <ul class="RealNameAuthenticationManagementUl" v-if="this.responseParam.total>0">
     <li v-for="(it,i) in this.responseParam.list" :key="i" class="RealNameAuthenticationManagementLi">
       <div class="RealNameAuthenticationManagementLiDiv">
-        <span>{{it.name}}</span>
-        <span>
-          <el-switch
-            v-model="it.apply"
-            active-color="#13ce66"
-            inactive-color="#ff4949">
-          </el-switch>
+        <span style="line-height:870%">{{it.name}}</span>
+        <span style="padding-top:0.4%">
+          <img :src="it.identityCardFront" alt="获取错误">
         </span>
-        <span>
-          <el-switch
-            v-model="it.publish"
-            active-color="#13ce66"
-            inactive-color="#ff4949">
-          </el-switch>
+        <span style="padding-top:0.4%">
+          <img :src="it.identityCardReverse" alt="获取错误">
         </span>
-        <span>
-          <el-switch
-            v-model="it.myApply"
-            active-color="#13ce66"
-            inactive-color="#ff4949">
-          </el-switch>
+        <span style="padding-top:0.4%">
+          <img :src="it.currentPhoto" alt="获取错误">
         </span>
-        <span>
-          <el-switch
-            v-model="it.myPublish"
-            active-color="#13ce66"
-            inactive-color="#ff4949">
-          </el-switch>
+        <span style="line-height:870%">
+          {{it.applyDate}}
         </span>
-        <span>
-          <el-switch
-            v-model="it.login"
-            active-color="#13ce66"
-            inactive-color="#ff4949">
-          </el-switch>
-        </span>
-        <span style="height:100%;width:6%">
-          <el-button type="primary" size="mini" @click="setJurisdiction(it)">设置</el-button>
+        <span style="line-height:870%;width:20%">
+          <el-button type="success">通 过</el-button><!--通过后，开启用户申请成为管理员的权限以及我的招聘，我的求职、查看求职等权限-->
+          <el-button type="danger">拒 绝</el-button><!--拒绝后将flag置为reject，并且开启用户的实名认证权限 -->
         </span>
       </div>
       <div>&nbsp;</div>
