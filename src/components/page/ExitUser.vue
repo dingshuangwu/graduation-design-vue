@@ -5,7 +5,6 @@
 
 <script>
 import { clearLocalStorage, removeName, removeToken, removeJurisdiction, removeImageUrl } from '../../utils/auth'
-import { Message } from 'element-ui'
 export default {
   name: 'Exit',
   data() {
@@ -31,7 +30,7 @@ export default {
             this.$store.commit('SET_IMAGEURL', '')
             clearLocalStorage()
             this.$router.push({ path: '/' })
-            Message.success('退出成功')
+            console.log(response.message)
           }
           this.$router.push({ path: '/' })
         }

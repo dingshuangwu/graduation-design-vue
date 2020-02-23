@@ -14,7 +14,6 @@ import UpdatePassword from '../components/page/UpdatePassword'
 import ExitUser from '../components/page/ExitUser.vue'
 import RealNameAuthentication from '../components/page/RealNameAuthentication.vue'
 import ApplyForManagement from '../components/page/ApplyForManagement.vue'
-import Test from '../components/Test'
 
 Vue.use(Router)
 
@@ -94,11 +93,6 @@ export default new Router({
       path: '/apply-for-management',
       name: 'ApplyForManagement',
       component: ApplyForManagement
-    },
-    {
-      path: '/test',
-      name: 'Test',
-      component: Test
     }
   ]
 })

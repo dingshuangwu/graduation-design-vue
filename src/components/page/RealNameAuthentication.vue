@@ -40,6 +40,7 @@
 import RealNameAuthenticationUploadImage from '../page-template/static-template/RealNameAuthenticationUploadImage'
 import { uploadicon } from '../../assets/uploadicon'
 import { Message } from 'element-ui'
+import { setJurisdiction, getJurisdiction } from '../../utils/auth'
 export default {
   data() {
     return {
@@ -91,7 +92,7 @@ export default {
       }
     },
     submit: function() {
-      this.$axios.get(
+      this.$axios.post(
         'api/api/user-apply/real-name-authentication',
         {
           identityCardFront: this.identityCardFront,
@@ -102,6 +103,11 @@ export default {
         // eslint-disable-next-line eqeqeq
           if (response.code == 200) {
             Message.success(response.message)
+            let jurisdiction = getJurisdiction()
+            jurisdiction.realNameAuthentication = false
+            setJurisdiction(jurisdiction)
+            this.$router.go(0)
+            this.$router.push({ path: '/my-info' })
           }
         }
       )
