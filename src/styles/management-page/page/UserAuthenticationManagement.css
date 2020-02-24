@@ -72,6 +72,9 @@ div.RealNameAuthenticationManagementLiDiv img{
     width: 80%;
     border: grey 1px solid;
 }
+div.RealNameAuthenticationManagementLiDiv img:hover{
+    cursor: pointer;
+}
 div.RealNameAuthenticationManagementPageTurn{
     margin: 3% 0 4% 0;
     padding: 0 26% 0 0;
