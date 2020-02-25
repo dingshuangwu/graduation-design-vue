@@ -1,6 +1,5 @@
 div.ApplyPage{
-    width: auto;
-    min-width: 1349px;
+    width: 100%;
     min-height: 900px;
     max-height: 2000px;
     margin: 0;

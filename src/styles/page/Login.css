@@ -4,9 +4,6 @@ div.LoginPage{
     margin: 0;
     width: 100%;
     height: auto;
-    min-width: 1349px;
-    min-height: 900px;
-    max-height: 2000px;
   
     background-color:whitesmoke;
   }

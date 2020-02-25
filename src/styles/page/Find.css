@@ -1,7 +1,6 @@
 div.FindPage{
-    width: auto;
+    width: 100%;
     height: auto;
-    min-width: 1349px;
     min-height: 900px;
     max-height: 2000px;
     margin: 0;

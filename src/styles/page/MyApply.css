@@ -1,6 +1,6 @@
 div.MyApplyPage{
-    width: auto;
-    min-width: 1349px;
+    width: 100%;
+    height: auto;
     min-height: 900px;
     max-height: 2000px;
     margin: 0;
@@ -18,7 +18,7 @@ div.MyApplyAdd{
     height: 50px;
     width: 55%;
     min-width: 740px;
-    left: 15%;
+    left: 200px;
     top:150px;
 }
 div.MyApplyContext{

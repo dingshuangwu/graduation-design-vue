@@ -1,7 +1,7 @@
 div.ResumePage {
   display: block;
-  width: auto;
-  min-width: 1349px;
+  width: 100%;
+  height: auto;
   min-height: 900px;
   height: auto;
   margin: 0;

@@ -24,13 +24,32 @@ div.InfoPage {
     min-height: 600px;
     width: 20%;
     margin: 0;
+    padding: 0;
     margin-top: 2%;
     margin-right: 8%;
     float: right;
   
     background-color: yellow;
   }
-  
+  div.InfoRightInfoContext{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    top:-20px;
+
+    background-color: white;
+
+  }
+  div.InfoRightInfoContext p{
+    color: #67C23A;
+    text-shadow: 1px 1px 0 #E4F1FF;
+    font-size: 20px;
+    line-height: 450%;
+    font-weight: 900;
+  }
   div.InfoContextDiv {
     display: block;
     margin: 0;
