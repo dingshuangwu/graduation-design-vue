@@ -9,7 +9,7 @@
       <div class="Sign">
         <div class="Top"><h1>注册</h1></div>
         <div class="Context">
-          <el-input placeholder="请输入账号" v-model="userName" maxlength="20" minlength="3" clearable style="position:relative;top:2%">
+          <el-input placeholder="请输入账号" v-model="userName" maxlength="15" minlength="4" clearable style="position:relative;top:2%">
           </el-input>
           <el-input placeholder="请输入密码" v-model="password" maxlength="20" minlength="6" show-password clearable style="position:relative;top:10%">
           </el-input>
@@ -42,8 +42,8 @@ export default {
       // eslint-disable-next-line eqeqeq
       } else if (this.password.indexOf(' ') != -1) {
         Message.error('密码不能有空格')
-      } else if (this.userName.length > 20 || this.userName < 3) {
-        Message.error('用户名长度应在3~20之间')
+      } else if (this.userName.length > 15 || this.userName.length < 4) {
+        Message.error('用户名长度应在4~15之间')
       } else if (this.password.length > 20 || this.password.length < 6) {
         Message.error('密码长度应在6~20之间')
       } else {
