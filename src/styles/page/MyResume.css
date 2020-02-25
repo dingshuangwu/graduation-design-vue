@@ -13,7 +13,7 @@ div.ResumeContext {
   min-height: 820px;
   width: 65%;
   margin: 0;
-  margin-top: 2%;
+  margin-top: 10%;
   margin-left: 6%;
   float: left;
 }
@@ -24,7 +24,7 @@ div.ResumeRightInfo {
   min-height: 600px;
   width: 20%;
   margin: 0;
-  margin-top: 2%;
+  margin-top: 10%;
   margin-right: 8%;
   float: right;
 

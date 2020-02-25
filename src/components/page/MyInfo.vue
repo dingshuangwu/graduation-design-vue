@@ -262,7 +262,29 @@
         </div>
       </div>
     </div>
-    <div class="InfoRightInfo"></div>
+    <div class="InfoRightInfo" v-if="this.realNameAuthenticationState!='verified'">
+      <router-link to="/real-name-authentication">
+        <div class="InfoRightInfoContext" v-if="this.realNameAuthenticationState=='default'" style="cursor: pointer;">
+          <p style="background-color:#909399">未实名认证！</p>
+        </div>
+      </router-link>
+      <div class="InfoRightInfoContext" v-if="this.realNameAuthenticationState=='applying'"><p style="background-color:#E6A23C">实名认证材料审核中！</p></div>
+      <router-link to="/real-name-authentication">
+       <div class="InfoRightInfoContext" v-if="this.realNameAuthenticationState=='reject'" style="cursor: pointer;">
+         <p style="background-color:#F56C6C">实名认证未通过！</p>
+       </div>
+      </router-link>
+    </div>
+    <div class="InfoRightInfo" v-else>
+      <div class="InfoRightInfoContext"><p style="background-color:#67C23A">已实名认证！</p></div>
+      <router-link to="/apply-for-management">
+        <div class="InfoRightInfoContext" v-if="this.applyForManagement=='default'" style="top:10px;cursor: pointer">
+          <p style="background-color:#909399">申请管理员权限！</p>
+        </div>
+      </router-link>
+      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='appling'" style="top:10px"><p style="background-color:#E6A23C">管理员权限申请中！</p></div>
+      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='verified'" style="top:10px"><p style="background-color:#67C23A">已拥有管理员权限！</p></div>
+    </div>
   </div>
 </template>
 <script>
@@ -398,6 +420,8 @@ export default {
           label: '博士及以上'
         }
       ],
+      realNameAuthenticationState: '',
+      applyForManagement: '',
       uploadImageVisble: false,
       infoVisble: false,
       selfIntroductionVisble: false,
@@ -596,6 +620,34 @@ export default {
         }
       )
     },
+    getRealNameAuthenticationState: function() {
+      let This = this
+      this.$axios.get(
+        'api/api/user-info/get-real-name-authentication-state',
+        {},
+        response => {
+        // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.realNameAuthenticationState = response.data
+            console.log(response)
+            // eslint-disable-next-line eqeqeq
+            if (response.data == 'verified') {
+              This.$axios.get(
+                'api/api/user-info/get-apply-for-management-state',
+                {},
+                response => {
+                  // eslint-disable-next-line eqeqeq
+                  if (response.code == 200) {
+                    This.applyForManagement = response.data
+                    console.log(response)
+                  }
+                }
+              )
+            }
+          }
+        }
+      )
+    },
     handleClose() {
       this.handCancle()
     },
@@ -652,6 +704,7 @@ export default {
   },
   mounted() {
     this.getUserAllInfo()
+    this.getRealNameAuthenticationState()
   }
 }
 </script>

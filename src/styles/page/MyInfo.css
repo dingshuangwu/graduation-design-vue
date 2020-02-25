@@ -13,7 +13,7 @@ div.InfoPage {
     min-height: 820px;
     width: 65%;
     margin: 0;
-    margin-top: 2%;
+    margin-top: 10%;
     margin-left: 6%;
     float: left;
   }
@@ -21,15 +21,17 @@ div.InfoPage {
   div.InfoRightInfo {
     display: block;
     height: auto;
-    min-height: 600px;
     width: 20%;
     margin: 0;
     padding: 0;
-    margin-top: 2%;
+    margin-top: 10%;
     margin-right: 8%;
     float: right;
   
-    background-color: yellow;
+    background-color:  whitesmoke;
+  }
+  div.InfoRightInfo a{
+    text-decoration: none;
   }
   div.InfoRightInfoContext{
     display: block;
@@ -38,13 +40,11 @@ div.InfoPage {
     padding: 0;
     height: auto;
     width: 100%;
-    top:-20px;
-
-    background-color: white;
-
   }
   div.InfoRightInfoContext p{
-    color: #67C23A;
+    margin: 0;
+    padding: 0;
+    color:white;
     text-shadow: 1px 1px 0 #E4F1FF;
     font-size: 20px;
     line-height: 450%;
