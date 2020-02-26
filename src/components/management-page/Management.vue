@@ -29,6 +29,13 @@
           </span>
           <UserAuthenticationManagement @setMessageCount='setMessageCount'></UserAuthenticationManagement>
       </el-tab-pane>
+
+      <el-tab-pane class="ManagementContextPart" v-if="isRoot">
+          <span slot="label" class="ManagementLable" style="color:red">
+            <el-badge :value="this.rootMessageCount" :max="10" class="item">Ⓡ超级管理员</el-badge>
+          </span>
+          <ManagementJurisdiction @setRootMessageCount='setRootMessageCount'></ManagementJurisdiction>
+      </el-tab-pane>
     </el-tabs>
  </div>
 </template>
@@ -37,25 +44,46 @@ import HomeImageManagement from '../management-page/page/HomeImageManagement'
 import UserAuthenticationManagement from '../management-page/page/UserAuthenticationManagement'
 import UserInfoManagement from '../management-page/page/UserInfoManagement'
 import UserJurisdictionManagement from '../management-page/page/UserJurisdictionManagement'
+import ManagementJurisdiction from './root/ManagementJurisdiction'
 export default {
   components: {
     HomeImageManagement,
     UserAuthenticationManagement,
     UserInfoManagement,
-    UserJurisdictionManagement
+    UserJurisdictionManagement,
+    ManagementJurisdiction
   },
   data() {
     return {
       msg: '管理员界面',
-      messageCount: ''
+      messageCount: '',
+      rootMessageCount: '',
+      isRoot: false
     }
   },
   methods: {
     setMessageCount: function(val) {
       this.messageCount = val
+    },
+    setRootMessageCount: function(val) {
+      this.rootMessageCount = val
+    },
+    getIsRoot: function() {
+      this.$axios.post(
+        'api/api/management/is-root',
+        {},
+        response => {
+          // eslint-disable-next-line eqeqeq
+          if (response.code == 200) {
+            this.isRoot = response.data
+            // eslint-disable-next-line eqeqeq
+          }
+        }
+      )
     }
   },
   mounted() {
+    this.getIsRoot()
   },
   watch: {
   }

@@ -51,7 +51,7 @@
               :rows="7"
               placeholder="请输入内容"
               :value="textarea"
-              readonly=true
+              readonly
               style="width:70%;margin:1% 0 0 0">
             </el-input>
           </div>

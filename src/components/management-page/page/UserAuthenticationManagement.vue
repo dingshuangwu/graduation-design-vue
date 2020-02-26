@@ -93,7 +93,6 @@ export default {
         // eslint-disable-next-line eqeqeq
           if (response.code == 200) {
             this.responseParam = response.data
-            console.log(response.data)
           }
         }
       )
@@ -109,7 +108,6 @@ export default {
         // eslint-disable-next-line eqeqeq
           if (response.code == 200) {
             this.responseParam = response.data
-            console.log(response.data)
           }
         }
       )
