@@ -498,27 +498,32 @@ export default {
       )
     },
     setMyResumeExpectedWork: function() {
-      this.$axios.get(
-        'api/api/my-resume/set-expected-work',
-        {
-          expectedWorkFirstJob: this.requestParam.expectedWorkFirstJob.replace(/\s*/g, ''),
-          expectedWorkFirstSalary: this.requestParam.expectedWorkFirstSalary.replace(/\s*/g, ''),
-          expectedWorkFirstArea: this.requestParam.expectedWorkFirstArea.replace(/\s*/g, ''),
-          expectedWorkSecondJob: this.requestParam.expectedWorkSecondJob.replace(/\s*/g, ''),
-          expectedWorkSecondSalary: this.requestParam.expectedWorkSecondSalary.replace(/\s*/g, ''),
-          expectedWorkSecondArea: this.requestParam.expectedWorkSecondArea.replace(/\s*/g, ''),
-          expectedWorkThirdJob: this.requestParam.expectedWorkThirdJob.replace(/\s*/g, ''),
-          expectedWorkThirdSalary: this.requestParam.expectedWorkThirdSalary.replace(/\s*/g, ''),
-          expectedWorkThirdArea: this.requestParam.expectedWorkThirdArea.replace(/\s*/g, '')
-        },
-        response => {
-        // eslint-disable-next-line eqeqeq
-          if (response.code == 200) {
-            this.getMyResumeExpectedWork()
-            Message.success(response.message)
+      // eslint-disable-next-line eqeqeq
+      if (this.requestParam.expectedWorkFirstJob.replace(/\s*/g, '') != '' && this.requestParam.expectedWorkSecondJob.replace(/\s*/g, '') != '' && this.requestParam.expectedWorkThirdJob.replace(/\s*/g, '') != '') {
+        this.$axios.get(
+          'api/api/my-resume/set-expected-work',
+          {
+            expectedWorkFirstJob: this.requestParam.expectedWorkFirstJob.replace(/\s*/g, ''),
+            expectedWorkFirstSalary: this.requestParam.expectedWorkFirstSalary.replace(/\s*/g, ''),
+            expectedWorkFirstArea: this.requestParam.expectedWorkFirstArea.replace(/\s*/g, ''),
+            expectedWorkSecondJob: this.requestParam.expectedWorkSecondJob.replace(/\s*/g, ''),
+            expectedWorkSecondSalary: this.requestParam.expectedWorkSecondSalary.replace(/\s*/g, ''),
+            expectedWorkSecondArea: this.requestParam.expectedWorkSecondArea.replace(/\s*/g, ''),
+            expectedWorkThirdJob: this.requestParam.expectedWorkThirdJob.replace(/\s*/g, ''),
+            expectedWorkThirdSalary: this.requestParam.expectedWorkThirdSalary.replace(/\s*/g, ''),
+            expectedWorkThirdArea: this.requestParam.expectedWorkThirdArea.replace(/\s*/g, '')
+          },
+          response => {
+            // eslint-disable-next-line eqeqeq
+            if (response.code == 200) {
+              this.getMyResumeExpectedWork()
+              Message.success(response.message)
+            }
           }
-        }
-      )
+        )
+      } else {
+        Message.error('请完善信息！')
+      }
     },
     getMyResumeWorkExperience: function() {
       this.$axios.get(

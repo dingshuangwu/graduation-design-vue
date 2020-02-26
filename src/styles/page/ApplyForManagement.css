@@ -6,3 +6,97 @@ div.ApplyForManagementPage{
     width: 100%;
     height: auto;
 }
+div.ApplyForManagementTop{
+    position: sticky;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    top: 0px;
+    z-index: 999;
+}
+div.ApplyForManagementContext{
+    display: inline-block;
+    position: relative;
+    margin:0;
+    padding: 0;
+    height: auto;
+    width: 80%;
+    margin-top:100px;
+    background-color: white;
+}
+div.ApplyForManagementContextSteps{
+    display: block;
+    position: relative;
+    margin: auto;
+    padding:0;
+    height: auto;
+    width: 100%;
+    margin-top: 3%;
+}
+div.ApplyForManagementContextContext{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    margin-top: 3%;
+    min-height: 250px;
+}
+div.ApplyForManagementContextNext{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    margin-top: 3%;
+    min-height: 100px;
+}
+div.ApplyForManagementContextContextOne{
+    display: block;
+    position: relative;
+    margin:0;
+    padding:0;
+    height: auto;
+    min-height: 250px;
+    width: 100%;
+}
+div.ApplyForManagementContextContextOne img{
+    display: inline-block;
+    position: relative;
+    margin:0;
+    padding:0;
+    height: auto;
+    width: 20%;
+    border: black 2px solid;
+}
+div.ApplyForManagementContextContextTwo{
+    display: block;
+    position: relative;
+    margin:auto;
+    padding:0;
+    height: auto;
+    min-height: 250px;
+    width: 80%;
+}
+div.ApplyForManagementContextContextThree{
+    display: block;
+    position: relative;
+    margin:auto;
+    padding:0;
+    height: auto;
+    min-height: 250px;
+    width: 25%;
+}
+div.ApplyForManagementContextContextFour{
+    display: block;
+    position: relative;
+    margin:0;
+    padding:0;
+    height: auto;
+    min-height: 250px;
+    width: 100%;
+}

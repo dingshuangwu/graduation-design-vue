@@ -609,28 +609,33 @@ export default {
     setEducationExperience: function() {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
-        this.$axios.post(
-          'api/api/management/set-user-education-experience',
-          {
-            id: this.userId,
-            educationExperienceFirstStartDate: this.requestParam.educationExperienceFirstStartDate,
-            educationExperienceFirstEndDate: this.requestParam.educationExperienceFirstEndDate,
-            educationExperienceFirstSchool: this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, ''),
-            educationExperienceSecondStartDate: this.requestParam.educationExperienceSecondStartDate,
-            educationExperienceSecondEndDate: this.requestParam.educationExperienceSecondEndDate,
-            educationExperienceSecondSchool: this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, ''),
-            educationExperienceThirdStartDate: this.requestParam.educationExperienceThirdStartDate,
-            educationExperienceThirdEndDate: this.requestParam.educationExperienceThirdEndDate,
-            educationExperienceThirdSchool: this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '')
-          },
-          response => {
+        // eslint-disable-next-line eqeqeq
+        if (this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '') != '') {
+          this.$axios.post(
+            'api/api/management/set-user-education-experience',
+            {
+              id: this.userId,
+              educationExperienceFirstStartDate: this.requestParam.educationExperienceFirstStartDate,
+              educationExperienceFirstEndDate: this.requestParam.educationExperienceFirstEndDate,
+              educationExperienceFirstSchool: this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, ''),
+              educationExperienceSecondStartDate: this.requestParam.educationExperienceSecondStartDate,
+              educationExperienceSecondEndDate: this.requestParam.educationExperienceSecondEndDate,
+              educationExperienceSecondSchool: this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, ''),
+              educationExperienceThirdStartDate: this.requestParam.educationExperienceThirdStartDate,
+              educationExperienceThirdEndDate: this.requestParam.educationExperienceThirdEndDate,
+              educationExperienceThirdSchool: this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '')
+            },
+            response => {
             // eslint-disable-next-line eqeqeq
-            if (response.code == 200) {
-              this.getEducationExperience()
-              Message.success(response.message)
+              if (response.code == 200) {
+                this.getEducationExperience()
+                Message.success(response.message)
+              }
             }
-          }
-        )
+          )
+        } else {
+          Message.error('请完善信息！')
+        }
       }
     },
     getSelfSignature: function() {

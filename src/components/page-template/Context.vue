@@ -1,7 +1,7 @@
 <template>
 <div class="Home">
 
-    <ul v-if="getSize==0||!list||typeof (list) == 'undefined'">
+    <ul v-if="this.total<=0">
       <li>
         <div class="Card">
           <p style="color:grey;align:center;font-size:15px;line-height:550%;">暂时还没有符合条件的职位</p>
@@ -19,7 +19,7 @@
           </div>
         </li>
     </ul>
-  <div class="PageTurn" v-if="getSize>10&&list&&typeof (list) != 'undefined'">
+  <div class="PageTurn" v-if="this.total>10">
     <el-pagination
       background
       :current-page.sync="currentPage"
@@ -56,9 +56,6 @@ export default {
 
   },
   computed: {
-    getSize: function() {
-      return this.list.length
-    }
   },
   watch: {
     currentPage: function() {

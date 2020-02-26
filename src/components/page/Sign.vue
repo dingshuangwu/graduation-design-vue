@@ -73,7 +73,7 @@ export default {
       }
     },
     routerTo: function() {
-      this.$router.push({ path: '/' })
+      this.$router.push({ path: '/login' })
     }
   },
   computed: {

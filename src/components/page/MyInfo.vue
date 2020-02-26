@@ -282,7 +282,12 @@
           <p style="background-color:#909399">申请管理员权限！</p>
         </div>
       </router-link>
-      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='appling'" style="top:10px"><p style="background-color:#E6A23C">管理员权限申请中！</p></div>
+      <router-link to="/apply-for-management">
+        <div class="InfoRightInfoContext" v-if="this.applyForManagement=='reject'" style="top:10px;cursor: pointer">
+          <p style="background-color:#F56C6C">申请管理员权限未通过！</p>
+        </div>
+      </router-link>
+      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='applying'" style="top:10px"><p style="background-color:#E6A23C">管理员权限申请中！</p></div>
       <div class="InfoRightInfoContext" v-if="this.applyForManagement=='verified'" style="top:10px"><p style="background-color:#67C23A">已拥有管理员权限！</p></div>
     </div>
   </div>
@@ -568,27 +573,32 @@ export default {
       )
     },
     setEducationExperience: function() {
-      this.$axios.get(
-        'api/api/user-info/set-education-experience',
-        {
-          educationExperienceFirstStartDate: this.requestParam.educationExperienceFirstStartDate,
-          educationExperienceFirstEndDate: this.requestParam.educationExperienceFirstEndDate,
-          educationExperienceFirstSchool: this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, ''),
-          educationExperienceSecondStartDate: this.requestParam.educationExperienceSecondStartDate,
-          educationExperienceSecondEndDate: this.requestParam.educationExperienceSecondEndDate,
-          educationExperienceSecondSchool: this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, ''),
-          educationExperienceThirdStartDate: this.requestParam.educationExperienceThirdStartDate,
-          educationExperienceThirdEndDate: this.requestParam.educationExperienceThirdEndDate,
-          educationExperienceThirdSchool: this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '')
-        },
-        response => {
-        // eslint-disable-next-line eqeqeq
-          if (response.code == 200) {
-            this.getEducationExperience()
-            Message.success(response.message)
+      // eslint-disable-next-line eqeqeq
+      if (this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '') != '') {
+        this.$axios.get(
+          'api/api/user-info/set-education-experience',
+          {
+            educationExperienceFirstStartDate: this.requestParam.educationExperienceFirstStartDate,
+            educationExperienceFirstEndDate: this.requestParam.educationExperienceFirstEndDate,
+            educationExperienceFirstSchool: this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, ''),
+            educationExperienceSecondStartDate: this.requestParam.educationExperienceSecondStartDate,
+            educationExperienceSecondEndDate: this.requestParam.educationExperienceSecondEndDate,
+            educationExperienceSecondSchool: this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, ''),
+            educationExperienceThirdStartDate: this.requestParam.educationExperienceThirdStartDate,
+            educationExperienceThirdEndDate: this.requestParam.educationExperienceThirdEndDate,
+            educationExperienceThirdSchool: this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '')
+          },
+          response => {
+            // eslint-disable-next-line eqeqeq
+            if (response.code == 200) {
+              this.getEducationExperience()
+              Message.success(response.message)
+            }
           }
-        }
-      )
+        )
+      } else {
+        Message.error('请完善信息！')
+      }
     },
     getSelfSignature: function() {
       this.$axios.get(

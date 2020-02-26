@@ -62,7 +62,7 @@ export default {
         if (this.active == 0 && this.identityCardFront != '') {
           this.active++
         // eslint-disable-next-line eqeqeq
-        } else if (this.active == 1 && this.identityCard != '') {
+        } else if (this.active == 1 && this.identityCardReverse != '') {
           this.active++
         // eslint-disable-next-line eqeqeq
         } else if (this.active == 2 && this.currentPhoto != '') {
