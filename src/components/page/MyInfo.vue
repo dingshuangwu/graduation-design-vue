@@ -278,17 +278,17 @@
     <div class="InfoRightInfo" v-else>
       <div class="InfoRightInfoContext"><p style="background-color:#67C23A">已实名认证！</p></div>
       <router-link to="/apply-for-management">
-        <div class="InfoRightInfoContext" v-if="this.applyForManagement=='default'" style="top:10px;cursor: pointer">
+        <div class="InfoRightInfoContext" v-if="this.applyForManagement=='default'&&this.$store.state.jurisdiction.management==false" style="top:10px;cursor: pointer">
           <p style="background-color:#909399">申请管理员权限！</p>
         </div>
       </router-link>
       <router-link to="/apply-for-management">
-        <div class="InfoRightInfoContext" v-if="this.applyForManagement=='reject'" style="top:10px;cursor: pointer">
+        <div class="InfoRightInfoContext" v-if="this.applyForManagement=='reject'&&this.$store.state.jurisdiction.management==false" style="top:10px;cursor: pointer">
           <p style="background-color:#F56C6C">申请管理员权限未通过！</p>
         </div>
       </router-link>
-      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='applying'" style="top:10px"><p style="background-color:#E6A23C">管理员权限申请中！</p></div>
-      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='verified'" style="top:10px"><p style="background-color:#67C23A">已拥有管理员权限！</p></div>
+      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='applying'&&this.$store.state.jurisdiction.management==false" style="top:10px"><p style="background-color:#E6A23C">管理员权限申请中！</p></div>
+      <div class="InfoRightInfoContext" v-if="this.applyForManagement=='verified'||this.$store.state.jurisdiction.management==true" style="top:10px"><p style="background-color:#67C23A">已拥有管理员权限！</p></div>
     </div>
   </div>
 </template>

@@ -1,42 +1,49 @@
 <template>
   <div class="ManagementPage">
    <div class="ManagementTop"><Top></Top></div>
-    <el-tabs tab-position="left" class="ManagementContext">
-      <el-tab-pane class="ManagementContextPart">
-         <span slot="label" class="ManagementLable">
-            首页图片管理
-          </span>
-        <HomeImageManagement></HomeImageManagement>
-      </el-tab-pane>
-
-      <el-tab-pane class="ManagementContextPart">
+   <el-tabs tab-position="left" class="ManagementContext">
+    <el-tab-pane class="ManagementContextPart">
         <span slot="label" class="ManagementLable">
-            用户权限管理
+          首页图片管理
         </span>
-        <UserJurisdictionManagement></UserJurisdictionManagement>
-      </el-tab-pane>
+      <HomeImageManagement></HomeImageManagement>
+    </el-tab-pane>
 
-      <el-tab-pane  class="ManagementContextPart">
+    <el-tab-pane class="ManagementContextPart" v-if="!isRoot">
+      <span slot="label" class="ManagementLable">
+          用户权限管理
+      </span>
+      <UserJurisdictionManagement></UserJurisdictionManagement>
+    </el-tab-pane>
+
+    <el-tab-pane  class="ManagementContextPart">
+      <span slot="label" class="ManagementLable">
+          用户信息管理
+      </span>
+      <UserInfoManagement></UserInfoManagement>
+    </el-tab-pane>
+
+    <el-tab-pane class="ManagementContextPart">
         <span slot="label" class="ManagementLable">
-            用户信息管理
+          <el-badge :value="this.messageCount" :max="99" class="item">实名认证管理</el-badge>
         </span>
-        <UserInfoManagement></UserInfoManagement>
-      </el-tab-pane>
+        <UserAuthenticationManagement @setMessageCount='setMessageCount'></UserAuthenticationManagement>
+    </el-tab-pane>
 
-      <el-tab-pane class="ManagementContextPart">
-          <span slot="label" class="ManagementLable">
-            <el-badge :value="this.messageCount" :max="99" class="item">实名认证管理</el-badge>
-          </span>
-          <UserAuthenticationManagement @setMessageCount='setMessageCount'></UserAuthenticationManagement>
-      </el-tab-pane>
+    <el-tab-pane class="ManagementContextPart" v-if="isRoot">
+        <span slot="label" class="ManagementLable" style="color:red">
+          <el-badge :value="this.rootMessageCount" :max="10" class="item">Ⓡ管理员申请</el-badge>
+        </span>
+        <ManagementJurisdiction @setRootMessageCount='setRootMessageCount'></ManagementJurisdiction>
+    </el-tab-pane>
 
-      <el-tab-pane class="ManagementContextPart" v-if="isRoot">
-          <span slot="label" class="ManagementLable" style="color:red">
-            <el-badge :value="this.rootMessageCount" :max="10" class="item">Ⓡ超级管理员</el-badge>
-          </span>
-          <ManagementJurisdiction @setRootMessageCount='setRootMessageCount'></ManagementJurisdiction>
-      </el-tab-pane>
-    </el-tabs>
+    <el-tab-pane class="ManagementContextPart" v-if="isRoot">
+        <span slot="label" class="ManagementLable" style="color:red">
+          Ⓡ&nbsp;权限管理
+        </span>
+        <JurisdictionManagement></JurisdictionManagement>
+    </el-tab-pane>
+   </el-tabs>
  </div>
 </template>
 <script>
@@ -45,20 +52,22 @@ import UserAuthenticationManagement from '../management-page/page/UserAuthentica
 import UserInfoManagement from '../management-page/page/UserInfoManagement'
 import UserJurisdictionManagement from '../management-page/page/UserJurisdictionManagement'
 import ManagementJurisdiction from './root/ManagementJurisdiction'
+import JurisdictionManagement from './root/JurisdictionManagement'
 export default {
   components: {
     HomeImageManagement,
     UserAuthenticationManagement,
     UserInfoManagement,
     UserJurisdictionManagement,
-    ManagementJurisdiction
+    ManagementJurisdiction,
+    JurisdictionManagement
   },
   data() {
     return {
       msg: '管理员界面',
       messageCount: '',
       rootMessageCount: '',
-      isRoot: false
+      isRoot: ''
     }
   },
   methods: {

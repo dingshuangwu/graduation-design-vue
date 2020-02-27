@@ -181,14 +181,22 @@ export default {
   },
   mounted() {
     this.getAllInfo()
-    this.$emit('setMessageCount', this.responseParam.total)
+    if (this.responseParam.total <= 0) {
+      this.$emit('setMessageCount', '')
+    } else {
+      this.$emit('setMessageCount', this.responseParam.total)
+    }
   },
   watch: {
     currentPage: function() {
       this.getAllInfo()
     },
     'responseParam.total': function() {
-      this.$emit('setMessageCount', this.responseParam.total)
+      if (this.responseParam.total <= 0) {
+        this.$emit('setMessageCount', '')
+      } else {
+        this.$emit('setMessageCount', this.responseParam.total)
+      }
     }
   }
 }

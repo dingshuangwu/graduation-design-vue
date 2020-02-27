@@ -1,5 +1,14 @@
 <template>
 <div class="HomeImageManagementPage">
+  <el-dropdown>
+  <span class="el-dropdown-link">
+    超级管理员<i class="el-icon-arrow-down el-icon--right"></i>
+  </span>
+  <el-dropdown-menu slot="dropdown">
+    <el-dropdown-item command="a">管理员权限申请</el-dropdown-item>
+    <el-dropdown-item command="b">管理员权限分配</el-dropdown-item>
+  </el-dropdown-menu>
+</el-dropdown>
 </div>
 </template>
 <script>

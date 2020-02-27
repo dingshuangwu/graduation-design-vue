@@ -1,15 +1,16 @@
 <template>
-<div class="UserJurisdictionManagementPage">
-  <div class="UserJurisdictionManagementCardInfo">
+<div class="JurisdictionManagementPage">
+  <div class="JurisdictionManagementCardInfo">
     <ul>
       <li>用户</li>
+      <li>管理员权限</li>
       <li>求职信息</li>
       <li>招聘信息</li>
       <li>我的求职</li>
       <li>我的招聘</li>
       <li>登录权限</li>
     </ul>
-    <div style="width:30%;height:92%;float:left;padding-top:0.3%">
+    <div style="width:25%;height:92%;float:left;padding-top:0.3%;">
       <el-input
         placeholder="输入关键字"
         prefix-icon="el-icon-search"
@@ -19,14 +20,21 @@
         clearable
         style="width:60%">
       </el-input>
-      <el-button type="primary" round style="width:16%;height:80%;margin:0;padding:0" @click="research()">搜索</el-button>
-      <el-button type="success" round style="width:16%;height:80%;margin:0;padding:0" @click="reset()">重置</el-button>
+      <el-button type="primary" round style="width:16%;height:70%;margin:0;padding:0" @click="research()">搜索</el-button>
+      <el-button type="success" round style="width:16%;height:70%;margin:0;padding:0" @click="reset()">重置</el-button>
     </div>
   </div>
-  <ul class="UserJurisdictionManagementUl" v-if="this.responseParam.total>0">
-    <li v-for="(it,i) in this.responseParam.list" :key="i" class="UserJurisdictionManagementLi">
-      <div class="UserJurisdictionManagementLiDiv">
+  <ul class="JurisdictionManagementUl" v-if="this.responseParam.total>0">
+    <li v-for="(it,i) in this.responseParam.list" :key="i" class="JurisdictionManagementLi">
+      <div class="JurisdictionManagementLiDiv">
         <span>{{it.name}}</span>
+        <span>
+          <el-switch
+            v-model="it.management"
+            active-color="#13ce66"
+            inactive-color="#ff4949">
+          </el-switch>
+        </span>
         <span>
           <el-switch
             v-model="it.apply"
@@ -70,7 +78,7 @@
     </li>
   </ul>
   <div style="margin:0;padding:5% 30% 5% 0;font-size:15px" v-else>暂无满足条件的用户</div>
-  <div class="UserJurisdictionManagementPageTurn" v-if="this.responseParam.total>10">
+  <div class="JurisdictionManagementPageTurn" v-if="this.responseParam.total>10">
     <el-pagination
       background
       layout="prev, pager, next"
@@ -133,6 +141,7 @@ export default {
         'api/api/management/set-jurisdiction',
         {
           name: val.name,
+          management: val.management,
           publish: val.publish,
           apply: val.apply,
           myPublish: val.myPublish,
@@ -179,5 +188,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-@import '../../../styles/management-page/page/UserJurisdictionManagement.css'
+@import '../../../styles/management-page/root/JurisdictionManagement.css'
 </style>

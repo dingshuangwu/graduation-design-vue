@@ -242,14 +242,23 @@ export default {
   },
   mounted() {
     this.getAllInfo()
-    this.$emit('setRootMessageCount', this.responseParam.total)
+    if (this.responseParam.total <= 0) {
+      this.$emit('setRootMessageCount', '')
+    } else {
+      this.$emit('setRootMessageCount', this.responseParam.total)
+    }
   },
+
   watch: {
     currentPage: function() {
       this.getAllInfo()
     },
     'responseParam.total': function() {
-      this.$emit('setRootMessageCount', this.responseParam.total)
+      if (this.responseParam.total <= 0) {
+        this.$emit('setRootMessageCount', '')
+      } else {
+        this.$emit('setRootMessageCount', this.responseParam.total)
+      }
     }
   }
 }
