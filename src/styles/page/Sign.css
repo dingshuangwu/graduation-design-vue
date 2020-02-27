@@ -4,10 +4,6 @@ div.SignPage{
   margin: 0;
   width: 100%;
   height: auto;
-  min-height: 900px;
-  max-height: 2000px;
-
-  background-color:whitesmoke;
 }
 div.SignSign{
   display: block;
@@ -20,31 +16,27 @@ div.SignSign{
   min-height: 507px;
   left: 22.5%;
   top: 10%;
+  border-radius: 20px;
+  background-color: rgb(199, 194, 194);
 }
 div.SignSign div.Advertizement{
+  display: inline-block;
+  position: relative;
   margin: 0;
   padding: 0;
-  display: block;
   height: 100%;
-  width: 30%;
+  width: 29%;
   float: left;
   text-align: center;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-
-  background-color: yellowgreen;
+  border-right:black 2px solid;
 }
 div.SignSign div.Sign{
   margin: 0;
   padding: 0;
   display: block;
   height: 100%;
-  width: 70%;
+  width: 69%;
   float: left;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-
-  background-color: gold;
 }
 div.Advertizement h2{
   display: inline-block;

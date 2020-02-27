@@ -13,8 +13,8 @@
         <li v-for = "(it,i) in list" :key="i">
           <div class="Card">
             <div class="CardPart fontArea"><span class="icon iconfont icon-icon_diqu" style="position:relative;left:-8px"></span>{{it.cityName}}</div>
-            <div class="CardPart fontContext">{{it.jobName}}</div>
-            <div class="CardPart fontSalary">{{it.salary}}</div>
+            <div class="CardPart fontContext"><span class="icon iconfont icon-gongzuojingli" style="float:left"></span>{{it.jobName}}</div>
+            <div class="CardPart fontSalary"><span class="icon iconfont icon-xinzi" style="float:left"></span>{{it.salary}}</div>
             <div class="CardPart fontContactWay"><span class="icon iconfont icon-shouji1" style="float:left"></span>{{it.contactWay}}</div>
           </div>
         </li>

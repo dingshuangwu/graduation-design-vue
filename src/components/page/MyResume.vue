@@ -250,7 +250,9 @@
         </div>
       </div>
     </div>
-    <div class="ResumeRightInfo"></div>
+    <div class="ResumeRightInfo">
+      <img src="../../assets/myresume.jpg">
+    </div>
   </div>
 </template>
 <script>

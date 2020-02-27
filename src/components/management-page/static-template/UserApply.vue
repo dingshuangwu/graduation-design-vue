@@ -18,10 +18,10 @@
       <div class="MyApplyContextContext">
         <ul class="MyApplyContextContextUl">
           <li v-for="(it,i) in this.responseParam.list" :key="i">
-            <p class="fontArea">{{it.cityName}}</p>
-            <p class="fontContext">{{it.jobName}}</p>
-            <p class="fontSalary">{{it.salary}}</p>
-            <p class="fontContactWay">{{it.contactWay}}</p>
+            <p class="fontArea"><span class="icon iconfont icon-icon_diqu" style="float:left"></span>{{it.cityName}}</p>
+            <p class="fontContext"><span class="icon iconfont icon-gongzuojingli" style="float:left"></span>{{it.jobName}}</p>
+            <p class="fontSalary"><span class="icon iconfont icon-xinzi" style="float:left"></span>{{it.salary}}</p>
+            <p class="fontContactWay"><span class="icon iconfont icon-shouji1" style="float:left"></span>{{it.contactWay}}</p>
           </li>
         </ul>
       </div>

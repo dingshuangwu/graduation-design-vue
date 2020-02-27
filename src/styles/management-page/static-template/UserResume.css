@@ -21,7 +21,7 @@ div.ResumePage {
     border-bottom-style: solid;
     border-bottom-color: grey;
     border-bottom-width: 2px;
-    background-color: rgba(247, 233, 233, 0.952);
+    background-color: rgb(231, 231, 231);
   }
   
   div.ResumeContextDiv div.ResumeContextDivMyInfo {

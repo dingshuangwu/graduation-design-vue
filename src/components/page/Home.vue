@@ -12,6 +12,7 @@
       <img src = "../../assets/wk.jpg" alt = "wk.jpg" >
       <img src = "../../assets/wk.jpg" alt = "wk.jpg" >
       <img src = "../../assets/wk.jpg" alt = "wk.jpg" >
+      <img src = "../../assets/wk.jpg" alt = "wk.jpg" >
       <p></p>
     </div>
   </div>

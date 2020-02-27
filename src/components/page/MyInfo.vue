@@ -274,6 +274,7 @@
          <p style="background-color:#F56C6C">实名认证未通过！</p>
        </div>
       </router-link>
+      <img src="../../assets/myinfo.jpg">
     </div>
     <div class="InfoRightInfo" v-else>
       <div class="InfoRightInfoContext"><p style="background-color:#67C23A">已实名认证！</p></div>
@@ -289,6 +290,7 @@
       </router-link>
       <div class="InfoRightInfoContext" v-if="this.applyForManagement=='applying'&&this.$store.state.jurisdiction.management==false" style="top:10px"><p style="background-color:#E6A23C">管理员权限申请中！</p></div>
       <div class="InfoRightInfoContext" v-if="this.applyForManagement=='verified'||this.$store.state.jurisdiction.management==true" style="top:10px"><p style="background-color:#67C23A">已拥有管理员权限！</p></div>
+     <img src="../../assets/myinfo.jpg">
     </div>
   </div>
 </template>

@@ -27,11 +27,17 @@ div.InfoPage {
     margin-top: 10%;
     margin-right: 8%;
     float: right;
-  
-    background-color:  whitesmoke;
   }
   div.InfoRightInfo a{
     text-decoration: none;
+  }
+  div.InfoRightInfo img{
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    margin-top: 13%;
   }
   div.InfoRightInfoContext{
     display: block;
@@ -45,9 +51,8 @@ div.InfoPage {
     margin: 0;
     padding: 0;
     color:white;
-    text-shadow: 1px 1px 0 #E4F1FF;
-    font-size: 20px;
-    line-height: 450%;
+    font-size: 16px;
+    line-height: 400%;
     font-weight: 900;
   }
   div.InfoContextDiv {
@@ -58,7 +63,7 @@ div.InfoPage {
     border-bottom-style: solid;
     border-bottom-color: grey;
     border-bottom-width: 2px;
-    background-color: rgba(247, 233, 233, 0.952);
+    background-color: rgb(231, 231, 231);
   }
   
   div.InfoContextDiv div.InfoContextDivMyInfo {

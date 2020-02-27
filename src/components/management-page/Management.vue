@@ -2,12 +2,6 @@
   <div class="ManagementPage">
    <div class="ManagementTop"><Top></Top></div>
    <el-tabs tab-position="left" class="ManagementContext">
-    <el-tab-pane class="ManagementContextPart">
-        <span slot="label" class="ManagementLable">
-          首页图片管理
-        </span>
-      <HomeImageManagement></HomeImageManagement>
-    </el-tab-pane>
 
     <el-tab-pane class="ManagementContextPart" v-if="!isRoot">
       <span slot="label" class="ManagementLable">
@@ -47,7 +41,6 @@
  </div>
 </template>
 <script>
-import HomeImageManagement from '../management-page/page/HomeImageManagement'
 import UserAuthenticationManagement from '../management-page/page/UserAuthenticationManagement'
 import UserInfoManagement from '../management-page/page/UserInfoManagement'
 import UserJurisdictionManagement from '../management-page/page/UserJurisdictionManagement'
@@ -55,7 +48,6 @@ import ManagementJurisdiction from './root/ManagementJurisdiction'
 import JurisdictionManagement from './root/JurisdictionManagement'
 export default {
   components: {
-    HomeImageManagement,
     UserAuthenticationManagement,
     UserInfoManagement,
     UserJurisdictionManagement,

@@ -1,11 +1,9 @@
-div.LoginPage{
+  div.LoginPage{
     display: block;
     padding: 0;
     margin: 0;
     width: 100%;
     height: auto;
-  
-    background-color:whitesmoke;
   }
   div.LoginLogin{
     display: block;
@@ -18,31 +16,27 @@ div.LoginPage{
     min-height: 507px;
     left: 22.5%;
     top: 10%;
+    background-color: rgb(199, 194, 194);
+    border-radius: 20px;
   }
   div.LoginLogin div.Advertizement{
+    display: inline-block;
+    position: relative;
     margin: 0;
     padding: 0;
-    display: block;
     height: 100%;
-    width: 30%;
-    float: left;
+    width: 29%;
     text-align: center;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-  
-    background-color: yellowgreen;
+    float:left;
+    border-right:black 2px solid;
   }
   div.LoginLogin div.Login{
+    display: inline-block;
+    position: relative;
     margin: 0;
     padding: 0;
-    display: block;
     height: 100%;
-    width: 70%;
-    float: left;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  
-    background-color: gold;
+    width: 69%;
   }
   div.Advertizement h2{
     display: inline-block;
