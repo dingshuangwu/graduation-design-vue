@@ -19,7 +19,7 @@
             <el-input
               type="textarea"
               :rows="7"
-              placeholder="请输入内容"
+              placeholder="请输入内容字数不得超过200"
               v-model="textarea"
               maxlength=200>
             </el-input>

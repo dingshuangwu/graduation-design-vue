@@ -2,7 +2,7 @@
  <div class="MyFindPage">
     <div class="MyFindTop"><Top></Top></div>
     <div class="MyFindAdd"><el-button type="info" style="width:100%" @click="dialogFormVisible = true">添加</el-button></div>
-    <el-dialog title="添加求职信息" :visible.sync="dialogFormVisible" width="50%">
+    <el-dialog title="添加招聘信息" :visible.sync="dialogFormVisible" width="50%">
       <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
       @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
       <el-form>
@@ -18,7 +18,7 @@
         <el-button type="primary" @click="addMyFind()">确 定</el-button>
       </div>
     </el-dialog>
-    <el-dialog title="编辑求职信息" :visible.sync="dialogFormVisibleUpdate" width="50%">
+    <el-dialog title="编辑招聘信息" :visible.sync="dialogFormVisibleUpdate" width="50%">
       <Select style="width:140%;" @setProvice='setRequestProvice'  @setProviceName='setRequestProviceName' @setJobType='setRequestJobType'
       @setJobTypeName='setRequestJobTypeName' @setCityName='setRequestCityName' @setCity='setRequestCity'  @setJobName='setRequestJobName' @setJob='setRequestJob'></Select>
       <el-form>
@@ -34,7 +34,7 @@
         <el-button type="primary" @click="updateMyFind()">确 定</el-button>
       </div>
     </el-dialog>
-    <el-dialog title="删除求职信息" :visible.sync="dialogFormVisibleDelete" width="50%">
+    <el-dialog title="删除招聘信息" :visible.sync="dialogFormVisibleDelete" width="50%">
        <el-button @click="dialogFormVisibleDelete = false">取 消</el-button>
        <el-button type="primary" @click="deleteMyFind()">确 定</el-button>
     </el-dialog>
