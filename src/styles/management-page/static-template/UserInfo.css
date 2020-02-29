@@ -28,7 +28,7 @@
   div.InfoContextDiv div.InfoContextDivMyInfo {
     display: block;
     margin: 0;
-    width: 60%;
+    width: 70%;
     height: 100%;
     float: left;
   }
@@ -36,9 +36,23 @@
   div.InfoContextDiv div.InfoContextDivMyImage {
     display: inline-block;
     margin: 0;
-    width: 40%;
+    width: 30%;
     height: 80%;
   }
+  
+  div.InfoContextDivMyImage img {
+    width: 40%;
+    height: 65%;
+    margin: 0;
+    margin-top: 5%;
+    padding: 0;
+    border-radius: 55px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gainsboro;
+    float: left;
+  }
+  
   
   div.InfoContextDiv p {
     display: inline-block;
@@ -74,18 +88,6 @@
     margin-left: 6%;
     line-height: 150%;
     font-size: 15px;
-  }
-  
-  div.InfoContextDivMyImage img {
-    width: 30%;
-    height: 65%;
-    margin: 0;
-    margin-top: 5%;
-    padding: 0;
-    border-radius: 55px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: gainsboro;
   }
   
   h3.SexMan {
