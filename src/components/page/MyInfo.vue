@@ -1,6 +1,6 @@
 <template>
   <div class="InfoPage">
-    <div><Top></Top></div>
+    <div class="MyInfoTop"><Top></Top></div>
     <div class="InfoContext">
       <div class="InfoContextDiv">
         <div class="MyInfoEdictorIcon"><span class="icon iconfont icon-bianji" @click="infoVisble = true"></span></div>

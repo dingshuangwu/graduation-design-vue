@@ -1,6 +1,6 @@
 <template>
   <div class="ResumePage">
-    <div><Top></Top></div>
+    <div class="ResumeTop"><Top></Top></div>
     <div class="ResumeContext">
       <div class="ResumeContextDiv">
         <div class="MyResumeEdictorIcon"><span class="icon iconfont icon-bianji"  @click="infoVisble = true"></span></div>

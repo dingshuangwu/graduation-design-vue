@@ -85,8 +85,8 @@ export default {
         currentPage: 1
       },
       responseSelectData: {
-        total: Number,
-        pageSize: Number,
+        total: 0,
+        pageSize: 0,
         list: []
       },
       dialogFormVisible: false,
@@ -123,6 +123,7 @@ export default {
       this.requestSelectUrlParam.currentPage = val
     },
     addMyApply: function() {
+      // eslint-disable-next-line eqeqeq
       if (this.requestAddUrlParam.job == '' || this.requestAddUrlParam.city == '') {
         Message.error('请选择城市或职业类型！')
       } else {
@@ -160,6 +161,7 @@ export default {
       this.dialogFormVisibleUpdate = true
     },
     updateMyApply: function() {
+      // eslint-disable-next-line eqeqeq
       if (this.requestAddUrlParam.job == '' || this.requestAddUrlParam.city == '') {
         Message.error('请选择城市或职业类型！')
       } else {

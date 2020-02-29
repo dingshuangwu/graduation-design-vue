@@ -55,8 +55,8 @@ export default {
         currentPage: 1
       },
       responseSelectData: {
-        total: Number,
-        pageSize: Number,
+        total: 0,
+        pageSize: 0,
         list: []
       },
       btnFlag: false
