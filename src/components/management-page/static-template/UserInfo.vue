@@ -75,7 +75,7 @@
             <el-button type="primary" @click="handInfoConfirm()">确 定</el-button>
           </span>
         </el-dialog>
-        <div class="MyInfoEdictorIcon" style="position:relative;left:36%;"><span class="icon iconfont icon-bianji" @click="infoVisble = true"></span></div>
+        <div class="MyInfoEdictorIcon" style="position:relative;left:230px;"><span class="icon iconfont icon-bianji" @click="infoVisble = true"></span></div>
         <div class="InfoContextDivMyInfo">
           <div style="text-align:left;line-height:30px">
               <span class="icon iconfont icon-shuaxin2" style="cursor: pointer" @click="getUserAllInfo()"></span>

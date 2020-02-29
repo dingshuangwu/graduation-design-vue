@@ -3,7 +3,7 @@
     <div class="MyInfoTop"><Top></Top></div>
     <div class="InfoContext">
       <div class="InfoContextDiv">
-        <div class="MyInfoEdictorIcon"><span class="icon iconfont icon-bianji" @click="infoVisble = true"></span></div>
+        <div class="MyInfoEdictorIcon"><span class="icon iconfont icon-bianji" style="position:relative;left:-45px;" @click="infoVisble = true"></span></div>
         <el-dialog
           title="编辑个人信息"
           :visible.sync="infoVisble"

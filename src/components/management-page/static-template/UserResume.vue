@@ -2,7 +2,7 @@
   <div class="ResumePage">
     <div class="ResumeContext">
       <div class="ResumeContextDiv">
-        <div class="MyResumeEdictorIcon" style="position:relative;left:35%"><span class="icon iconfont icon-bianji"  @click="infoVisble = true"></span></div>
+        <div class="MyResumeEdictorIcon" style="position:relative;left:230px;"><span class="icon iconfont icon-bianji"  @click="infoVisble = true"></span></div>
         <el-dialog
           title="编辑个人信息"
           :visible.sync="infoVisble"
