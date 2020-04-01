@@ -80,7 +80,7 @@ export default {
     },
     getApply: function() {
       this.$axios.get(
-        'api/api/apply/all-apply',
+        'api/apply/all-apply',
         this.requestSelectUrlParam,
         response => {
           // eslint-disable-next-line eqeqeq

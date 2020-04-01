@@ -71,7 +71,7 @@ export default {
     },
     getIsRoot: function() {
       this.$axios.post(
-        'api/api/management/is-root',
+        'api/management/is-root',
         {},
         response => {
           // eslint-disable-next-line eqeqeq

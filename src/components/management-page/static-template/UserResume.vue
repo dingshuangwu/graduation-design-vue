@@ -383,7 +383,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-resume-info-all',
+          'api/management/get-resume-info-all',
           {
             id: this.userId
           },
@@ -405,7 +405,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-resume-info',
+          'api/management/get-resume-info',
           {
             id: this.userId
           },
@@ -439,7 +439,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/set-resume-info',
+          'api/management/set-resume-info',
           {
             id: this.userId,
             name: this.requestParam.name.replace(/\s*/g, ''),
@@ -465,7 +465,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-resume-expertise',
+          'api/management/get-resume-expertise',
           {
             id: this.userId
           },
@@ -485,7 +485,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/set-resume-expertise',
+          'api/management/set-resume-expertise',
           {
             id: this.userId,
             expertise: this.requestParam.expertise.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')
@@ -504,7 +504,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-resume-expected-work',
+          'api/management/get-resume-expected-work',
           {
             id: this.userId
           },
@@ -542,7 +542,7 @@ export default {
         // eslint-disable-next-line eqeqeq
         if (this.requestParam.expectedWorkFirstJob.replace(/\s*/g, '') != '' && this.requestParam.expectedWorkSecondJob.replace(/\s*/g, '') != '' && this.requestParam.expectedWorkThirdJob.replace(/\s*/g, '') != '') {
           this.$axios.post(
-            'api/api/management/set-resume-expected-work',
+            'api/management/set-resume-expected-work',
             {
               id: this.userId,
               expectedWorkFirstJob: this.requestParam.expectedWorkFirstJob.replace(/\s*/g, ''),
@@ -572,7 +572,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-resume-work-experience',
+          'api/management/get-resume-work-experience',
           {
             id: this.userId
           },
@@ -592,7 +592,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/set-resume-work-experience',
+          'api/management/set-resume-work-experience',
           {
             id: this.userId,
             workExperience: this.requestParam.workExperience.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')

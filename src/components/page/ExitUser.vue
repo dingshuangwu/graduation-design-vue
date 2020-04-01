@@ -15,7 +15,7 @@ export default {
   methods: {
     exitUser: function() {
       this.$axios.post(
-        'api/api/login/loginOut',
+        'api/login/loginOut',
         {},
         response => {
           // eslint-disable-next-line eqeqeq

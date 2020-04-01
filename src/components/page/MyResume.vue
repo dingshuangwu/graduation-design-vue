@@ -372,7 +372,7 @@ export default {
   methods: {
     getMyResumeAll: function() {
       this.$axios.get(
-        'api/api/my-resume/all',
+        'api/my-resume/all',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -389,7 +389,7 @@ export default {
     },
     getMyResumeInfo: function() {
       this.$axios.get(
-        'api/api/my-resume/info',
+        'api/my-resume/info',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -418,7 +418,7 @@ export default {
     },
     setMyResumeInfo: function() {
       this.$axios.get(
-        'api/api/my-resume/set-info',
+        'api/my-resume/set-info',
         {
           name: this.requestParam.name.replace(/\s*/g, ''),
           sex: this.requestParam.sex,
@@ -440,7 +440,7 @@ export default {
     },
     getMyResumeExpertise: function() {
       this.$axios.get(
-        'api/api/my-resume/expertise',
+        'api/my-resume/expertise',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -455,7 +455,7 @@ export default {
     },
     setMyResumeExpertise: function() {
       this.$axios.get(
-        'api/api/my-resume/set-expertise',
+        'api/my-resume/set-expertise',
         {
           expertise: this.requestParam.expertise.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')
         },
@@ -470,7 +470,7 @@ export default {
     },
     getMyResumeExpectedWork: function() {
       this.$axios.get(
-        'api/api/my-resume/expected-work',
+        'api/my-resume/expected-work',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -503,7 +503,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.requestParam.expectedWorkFirstJob.replace(/\s*/g, '') != '' && this.requestParam.expectedWorkSecondJob.replace(/\s*/g, '') != '' && this.requestParam.expectedWorkThirdJob.replace(/\s*/g, '') != '') {
         this.$axios.get(
-          'api/api/my-resume/set-expected-work',
+          'api/my-resume/set-expected-work',
           {
             expectedWorkFirstJob: this.requestParam.expectedWorkFirstJob.replace(/\s*/g, ''),
             expectedWorkFirstSalary: this.requestParam.expectedWorkFirstSalary.replace(/\s*/g, ''),
@@ -529,7 +529,7 @@ export default {
     },
     getMyResumeWorkExperience: function() {
       this.$axios.get(
-        'api/api/my-resume/work-experience',
+        'api/my-resume/work-experience',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -544,7 +544,7 @@ export default {
     },
     setMyResumeWorkExperience: function() {
       this.$axios.get(
-        'api/api/my-resume/set-work-experience',
+        'api/my-resume/set-work-experience',
         {
           workExperience: this.requestParam.workExperience.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')
         },

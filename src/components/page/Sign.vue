@@ -48,7 +48,7 @@ export default {
         Message.error('密码长度应在6~20之间')
       } else {
         this.$axios.post(
-          'api/api/sign/sign-in',
+          'api/sign/sign-in',
           {
             name: this.userName,
             password: this.password

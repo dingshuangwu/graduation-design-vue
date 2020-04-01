@@ -119,7 +119,7 @@ export default {
   methods: {
     getAllInfo: function() {
       this.$axios.post(
-        'api/api/management/get-apply-for-management',
+        'api/management/get-apply-for-management',
         {
           name: null,
           currentPage: 1
@@ -134,7 +134,7 @@ export default {
     },
     getSomeBody: function() {
       this.$axios.post(
-        'api/api/management/get-apply-for-management',
+        'api/management/get-apply-for-management',
         {
           name: this.inputName,
           currentPage: 1
@@ -177,7 +177,7 @@ export default {
     },
     openRealNameDialog: function(val) {
       this.$axios.post(
-        'api/api/management/get-real-name-authentication-by-id',
+        'api/management/get-real-name-authentication-by-id',
         {
           id: val
         },
@@ -203,7 +203,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (id != null && id != '' && typeof (id) !== 'undefined') {
         this.$axios.post(
-          'api/api/management/apply-for-management-pass',
+          'api/management/apply-for-management-pass',
           {
             id: id
           },
@@ -223,7 +223,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (id != null && id != '' && typeof (id) !== 'undefined') {
         this.$axios.post(
-          'api/api/management/apply-for-management-reject',
+          'api/management/apply-for-management-reject',
           {
             id: id
           },

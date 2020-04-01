@@ -94,7 +94,7 @@ export default {
   methods: {
     getJurisdictionAll: function() {
       this.$axios.post(
-        'api/api/management/get-jurisdiction',
+        'api/management/get-jurisdiction',
         {
           name: null,
           currentPage: this.currentPage
@@ -110,7 +110,7 @@ export default {
     },
     getSomeBodyJurisdiction: function() {
       this.$axios.post(
-        'api/api/management/get-jurisdiction',
+        'api/management/get-jurisdiction',
         {
           name: this.inputName,
           currentPage: this.currentPage
@@ -130,7 +130,7 @@ export default {
     },
     setJurisdiction: function(val) {
       this.$axios.post(
-        'api/api/management/set-jurisdiction',
+        'api/management/set-jurisdiction',
         {
           name: val.name,
           publish: val.publish,

@@ -109,7 +109,7 @@ export default {
   methods: {
     getUserInfo() {
       this.$axios.get(
-        'api/api/user-info/get-somebody-info',
+        'api/user-info/get-somebody-info',
         {
           name: this.userName
         },

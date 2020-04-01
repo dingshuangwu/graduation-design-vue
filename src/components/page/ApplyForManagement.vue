@@ -106,7 +106,7 @@ export default {
     },
     submit: function() {
       this.$axios.post(
-        'api/api/user-apply/apply-for-management',
+        'api/user-apply/apply-for-management',
         {
           context: this.textarea,
           contactWay: this.input.replace(/\s*/g, '')
@@ -131,7 +131,7 @@ export default {
     },
     getRealNameAtuhentication: function() {
       this.$axios.get(
-        'api/api/user-apply/get-real-name-authentication',
+        'api/user-apply/get-real-name-authentication',
         {},
         response => {
         // eslint-disable-next-line eqeqeq

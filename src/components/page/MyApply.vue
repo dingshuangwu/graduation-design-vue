@@ -128,7 +128,7 @@ export default {
         Message.error('请选择城市或职业类型！')
       } else {
         this.$axios.get(
-          'api/api/apply/add-my-apply',
+          'api/apply/add-my-apply',
           this.requestAddUrlParam,
           response => {
           // eslint-disable-next-line eqeqeq
@@ -143,7 +143,7 @@ export default {
     },
     getMyApply: function() {
       this.$axios.get(
-        'api/api/apply/my-apply',
+        'api/apply/my-apply',
         this.requestSelectUrlParam,
         response => {
           // eslint-disable-next-line eqeqeq
@@ -166,7 +166,7 @@ export default {
         Message.error('请选择城市或职业类型！')
       } else {
         this.$axios.get(
-          'api/api/apply/update-my-apply',
+          'api/apply/update-my-apply',
           this.requestAddUrlParam,
           response => {
           // eslint-disable-next-line eqeqeq
@@ -185,7 +185,7 @@ export default {
     },
     deleteMyApply: function() {
       this.$axios.get(
-        'api/api/apply/delete-my-apply',
+        'api/apply/delete-my-apply',
         {
           id: this.deleteId
         },

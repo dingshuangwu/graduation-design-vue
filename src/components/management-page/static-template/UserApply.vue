@@ -62,7 +62,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-user-apply',
+          'api/management/get-user-apply',
           {
             authorId: this.userId,
             currentPage: this.currentPage
@@ -85,7 +85,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.deleteId != '') {
         this.$axios.post(
-          'api/api/management/delete-user-apply',
+          'api/management/delete-user-apply',
           {
             id: this.deleteId
           },

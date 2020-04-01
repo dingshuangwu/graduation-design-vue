@@ -5,7 +5,7 @@ import router from '../router'
 import { clearLocalStorage, removeName, removeToken, removeJurisdiction, removeImageUrl } from '../utils/auth'
 
 const http = axios.create({
-  baseURL: process.env.baseURL, // api的base_url
+  baseURL: process.env.BASE_API, // api的base_url
   timeout: 20000, // 请求超时时间
   withCredentials: true,
   headers: {

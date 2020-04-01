@@ -87,7 +87,7 @@ export default {
     },
     getFind: function() {
       this.$axios.get(
-        'api/api/publish/all-publish',
+        'api/publish/all-publish',
         this.requestSelectUrlParam,
         response => {
           // eslint-disable-next-line eqeqeq

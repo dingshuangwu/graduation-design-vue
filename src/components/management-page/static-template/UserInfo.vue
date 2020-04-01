@@ -429,7 +429,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-user-info-all',
+          'api/management/get-user-info-all',
           {
             id: this.userId
           },
@@ -457,7 +457,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-user-info',
+          'api/management/get-user-info',
           {
             id: this.userId
           },
@@ -491,7 +491,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/set-user-info',
+          'api/management/set-user-info',
           {
             id: this.userId,
             name: this.requestParam.name.replace(/\s*/g, ''),
@@ -516,7 +516,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-user-image',
+          'api/management/get-user-image',
           {
             id: this.userId
           },
@@ -535,7 +535,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-user-self-introduction',
+          'api/management/get-user-self-introduction',
           {
             id: this.userId
           },
@@ -555,7 +555,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/set-user-self-introduction',
+          'api/management/set-user-self-introduction',
           {
             id: this.userId,
             selfIntroduction: this.requestParam.selfIntroduction.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')
@@ -574,7 +574,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-user-education-experience',
+          'api/management/get-user-education-experience',
           {
             id: this.userId
           },
@@ -612,7 +612,7 @@ export default {
         // eslint-disable-next-line eqeqeq
         if (this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '') != '') {
           this.$axios.post(
-            'api/api/management/set-user-education-experience',
+            'api/management/set-user-education-experience',
             {
               id: this.userId,
               educationExperienceFirstStartDate: this.requestParam.educationExperienceFirstStartDate,
@@ -642,7 +642,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/get-user-self-signature',
+          'api/management/get-user-self-signature',
           {
             id: this.userId
           },
@@ -662,7 +662,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.userId != '') {
         this.$axios.post(
-          'api/api/management/set-user-self-signature',
+          'api/management/set-user-self-signature',
           {
             id: this.userId,
             selfSignature: this.requestParam.selfSignature.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')

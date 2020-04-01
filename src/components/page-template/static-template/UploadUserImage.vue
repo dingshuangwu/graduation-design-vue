@@ -122,7 +122,7 @@ export default {
               // eslint-disable-next-line eqeqeq
               if (base64 && base64 != '') {
                 This.$axios.post(
-                  'api/api/user-info/set-user-image',
+                  'api/user-info/set-user-image',
                   {
                     imageUrl: base64
                   },

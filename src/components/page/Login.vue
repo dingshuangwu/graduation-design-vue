@@ -40,7 +40,7 @@ export default {
       this.$store.commit('SET_JURISDICTION', {})
       this.$store.commit('SET_IMAGEURL', '')
       this.$axios.post(
-        'api/api/login/login',
+        'api/login/login',
         {
           name: this.name,
           password: this.password

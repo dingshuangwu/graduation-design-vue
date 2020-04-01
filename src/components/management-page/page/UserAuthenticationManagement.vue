@@ -84,7 +84,7 @@ export default {
   methods: {
     getAllInfo: function() {
       this.$axios.post(
-        'api/api/management/real-name-authentication',
+        'api/management/real-name-authentication',
         {
           name: null,
           currentPage: 1
@@ -99,7 +99,7 @@ export default {
     },
     getSomeBody: function() {
       this.$axios.post(
-        'api/api/management/real-name-authentication',
+        'api/management/real-name-authentication',
         {
           name: this.inputName,
           currentPage: 1
@@ -142,7 +142,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (id != null && id != '' && typeof (id) !== 'undefined') {
         this.$axios.post(
-          'api/api/management/real-name-authentication-pass',
+          'api/management/real-name-authentication-pass',
           {
             id: id
           },
@@ -162,7 +162,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (id != null && id != '' && typeof (id) !== 'undefined') {
         this.$axios.post(
-          'api/api/management/real-name-authentication-reject',
+          'api/management/real-name-authentication-reject',
           {
             id: id
           },

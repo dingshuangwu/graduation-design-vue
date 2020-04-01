@@ -123,7 +123,7 @@ export default {
   methods: {
     getUserListAll: function() {
       this.$axios.post(
-        'api/api/management/get-user-list',
+        'api/management/get-user-list',
         {
           name: null,
           currentPage: this.currentPage
@@ -139,7 +139,7 @@ export default {
     },
     getUserListByName: function() {
       this.$axios.post(
-        'api/api/management/get-user-list',
+        'api/management/get-user-list',
         {
           name: this.inputName,
           currentPage: this.currentPage

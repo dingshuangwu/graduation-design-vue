@@ -93,7 +93,7 @@ export default {
     },
     submit: function() {
       this.$axios.post(
-        'api/api/user-apply/real-name-authentication',
+        'api/user-apply/real-name-authentication',
         {
           identityCardFront: this.identityCardFront,
           identityCardReverse: this.identityCardReverse,

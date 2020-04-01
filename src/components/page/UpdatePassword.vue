@@ -43,7 +43,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.newPassword == this.affirmPassword && this.oldPassword != this.newPassword) {
         this.$axios.post(
-          'api/api/sign/update-password',
+          'api/sign/update-password',
           {
             name: this.userName,
             oldPassword: this.oldPassword,

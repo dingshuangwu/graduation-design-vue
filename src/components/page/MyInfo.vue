@@ -442,7 +442,7 @@ export default {
   methods: {
     getUserAllInfo: function() {
       this.$axios.get(
-        'api/api/user-info/all',
+        'api/user-info/all',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -465,7 +465,7 @@ export default {
     },
     getUserInfo: function() {
       this.$axios.get(
-        'api/api/user-info/info',
+        'api/user-info/info',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -494,7 +494,7 @@ export default {
     },
     setUserInfo: function() {
       this.$axios.get(
-        'api/api/user-info/set-info',
+        'api/user-info/set-info',
         {
           name: this.requestParam.name.replace(/\s*/g, ''),
           nation: this.requestParam.nation,
@@ -515,7 +515,7 @@ export default {
     },
     getSelfIntroduction: function() {
       this.$axios.get(
-        'api/api/user-info/self-introduction',
+        'api/user-info/self-introduction',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -530,7 +530,7 @@ export default {
     },
     setSelfIntroduction: function() {
       this.$axios.get(
-        'api/api/user-info/set-self-introduction',
+        'api/user-info/set-self-introduction',
         {
           selfIntroduction: this.requestParam.selfIntroduction.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')
         },
@@ -545,7 +545,7 @@ export default {
     },
     getEducationExperience: function() {
       this.$axios.get(
-        'api/api/user-info/education-experience',
+        'api/user-info/education-experience',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -578,7 +578,7 @@ export default {
       // eslint-disable-next-line eqeqeq
       if (this.requestParam.educationExperienceFirstSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceSecondSchool.replace(/\s*/g, '') != '' && this.requestParam.educationExperienceThirdSchool.replace(/\s*/g, '') != '') {
         this.$axios.get(
-          'api/api/user-info/set-education-experience',
+          'api/user-info/set-education-experience',
           {
             educationExperienceFirstStartDate: this.requestParam.educationExperienceFirstStartDate,
             educationExperienceFirstEndDate: this.requestParam.educationExperienceFirstEndDate,
@@ -604,7 +604,7 @@ export default {
     },
     getSelfSignature: function() {
       this.$axios.get(
-        'api/api/user-info/self-signature',
+        'api/user-info/self-signature',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -619,7 +619,7 @@ export default {
     },
     setSelfSignature: function() {
       this.$axios.get(
-        'api/api/user-info/set-self-signature',
+        'api/user-info/set-self-signature',
         {
           selfSignature: this.requestParam.selfSignature.replace(/(\s*$)/g, '').replace(/ /g, '&kg;').replace(/\n/g, '&hc;')
         },
@@ -635,7 +635,7 @@ export default {
     getRealNameAuthenticationState: function() {
       let This = this
       this.$axios.get(
-        'api/api/user-info/get-real-name-authentication-state',
+        'api/user-info/get-real-name-authentication-state',
         {},
         response => {
         // eslint-disable-next-line eqeqeq
@@ -645,7 +645,7 @@ export default {
             // eslint-disable-next-line eqeqeq
             if (response.data == 'verified') {
               This.$axios.get(
-                'api/api/user-info/get-apply-for-management-state',
+                'api/user-info/get-apply-for-management-state',
                 {},
                 response => {
                   // eslint-disable-next-line eqeqeq

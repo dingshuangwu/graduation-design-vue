@@ -111,7 +111,7 @@ export default {
   methods: {
     getUserInfo() {
       this.$axios.get(
-        'api/api/my-resume/get-somebody-resume',
+        'api/my-resume/get-somebody-resume',
         {
           name: this.userName
         },

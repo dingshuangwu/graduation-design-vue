@@ -128,7 +128,7 @@ export default {
         Message.error('请选择城市或职业类型！')
       } else {
         this.$axios.get(
-          'api/api/publish/add-my-publish',
+          'api/publish/add-my-publish',
           this.requestAddUrlParam,
           response => {
           // eslint-disable-next-line eqeqeq
@@ -143,7 +143,7 @@ export default {
     },
     getMyFind: function() {
       this.$axios.get(
-        'api/api/publish/my-publish',
+        'api/publish/my-publish',
         this.requestSelectUrlParam,
         response => {
           // eslint-disable-next-line eqeqeq
@@ -166,7 +166,7 @@ export default {
         Message.error('请选择城市或职业类型！')
       } else {
         this.$axios.get(
-          'api/api/publish/update-my-publish',
+          'api/publish/update-my-publish',
           this.requestAddUrlParam,
           response => {
           // eslint-disable-next-line eqeqeq
@@ -185,7 +185,7 @@ export default {
     },
     deleteMyFind: function() {
       this.$axios.get(
-        'api/api/publish/delete-my-publish',
+        'api/publish/delete-my-publish',
         {
           id: this.deleteId
         },
