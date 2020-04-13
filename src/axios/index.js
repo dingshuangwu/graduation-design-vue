@@ -7,7 +7,7 @@ import { clearLocalStorage, removeName, removeToken, removeJurisdiction, removeI
 const http = axios.create({
   baseURL: process.env.BASE_API, // api的base_url
   timeout: 20000, // 请求超时时间
-  withCredentials: true,
+  withCredentials: false,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
   },
